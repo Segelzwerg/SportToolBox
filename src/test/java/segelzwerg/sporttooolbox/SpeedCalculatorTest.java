@@ -20,4 +20,16 @@ public class SpeedCalculatorTest {
 
         assertThat(speed, equalTo(expectedSpeed));
     }
+
+    @Test
+    public void fifteen_kilometer_half_hour_test_speed() {
+        Distance thirtyKilometer = new Distance(15);
+        Time halfAnHour = new Time(0, 30);
+        SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, halfAnHour);
+        Speed expectedSpeed = new Speed(30);
+
+        Speed speed = speedCalculator.computeSpeed();
+
+        assertThat(speed, equalTo(expectedSpeed));
+    }
 }
