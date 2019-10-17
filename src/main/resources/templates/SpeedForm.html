@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="bootstrap.min.css" rel="stylesheet"
+          th:href="bootstrap.min.css" type="text/css">
+    <title>Speed Calculator</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>Speed Calculator</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <form method="post" th:object="${form]">
+                        <div class="form-group">
+                            <label>
+                                Kilometer
+                                <input autocomplete="off" class="form-control" th:field="{kilometer}"
+                                       type="text" value="30">
+                            </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Meter
+                            <input autocomplete="off" class="form-control" th:field="{meter}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Hour
+                            <input autocomplete="off" class="form-control" th:field="{hour}"
+                                   type="text" value="1">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Minute
+                            <input autocomplete="off" class="form-control" th:field="{minute}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Second
+                            <input autocomplete="off" class="form-control" th:field="{second}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Calculate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
