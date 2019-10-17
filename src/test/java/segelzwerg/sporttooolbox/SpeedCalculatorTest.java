@@ -19,16 +19,5 @@ public class SpeedCalculatorTest {
         Speed speed = speedCalculator.computeSpeed();
 
         assertThat(speed, equalTo(expectedSpeed));
-
-    }
-    @Test
-    public void add_distance_test() {
-        Distance thirtyKilometer = new Distance(30,999);
-        
-        Distance thirtyonekilometer= thirtyKilometer.addDistance(new Distance(0,1));
-        Distance expectedDistance = new Distance(31,0);
-        
-        // assertThat(thirtyonekilometer, equalTo(expectedDistance));
-      
     }
 }
