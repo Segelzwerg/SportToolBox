@@ -13,6 +13,14 @@ public class Distance {
 		this.meter = meter % 1000;
 	}
 
+
+    public Distance addDistance(Distance toAdd)
+    {
+        float kilometer= this.kilometer + toAdd.kilometer + (int) (this.meter+toAdd.meter) / 1000;
+        float meter= (this.meter+toAdd.meter) % 1000;
+
+        return new Distance(kilometer, meter);
+    }
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
     }
