@@ -20,4 +20,5 @@ public class SpeedCalculatorTest {
 
         assertThat(speed, equalTo(expectedSpeed));
     }
+
 }
