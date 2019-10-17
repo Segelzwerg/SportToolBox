@@ -1,13 +1,13 @@
 package segelzwerg.sporttooolbox.IUnits;
 
 public class Distance {
-    private final float hour;
+    private final float kilometer;
 
-    public Distance(float hour) {
-        this.hour = hour;
+    public Distance(float kilometer) {
+        this.kilometer = kilometer;
     }
 
     public Speed computeSpeed(Time time) {
-        return time.computeSpeed(hour);
+        return time.computeSpeed(kilometer);
     }
 }
