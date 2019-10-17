@@ -8,32 +8,42 @@ public class TimeTest {
 
     @Test
     public void zero() {
-        assertEquals(0.0, new Time(0, 0, 0).inHours(), 0.00001);
+        assertEquals(0, new Time(0, 0, 0).toSeconds());
     }
 
     @Test
-    public void one() {
-        assertEquals(1.0, new Time(1, 0, 0).inHours(), 0.00001);
+    public void oneHour() {
+        assertEquals(3_600, new Time(1, 0, 0).toSeconds());
     }
 
     @Test
     public void sixtyMinutes() {
-        assertEquals(1.0, new Time(0, 60, 0).inHours(), 0.00001);
+        assertEquals(3_600, new Time(0, 60, 0).toSeconds());
     }
 
     @Test
     public void manySeconds() {
-        assertEquals(0.5, new Time(0, 0, 1800).inHours(), 0.00001);
+        assertEquals(1_800, new Time(0, 0, 1800).toSeconds());
     }
 
     @Test
     public void ninetyMinutes() {
-        assertEquals(1.5, new Time(0, 90, 0).inHours(), 0.00001);
+        assertEquals(5_400, new Time(0, 90, 0).toSeconds());
     }
 
     @Test
     public void oddNumber() {
-        assertEquals(1.2583, new Time(1, 15, 30).inHours(), 0.0001);
+        assertEquals(4_530, new Time(1, 15, 30).toSeconds());
+    }
+
+    @Test
+    public void overflow() {
+        assertEquals(56_133, new Time(13, 150, 333).toSeconds());
+    }
+
+    @Test
+    public void equals() {
+        assertEquals(new Time(15, 35, 33), new Time(13, 150, 333));
     }
 
     @Test(expected = IllegalArgumentException.class)

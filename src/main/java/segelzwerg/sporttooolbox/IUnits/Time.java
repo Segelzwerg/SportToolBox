@@ -1,9 +1,10 @@
 package segelzwerg.sporttooolbox.IUnits;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(of = "seconds")
 public class Time {
-    private final int hour;
-    private final int minutes;
-    private final int seconds;
+    private final long seconds;
 
     public Time(int hour) {
         this(hour, 0, 0);
@@ -17,16 +18,14 @@ public class Time {
         if (hour < 0 || minutes < 0 || seconds < 0) {
             throw new IllegalArgumentException("Times must not be negative");
         }
-        this.hour = hour;
-        this.minutes = minutes;
-        this.seconds = seconds;
+        this.seconds = (hour * 3_600) + (minutes * 60) + seconds;
     }
 
     public Speed computeSpeed(float kilometer, float meter) {
-        return new Speed((kilometer + meter / 1000) / inHours());
+        return new Speed(3_600f * (kilometer + meter / 1000) / seconds);
     }
 
-    protected float inHours() {
-        return hour + (minutes / 60f) + (seconds / 3_600f);
+    public long toSeconds() {
+        return this.seconds;
     }
 }
