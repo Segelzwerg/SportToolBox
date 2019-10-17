@@ -6,4 +6,4 @@ This is a website where you calculate different metrics used in sport. It is mea
 
 ## Contribution
 
-Please read the CONTRIBUTION.md
+Please read the CONTRIBUTING.md
