@@ -54,6 +54,22 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="col-sm">
+            <div class="card" th:if="${speed != null}">
+                <div class="card-body">
+                    <h5 class="card-title">Speed</h5>
+                    <p class="card-text">
+                        The average speed is <span th:text="${form.speed}">30</span>
+                        <span th:text="${form.distanceUnit}">kph</span> for travelling
+                        <span th:text="${form.distance}">30</span> in
+                        <span th:text="${form.time}">1</span>
+                        <span th:text="${form.timeUnit}">Hour</span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
