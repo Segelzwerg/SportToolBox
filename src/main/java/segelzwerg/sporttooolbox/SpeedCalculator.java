@@ -19,3 +19,4 @@ public class SpeedCalculator {
         return distance.computeSpeed(time);
     }
 }
+

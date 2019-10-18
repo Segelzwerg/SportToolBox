@@ -1,15 +1,19 @@
 package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @EqualsAndHashCode
 public class MilePerHour implements Speed {
-    private final float speed;
+	private final float speed;
 
-    public MilePerHour(float speed) {
+	public MilePerHour(float speed) {
 
-        this.speed = speed;
-    }
+		this.speed = speed;
+	}
 
 	public Speed toKilometerPerHour() {
 		return new KilometerPerHour(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
