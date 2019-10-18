@@ -8,6 +8,6 @@ public class Time {
     }
 
     public Speed computeSpeed(float kilometer, float meter) {
-        return new Speed((kilometer + meter / 1000) / hour);
+        return new KilometerPerHour((kilometer + meter / 1000) / hour);
     }
 }

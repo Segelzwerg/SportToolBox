@@ -3,6 +3,7 @@ package segelzwerg.sporttooolbox;
 import org.junit.Test;
 import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.IUnits.KilometerPerHour;
 import segelzwerg.sporttooolbox.IUnits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -14,7 +15,7 @@ public class SpeedCalculatorTest {
         Distance thirtyKilometer = new Distance(30);
         Time oneHour = new Time(1);
         SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, oneHour);
-        Speed expectedSpeed = new Speed(30);
+        Speed expectedSpeed = new KilometerPerHour(30);
 
         Speed speed = speedCalculator.computeSpeed();
 
