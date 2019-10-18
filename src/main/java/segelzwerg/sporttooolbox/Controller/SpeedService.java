@@ -6,8 +6,17 @@ import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.SpeedCalculator;
 
+/**
+ * Speed calculating service
+ */
 @Component
 public class SpeedService {
+
+    /**
+     * Calculate speed
+     * @param form form with values
+     * @return calculated speed
+     */
     public Speed calculateSpeed(SpeedForm form) {
         int kilometer = form.getKilometer();
         int meter = form.getMeter();
