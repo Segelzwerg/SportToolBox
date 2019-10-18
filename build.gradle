@@ -1,7 +1,19 @@
+buildscript {
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath "io.franzbecker:gradle-lombok:3.2.0"
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.1.9.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'io.franzbecker.gradle-lombok' version '3.2.0'
 }
 
 group = 'segelzwerg'
@@ -20,6 +32,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url "https://plugins.gradle.org/m2/"
+	}
 }
 
 dependencies {
@@ -32,8 +47,27 @@ dependencies {
 }
 
 apply plugin: 'java'
+apply plugin: "io.franzbecker.gradle-lombok"
+
+import io.franzbecker.gradle.lombok.task.DelombokTask
+
+// Lombok Task
+lombok {
+	version = "1.16.10"
+}
+
+task delombok(type: DelombokTask) {
+	ext.outputDir = file("$buildDir/delombok")
+	outputs.dir(outputDir)
+	sourceSets.main.java.srcDirs.each {
+		inputs.dir(it)
+		args(it, "-d", outputDir)
+	}
+}
 
 task generateJavadocs(type: Javadoc) {
+	dependsOn delombok
 	source = sourceSets.main.allJava
 	destinationDir = reporting.file("javadocs")
+	failOnError = false;
 }
