@@ -16,8 +16,8 @@ public class Distance {
 
     public Distance addDistance(Distance toAdd)
     {
-        float kilometer= this.kilometer + toAdd.kilometer + (int) (this.meter+toAdd.meter) / 1000;
-        float meter= (this.meter+toAdd.meter) % 1000;
+        float kilometer= this.kilometer + toAdd.kilometer;
+        float meter= this.meter+toAdd.meter;
 
         return new Distance(kilometer, meter);
     }
