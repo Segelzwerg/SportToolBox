@@ -30,3 +30,10 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+apply plugin: 'java'
+
+task generateJavadocs(type: Javadoc) {
+	source = sourceSets.main.allJava
+	destinationDir = reporting.file("javadocs")
+}
