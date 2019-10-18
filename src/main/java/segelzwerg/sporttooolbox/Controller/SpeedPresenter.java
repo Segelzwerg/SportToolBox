@@ -7,6 +7,9 @@ import segelzwerg.sporttooolbox.IUnits.Knot;
 import segelzwerg.sporttooolbox.IUnits.MilePerHour;
 import segelzwerg.sporttooolbox.IUnits.Speed;
 
+/**
+ * Represent speed in different units
+ */
 @Getter
 @ToString
 public class SpeedPresenter {
