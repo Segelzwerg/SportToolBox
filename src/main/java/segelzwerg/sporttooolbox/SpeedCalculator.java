@@ -4,6 +4,9 @@ import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
 
+/**
+ * Class to calculate speed
+ */
 public class SpeedCalculator {
 
     private final Distance distance;
@@ -15,7 +18,12 @@ public class SpeedCalculator {
         this.time = time;
     }
 
+    /**
+     * Compute speed
+     * @return calculated speed
+     */
     public Speed computeSpeed() {
         return distance.computeSpeed(time);
     }
 }
+

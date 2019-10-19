@@ -11,6 +11,7 @@ Thank you very much for contributing.
 ### Testing
 
 If you implement or change code, please run the tests so we can avoid regression. Prefably create tests before working on the code. It is also possible to create tests without adding new code.
+This projects uses mockito and hamcrest.
 
 ### Working on issues
 
