@@ -1,4 +1,4 @@
-FROM gradle:5.6.2-jdk8
+FROM gradle:5.6.2-jdk8 as BUILD
 
 RUN mkdir -p /opt/SportToolBox
 WORKDIR /opt/SportToolBox
