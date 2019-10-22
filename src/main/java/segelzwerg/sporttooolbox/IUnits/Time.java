@@ -24,8 +24,4 @@ public class Time {
     public Speed computeSpeed(float kilometer, float meter) {
         return new Speed(3_600f * (kilometer + meter / 1000) / seconds);
     }
-
-    public long toSeconds() {
-        return this.seconds;
-    }
 }

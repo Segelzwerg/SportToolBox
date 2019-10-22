@@ -2,48 +2,49 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class TimeTest {
 
     @Test
     public void zero() {
-        assertEquals(0, new Time(0, 0, 0).toSeconds());
+        assertThat(new Time(0, 0, 0), equalTo(new Time(0, 0, 0)));
     }
 
     @Test
     public void oneHour() {
-        assertEquals(3_600, new Time(1, 0, 0).toSeconds());
+        assertThat(new Time(0, 0, 3_600), equalTo(new Time(1, 0, 0)));
     }
 
     @Test
     public void sixtyMinutes() {
-        assertEquals(3_600, new Time(0, 60, 0).toSeconds());
+        assertThat(new Time(0, 0, 3_600), equalTo(new Time(0, 60, 0)));
     }
 
     @Test
     public void manySeconds() {
-        assertEquals(1_800, new Time(0, 0, 1800).toSeconds());
+        assertThat(new Time(0, 0, 1_800), equalTo(new Time(0, 0, 1800)));
     }
 
     @Test
     public void ninetyMinutes() {
-        assertEquals(5_400, new Time(0, 90, 0).toSeconds());
+        assertThat(new Time(0, 0, 5_400), equalTo(new Time(0, 90, 0)));
     }
 
     @Test
     public void oddNumber() {
-        assertEquals(4_530, new Time(1, 15, 30).toSeconds());
+        assertThat(new Time(0, 0, 4_530), equalTo(new Time(1, 15, 30)));
     }
 
     @Test
     public void overflow() {
-        assertEquals(56_133, new Time(13, 150, 333).toSeconds());
+        assertThat(new Time(0, 0, 56_133), equalTo(new Time(13, 150, 333)));
     }
 
     @Test
     public void equals() {
-        assertEquals(new Time(15, 35, 33), new Time(13, 150, 333));
+        assertThat(new Time(15, 35, 33), equalTo(new Time(13, 150, 333)));
     }
 
     @Test(expected = IllegalArgumentException.class)
