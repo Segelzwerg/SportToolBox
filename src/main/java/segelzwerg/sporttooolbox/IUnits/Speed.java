@@ -13,20 +13,22 @@ public interface Speed {
 	 * Convert to kilometer per hour
 	 * @return speed in kilometer per hour
 	 */
-	public Speed toKilometerPerHour();
+    Speed toKilometerPerHour();
 	/**
 	 * Convert to meter per second
 	 * @return speed in meter per second
 	 */
-	public Speed toMeterPerSecond();
+    Speed toMeterPerSecond();
 	/**
 	 * Convert to mile per hour
 	 * @return speed in mile per hour
 	 */
-	public Speed toMilePerHour();
+    Speed toMilePerHour();
 	/**
 	 * Convert to knot
 	 * @return speed in knot
 	 */
-	public Speed toKnot();
+    Speed toKnot();
+
+    float getSpeed();
 }
