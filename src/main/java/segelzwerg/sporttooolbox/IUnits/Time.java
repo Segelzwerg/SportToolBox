@@ -29,6 +29,6 @@ public class Time {
      * @return calculated speed
      */
     public Speed computeSpeed(float kilometer, float meter) {
-        return new Speed(3_600f * (kilometer + meter / 1000) / seconds);
+        return new KilometerPerHour(3_600f * (kilometer + meter / 1000) / seconds);
     }
 }
