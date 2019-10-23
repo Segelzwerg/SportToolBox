@@ -1,9 +1,9 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.Test;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+
+import org.junit.Test;
 
 public class DistanceTest {
     @Test
@@ -22,5 +22,15 @@ public class DistanceTest {
         Distance expected = new Distance(31, 0);
 
         assertThat(thirtyonekilometer, equalTo(expected));
+    }
+
+    @Test
+    public void sixty_kilometer_two_hour_test_speed() {
+        Distance tenKilometer = new Distance(60);
+        Time twoHours = new Time(2);
+        Speed expectedSpeed = new KilometerPerHour(30);
+        Speed speed = tenKilometer.computeSpeed(twoHours);
+
+        assertThat(speed, equalTo(expectedSpeed));
     }
 }

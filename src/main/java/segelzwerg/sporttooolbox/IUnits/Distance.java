@@ -23,7 +23,7 @@ public class Distance {
     /**
      * Add distance
      * @param toAdd distance to add
-     * @return new distance
+     * @return new distance     
      */
     public Distance addDistance(Distance toAdd)
     {
