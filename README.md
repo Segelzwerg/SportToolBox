@@ -10,4 +10,4 @@ The first feature is a simple speed calculator that accepts distance in km or m 
 
 ## Contributing to SportToolBox
 
-Please see CONTRIBUTING.md
+Please see [CONTRIBUTING.md](CONTRIBUTING.md)
