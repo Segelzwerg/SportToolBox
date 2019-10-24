@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox;
 
 import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.IUnits.Pace;
 import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
 
@@ -24,6 +25,14 @@ public class SpeedCalculator {
      */
     public Speed computeSpeed() {
         return distance.computeSpeed(time);
+    }
+
+    /**
+     * Compute pace
+     * @return calculated pace
+     */
+    public Pace computePace() {
+        return distance.computePace(time);
     }
 }
 
