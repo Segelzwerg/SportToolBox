@@ -6,7 +6,7 @@ SportToolBox is a website where you calculate different metrics used in sport. I
 
 ## Usage
 
-The first feature is a simple speed calculator that accepts distance in km or m and time in h:m:s to calculate speed in km/h.
+The first feature is a simple speed calculator that accepts distance in km or m and time in ```h:m:s``` to calculate speed in km/h.
 
 ## Contributing to SportToolBox
 
