@@ -1,14 +1,10 @@
 package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Pace of minutes per hundred meters
  */
-@Getter
-@Setter
 @EqualsAndHashCode
 public class MinutesPerHundredMeters implements Pace {
     private final float pace;

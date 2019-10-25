@@ -100,9 +100,6 @@ public class SpeedCalculatorTest {
         Pace expectedPace = new MinutesPerKilometer(61.05f);
         Pace pace = new MinutesPerHundredMeters(6.105f).toMinutesPerKilometer();
 
-        System.out.println(((MinutesPerKilometer) expectedPace).getPace());
-        System.out.println(((MinutesPerKilometer) pace).getPace());
-
         assertThat(pace, equalTo(expectedPace));
     }
 }
