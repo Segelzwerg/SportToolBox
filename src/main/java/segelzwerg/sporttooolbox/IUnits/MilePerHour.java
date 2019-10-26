@@ -46,4 +46,9 @@ public class MilePerHour implements Speed {
 	public Speed toKnot() {
 		return new Knot(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
 	}
+
+	@Override
+	public float getSpeed() {
+		throw new UnsupportedOperationException();
+	}
 }
