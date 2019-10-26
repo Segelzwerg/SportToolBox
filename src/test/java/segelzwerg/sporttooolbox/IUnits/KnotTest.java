@@ -63,7 +63,7 @@ public class KnotTest {
     /**
      * toKnot
      * Speed: thirtyKnots
-     * Expected Speed: 58.315334
+     * Expected Speed: thirtyKnots
      * @result thirtyKnots return itself
      */
     @Test
