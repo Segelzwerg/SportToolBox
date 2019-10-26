@@ -24,8 +24,8 @@ public class MilePerHourTest {
     /**
      * toKilometerPerHour
      * Speed: thirtyMilesPerHour
-     * Expected Distance: 32km and 2m
-     * @result 30km and 2002m is the same as 32km and 2m
+     * Expected Speed: 48.28032
+     * @result 48.28032km/h is the same as 30mph
      */
     @Test
     public void toKilometerPerHour() {
@@ -38,8 +38,8 @@ public class MilePerHourTest {
     /**
      * toMeterPerSecond
      * Speed: thirtyMilesPerHour
-     * Expected Distance: 32km and 2m
-     * @result 30km and 2002m is the same as 32km and 2m
+     * Expected Speed: 13.411201
+     * @result 13.411201m/s is the same as 30mph
      */
     @Test
     public void toMeterPerSecond() {
@@ -51,8 +51,8 @@ public class MilePerHourTest {
     /**
      * toMilePerHour
      * Speed: thirtyMilesPerHour
-     * Expected Distance: 32km and 2m
-     * @result 30km and 2002m is the same as 32km and 2m
+     * Expected Speed: thirtyMilesPerHour
+     * @result thirtyMilesPerHour returns itself
      */
     @Test
     public void toMilePerHour() {
@@ -64,8 +64,8 @@ public class MilePerHourTest {
     /**
      * toKnot
      * Speed: thirtyMilesPerHour
-     * Expected Distance: 32km and 2m
-     * @result 30km and 2002m is the same as 32km and 2m
+     * Expected Speed: 26.069286
+     * @result 26.069286kn is the same as 30mph
      */
     @Test
     public void toKnot() {
