@@ -2,6 +2,9 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
 
+/**
+ * Represents distance in kilometers and meters
+ */
 @EqualsAndHashCode
 public class Distance {
     private final float kilometer;
@@ -28,10 +31,9 @@ public class Distance {
     }
 
     /**
-     * Adds two distance objects together
-     * @param toAdd
-     * @return 🦄
-     *
+     * Add distance
+     * @param toAdd distance to add
+     * @return new distance     
      */
     public Distance addDistance(Distance toAdd)
     {
@@ -42,10 +44,9 @@ public class Distance {
     }
 
     /**
-     * Compute the speed based on the distance and the time parameter
-     * @param time
-     * @return 🏇
-     *
+     * Compute speed for specific time
+     * @param time Amount of time
+     * @return calculated speed
      */
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
