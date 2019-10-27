@@ -12,10 +12,6 @@ public class MilePerHourTest {
     private static final float THIRTY_MILES_PER_HOUR = 30f;
     private static Speed thirtyMilesPerHour;
 
-    /**
-     * Set up before all tests
-     * Initialization of static Speed thirtyMilesPerHour
-     */
     @BeforeClass
     public static void setUp() {
         thirtyMilesPerHour = new MilePerHour(THIRTY_MILES_PER_HOUR);

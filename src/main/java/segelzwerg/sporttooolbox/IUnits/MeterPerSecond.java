@@ -10,10 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class MeterPerSecond extends Speed {
+public class MeterPerSecond implements Speed {
+	private final float speed;
 
 	public MeterPerSecond(float speed) {
-		super(speed);
+
+		this.speed = speed;
 	}
 
 	/**
@@ -21,7 +23,7 @@ public class MeterPerSecond extends Speed {
 	 * @return speed in kilometer per hour
 	 */
 	public Speed toKilometerPerHour() {
-		return new KilometerPerHour(getSpeed() * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+		return new KilometerPerHour(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class MeterPerSecond extends Speed {
 	 * @return speed in mile per hour
 	 */
 	public Speed toMilePerHour() {
-		return new MilePerHour(getSpeed() * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+		return new MilePerHour(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
 	}
 
 	/**
@@ -45,6 +47,6 @@ public class MeterPerSecond extends Speed {
 	 * @return speed in knot
 	 */
 	public Speed toKnot() {
-		return new Knot(getSpeed() * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
+		return new Knot(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
 	}
 }
