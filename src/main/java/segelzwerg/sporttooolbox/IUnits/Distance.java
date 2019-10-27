@@ -10,15 +10,25 @@ public class Distance {
     private final float kilometer;
     private final float meter;
 
+    /**
+     * Constructor
+     * @param kilometer - the distance in kilometers
+     *
+     */
     public Distance(float kilometer) {
         this(kilometer, 0);
     }
 
+    /**
+     * Constructor
+     * @param kilometer - the distance in kilometers
+     * @param meter - and meters.  meters will be added to the kilometers
+     *
+     */
     public Distance(float kilometer, float meter) {
         this.kilometer = kilometer + (int) meter / 1000;
         this.meter = meter % 1000;
     }
-
 
     /**
      * Add distance

@@ -12,11 +12,21 @@ public class MeterPerSecondTest {
     private static final float THIRTY_METERS_PER_SECOND = 30f;
     private static Speed thirtyMetersPerSecond;
 
+    /**
+     * Set up before all tests
+     * Initialization of static Speed thirtyMetersPerSecond
+     */
     @BeforeClass
     public static void setUp() {
         thirtyMetersPerSecond = new MeterPerSecond(THIRTY_METERS_PER_SECOND);
     }
 
+    /**
+     * toKilometerPerHour
+     * Speed: thirtyMetersPerSecond
+     * Expected Speed: 108.0
+     * @result 30m/s = 108.0km/h
+     */
     @Test
     public void toKilometerPerHour() {
 
@@ -25,6 +35,12 @@ public class MeterPerSecondTest {
         assertThat(convertedSpeed.getSpeed(), equalTo(108.0F));
     }
 
+    /**
+     * toMeterPerSecond
+     * Speed: thirtyMetersPerSecond
+     * Expected Speed: thirtyMetersPerSecond
+     * @result thirtyMetersPerSecond return itself
+     */
     @Test
     public void toMeterPerSecond() {
         Speed convertedSpeed = thirtyMetersPerSecond.toMeterPerSecond();
@@ -32,6 +48,12 @@ public class MeterPerSecondTest {
         assertThat(convertedSpeed, is(thirtyMetersPerSecond));
     }
 
+    /**
+     * toMilePerHour
+     * Speed: thirtyMetersPerSecond
+     * Expected Speed: 67.108086
+     * @result 30m/s = 67.108086mph
+     */
     @Test
     public void toMilePerHour() {
         Speed convertedSpeed = thirtyMetersPerSecond.toMilePerHour();
@@ -39,6 +61,12 @@ public class MeterPerSecondTest {
         assertThat(convertedSpeed.getSpeed(), equalTo(67.108086F));
     }
 
+    /**
+     * toKnot
+     * Speed: thirtyMetersPerSecond
+     * Expected Speed: 58.315334
+     * @result 30m/s = 58.315334kn
+     */
     @Test
     public void toKnot() {
         Speed convertedSpeed = thirtyMetersPerSecond.toKnot();

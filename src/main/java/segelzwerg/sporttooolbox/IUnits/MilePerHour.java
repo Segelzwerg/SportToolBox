@@ -7,12 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class MilePerHour implements Speed {
-	private final float speed;
+public class MilePerHour extends Speed {
 
 	public MilePerHour(float speed) {
-
-		this.speed = speed;
+		super(speed);
 	}
 
 	/**
@@ -20,7 +18,7 @@ public class MilePerHour implements Speed {
 	 * @return speed in kilometer per hour
 	 */
 	public Speed toKilometerPerHour() {
-		return new KilometerPerHour(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+		return new KilometerPerHour(getSpeed() * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
 	}
 
 	/**
@@ -28,7 +26,7 @@ public class MilePerHour implements Speed {
 	 * @return speed in meter per second
 	 */
 	public Speed toMeterPerSecond() {
-		return new MeterPerSecond(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+		return new MeterPerSecond(getSpeed() * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
 	}
 
 	/**
@@ -44,6 +42,11 @@ public class MilePerHour implements Speed {
 	 * @return speed in knot
 	 */
 	public Speed toKnot() {
-		return new Knot(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
+		return new Knot(getSpeed() * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
+	}
+
+	@Override
+	public float getSpeed() {
+		throw new UnsupportedOperationException();
 	}
 }
