@@ -54,4 +54,13 @@ public class Distance {
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
     }
+
+    /**
+     * Compute pace given a specific time
+     * @param time amount of time
+     * @return calculated pace
+     */
+    public Pace computePace(Time time) {
+        return time.computePace(kilometer, meter);
+    }
 }

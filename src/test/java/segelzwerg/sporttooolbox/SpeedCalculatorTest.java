@@ -1,10 +1,7 @@
 package segelzwerg.sporttooolbox;
 
 import org.junit.Test;
-import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.KilometerPerHour;
-import segelzwerg.sporttooolbox.IUnits.Speed;
-import segelzwerg.sporttooolbox.IUnits.Time;
+import segelzwerg.sporttooolbox.IUnits.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -51,5 +48,58 @@ public class SpeedCalculatorTest {
         Speed speed = speedCalculator.computeSpeed();
 
         assertThat(speed, equalTo(expectedSpeed));
+    }
+
+    /**
+     * Use Case 3
+     * Distance: 1 km
+     * Time: 1 hour, 1 minute and 3 seconds
+     * Expected Pace: 61.05 min / km
+     * @result the computed result is 61.05
+     */
+    @Test
+    public void one_kilometer_ran_through_one_hour_one_minute_and_three_seconds_should_generate_sixty_one_dot_zero_five_minutes_per_kilometer() {
+        Distance distance = new Distance(1);
+        Time time = new Time(1, 1, 3);
+        SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
+        Pace expectedPace = new MinutesPerKilometer(61.05f);
+
+        Pace pace = speedCalculator.computePace();
+
+        assertThat(pace, equalTo(expectedPace));
+    }
+
+    /**
+     * Use Case 4
+     * Distance: 1 km
+     * Time: 1 hour, 1 minute and 3 seconds
+     * Expected Pace: 6.105 min / 100m
+     * @result the converted result is 6.105
+     */
+    @Test
+    public void converting_minutes_per_kilometer_to_minutes_per_hundred_meters_should_work() {
+        Distance distance = new Distance(1);
+        Time time = new Time(1, 1, 3);
+        SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
+        Pace expectedPace = new MinutesPerHundredMeters(6.105f);
+
+        Pace pace = speedCalculator.computePace().toMinutesPerHundredMeters();
+
+        assertThat(pace, equalTo(expectedPace));
+    }
+
+    /**
+     * Use Case 5
+     * Distance: 1 km
+     * Time: 1 hour, 1 minute and 3 seconds
+     * Expected Pace: 61.05 min / km
+     * @result the converted result is 61.05
+     */
+    @Test
+    public void converting_minutes_per_hundred_meters_to_minutes_per_kilometers_should_work() {
+        Pace expectedPace = new MinutesPerKilometer(61.05f);
+        Pace pace = new MinutesPerHundredMeters(6.105f).toMinutesPerKilometer();
+
+        assertThat(pace, equalTo(expectedPace));
     }
 }
