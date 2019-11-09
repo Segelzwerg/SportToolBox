@@ -13,10 +13,13 @@ public class Distance {
     /**
      * Constructor
      * @param kilometer - the distance in kilometers
-     *
+     * @throws IllegalArgumentException - if kilometer is negative
      */
     public Distance(float kilometer) {
         this(kilometer, 0);
+        if (kilometer < 0.0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**

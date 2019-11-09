@@ -1,9 +1,9 @@
 package segelzwerg.sporttooolbox.IUnits;
 
+import org.junit.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-
-import org.junit.Test;
 
 /**
  * Tests the Distance class
@@ -54,5 +54,16 @@ public class DistanceTest {
         Speed speed = tenKilometer.computeSpeed(twoHours);
 
         assertThat(speed, equalTo(expectedSpeed));
+    }
+
+    /**
+     * Test 4
+     * Distance: -1km
+     * Expected: IllegalArgumentException
+     */
+
+    @Test(expected = IllegalArgumentException.class)
+    public void negative_distance() {
+        new Distance(-1);
     }
 }
