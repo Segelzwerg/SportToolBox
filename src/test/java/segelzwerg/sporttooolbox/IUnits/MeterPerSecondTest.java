@@ -1,7 +1,7 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -16,7 +16,7 @@ public class MeterPerSecondTest {
      * Set up before all tests
      * Initialization of static Speed thirtyMetersPerSecond
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         thirtyMetersPerSecond = new MeterPerSecond(THIRTY_METERS_PER_SECOND);
     }
