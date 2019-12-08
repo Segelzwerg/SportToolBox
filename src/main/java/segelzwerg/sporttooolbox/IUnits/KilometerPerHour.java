@@ -14,7 +14,9 @@ public class KilometerPerHour implements Speed {
 	private final float speed;
 
 	public KilometerPerHour(float speed) {
-
+		if (speed < 0) {
+			throw new IllegalArgumentException("Speed must not be negative.");
+		}
 		this.speed = speed;
 	}
 
