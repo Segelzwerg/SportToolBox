@@ -74,6 +74,12 @@ public class KnotTest {
         assertThat(convertedSpeed, is(thirtyKnots));
     }
 
+    /**
+     * negative Input
+     * Speed: -1 Knots
+     *
+     * @expected IllegalArgumentException
+     */
     @Test
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new Knot(-1));
