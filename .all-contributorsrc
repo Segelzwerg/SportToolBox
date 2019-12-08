@@ -1,0 +1,144 @@
+{
+  "projectName": "SportToolBox",
+  "projectOwner": "Segelzwerg",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "talitm555",
+      "name": "Talit Mahmood",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7698562?v=4",
+      "profile": "http://www.TalitMahmood.TK",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "retsbol",
+      "name": "Ret Sbol",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/56402614?v=4",
+      "profile": "https://github.com/retsbol",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "Sri-V",
+      "name": "Sri-V",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/37359582?v=4",
+      "profile": "https://github.com/Sri-V",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mkmaier",
+      "name": "mkmaier",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/15357854?v=4",
+      "profile": "https://github.com/mkmaier",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bit-man",
+      "name": "Víctor A. Rodríguez",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/70292?v=4",
+      "profile": "http://blog.bit-man.guru/",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "qzxclkj",
+      "name": "Trevor Lai",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7895041?v=4",
+      "profile": "https://github.com/qzxclkj",
+      "contributions": [
+        "doc",
+        "test",
+        "infra"
+      ]
+    },
+    {
+      "login": "maximusKon",
+      "name": "Konstantin",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/28565433?v=4",
+      "profile": "https://github.com/maximusKon",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Anca07",
+      "name": "Anca",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/18334788?v=4",
+      "profile": "https://github.com/Anca07",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "katsadim",
+      "name": "Nassos Kat",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16381881?v=4",
+      "profile": "https://github.com/katsadim",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "karenjoycelowe",
+      "name": "Karen Lowe",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1900340?v=4",
+      "profile": "https://github.com/karenjoycelowe",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "abdullahizzuddiin",
+      "name": "Abdullah Izzuddiin Alqassam",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6801853?v=4",
+      "profile": "https://github.com/abdullahizzuddiin",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "rods-honorio",
+      "name": "Rods",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7158377?v=4",
+      "profile": "https://github.com/rods-honorio",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "GledsonAfonso",
+      "name": "Gledson Afonso",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17538186?v=4",
+      "profile": "https://github.com/GledsonAfonso",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "zoluu",
+      "name": "zoluu",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/53238391?v=4",
+      "profile": "https://github.com/zoluu",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
