@@ -1,0 +1,3 @@
+files:
+  - source: /src/main/resources/templates/
+    translation: /src/main/resources/templates/%two_letters_code%/%original_file_name%
