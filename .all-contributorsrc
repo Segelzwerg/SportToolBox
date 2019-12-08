@@ -91,6 +91,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "karenjoycelowe",
+      "name": "Karen Lowe",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1900340?v=4",
+      "profile": "https://github.com/karenjoycelowe",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
