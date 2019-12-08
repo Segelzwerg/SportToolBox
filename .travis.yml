@@ -6,4 +6,10 @@ jdk:
 services:
   - docker
 
-script: "./gradlew check --info --stacktrace"
+
+jobs:
+  include:
+    - stage: test
+      script: "gradle clean test"
+    - stage: check
+      script: "./gradlew check --info --stacktrace"

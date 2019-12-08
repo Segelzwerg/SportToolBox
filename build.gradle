@@ -1,9 +1,9 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.9.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
-	id 'application'
-	id 'io.franzbecker.gradle-lombok' version '3.2.0'
+    id 'org.springframework.boot' version '2.1.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'application'
+    id 'io.franzbecker.gradle-lombok' version '3.2.0'
 }
 
 group = 'segelzwerg'
@@ -11,42 +11,42 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 application {
-	mainClassName = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
+    mainClassName = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
 }
 
 configurations {
-	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
-	maven {
-		url "https://plugins.gradle.org/m2/"
-	}
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'junit', module: 'junit'
-	}
-	testImplementation 'org.junit.jupiter:junit-jupiter-api'
-	testImplementation 'org.junit.jupiter:junit-jupiter-params'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 apply plugin: 'java'
@@ -56,21 +56,21 @@ import io.franzbecker.gradle.lombok.task.DelombokTask
 
 // Lombok Task
 lombok {
-	version = "1.18.10"
+    version = "1.18.10"
 }
 
 task delombok(type: DelombokTask) {
-	ext.outputDir = file("$buildDir/delombok")
-	outputs.dir(outputDir)
-	sourceSets.main.java.srcDirs.each {
-		inputs.dir(it)
-		args(it, "-d", outputDir)
-	}
+    ext.outputDir = file("$buildDir/delombok")
+    outputs.dir(outputDir)
+    sourceSets.main.java.srcDirs.each {
+        inputs.dir(it)
+        args(it, "-d", outputDir)
+    }
 }
 
 task generateJavadocs(type: Javadoc) {
-	dependsOn delombok
-	source = sourceSets.main.allJava
-	destinationDir = reporting.file("javadocs")
-	failOnError = false;
+    dependsOn delombok
+    source = sourceSets.main.allJava
+    destinationDir = reporting.file("javadocs")
+    failOnError = false;
 }
