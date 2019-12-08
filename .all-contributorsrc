@@ -82,6 +82,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "katsadim",
+      "name": "Nassos Kat",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16381881?v=4",
+      "profile": "https://github.com/katsadim",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7

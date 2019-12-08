@@ -1,5 +1,5 @@
 # SportToolBox
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END --> [![Maintainability](https://api.codeclimate.com/v1/badges/280e62d048bcb77bf228/maintainability)](https://codeclimate.com/github/Segelzwerg/SportToolBox/maintainability) [![Build Status](https://travis-ci.org/Segelzwerg/SportToolBox.svg?branch=master)](https://travis-ci.org/Segelzwerg/SportToolBox) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Segelzwerg/SportToolBox.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Segelzwerg/SportToolBox/alerts/) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Segelzwerg/SportToolBox.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Segelzwerg/SportToolBox/context:java) [![Heroku](https://heroku-badge.herokuapp.com/?app=sporttoolbox)]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END --> [![Maintainability](https://api.codeclimate.com/v1/badges/280e62d048bcb77bf228/maintainability)](https://codeclimate.com/github/Segelzwerg/SportToolBox/maintainability) [![Build Status](https://travis-ci.org/Segelzwerg/SportToolBox.svg?branch=master)](https://travis-ci.org/Segelzwerg/SportToolBox) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Segelzwerg/SportToolBox.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Segelzwerg/SportToolBox/alerts/) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Segelzwerg/SportToolBox.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Segelzwerg/SportToolBox/context:java) [![Heroku](https://heroku-badge.herokuapp.com/?app=sporttoolbox)]
 
 ## About
 SportToolBox is a website where you calculate different metrics used in sport. It is meant to collect multiple calculators into one website for the convenience of athletes.
@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Anca07"><img src="https://avatars0.githubusercontent.com/u/18334788?v=4" width="100px;" alt=""/><br /><sub><b>Anca</b></sub></a><br /><a href="#design-Anca07" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/katsadim"><img src="https://avatars3.githubusercontent.com/u/16381881?v=4" width="100px;" alt=""/><br /><sub><b>Nassos Kat</b></sub></a><br /><a href="https://github.com/Segelzwerg/SportToolBox/commits?author=katsadim" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
