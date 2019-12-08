@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
@@ -71,5 +72,10 @@ public class KnotTest {
         Speed convertedSpeed = thirtyKnots.toKnot();
 
         assertThat(convertedSpeed, is(thirtyKnots));
+    }
+
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new Knot(-1));
     }
 }
