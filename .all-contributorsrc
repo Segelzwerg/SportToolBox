@@ -18,6 +18,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "retsbol",
+      "name": "Ret Sbol",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/56402614?v=4",
+      "profile": "https://github.com/retsbol",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
