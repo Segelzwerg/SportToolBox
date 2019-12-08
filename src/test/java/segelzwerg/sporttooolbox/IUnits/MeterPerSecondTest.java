@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MeterPerSecondTest {
 
@@ -72,5 +73,16 @@ public class MeterPerSecondTest {
         Speed convertedSpeed = thirtyMetersPerSecond.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(58.315334F));
+    }
+
+    /**
+     * negative Input
+     * Speed: -1 m/s
+     *
+     * @expected IllegalArgumentException
+     */
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new MeterPerSecond(-1));
     }
 }
