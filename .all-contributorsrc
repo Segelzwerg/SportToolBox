@@ -118,6 +118,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "GledsonAfonso",
+      "name": "Gledson Afonso",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17538186?v=4",
+      "profile": "https://github.com/GledsonAfonso",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
