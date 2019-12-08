@@ -3,4 +3,7 @@ jdk:
   - openjdk8
   - openjdk12
 
+services:
+  - docker
+
 script: "./gradlew check --info --stacktrace"
