@@ -1,6 +1,6 @@
 package segelzwerg.sporttooolbox;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,9 +1,10 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Tests the Distance class
@@ -62,8 +63,8 @@ public class DistanceTest {
      * Expected: IllegalArgumentException
      */
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negative_distance() {
-        new Distance(-1);
+        assertThrows(IllegalArgumentException.class, () -> new Distance(-1));
     }
 }

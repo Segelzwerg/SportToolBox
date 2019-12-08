@@ -1,11 +1,12 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KilometerPerHourTest {
 
@@ -16,7 +17,7 @@ public class KilometerPerHourTest {
      * Set up before all tests
      * Initialization of static Speed thirtyMetersPerSecond
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         thirtyKilometersPerHour = new KilometerPerHour(THIRTY_KM_PER_HOUR);
     }
@@ -72,5 +73,16 @@ public class KilometerPerHourTest {
         Speed convertedSpeed = thirtyKilometersPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(16.198704f));
+    }
+
+    /**
+     * negative Input
+     * Speed: -1 km/h
+     *
+     * @expected IllegalArgumentException
+     */
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new KilometerPerHour(-1));
     }
 }

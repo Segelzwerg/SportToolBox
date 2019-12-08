@@ -1,11 +1,12 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
@@ -15,7 +16,7 @@ public class KnotTest {
      * Set up before all tests
      * Initialization of static Speed thirtyKnots
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         thirtyKnots = new Knot(THIRTY_KNOTS);
     }
@@ -71,5 +72,16 @@ public class KnotTest {
         Speed convertedSpeed = thirtyKnots.toKnot();
 
         assertThat(convertedSpeed, is(thirtyKnots));
+    }
+
+    /**
+     * negative Input
+     * Speed: -1 Knots
+     *
+     * @expected IllegalArgumentException
+     */
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new Knot(-1));
     }
 }

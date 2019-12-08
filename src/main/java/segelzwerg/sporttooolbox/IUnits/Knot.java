@@ -14,7 +14,9 @@ public class Knot implements Speed {
 	private final float speed;
 
 	public Knot(float speed) {
-
+		if (speed < 0) {
+			throw new IllegalArgumentException("Speed must not be negative.");
+		}
 		this.speed = speed;
 	}
 

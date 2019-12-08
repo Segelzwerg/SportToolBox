@@ -1,22 +1,23 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MilePerHourTest {
 
     private static final float THIRTY_MILES_PER_HOUR = 30f;
     private static Speed thirtyMilesPerHour;
-    
+
     /**
      * Set up before all tests
      * Initialization of static Speed thirtyMilesPerHour
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         thirtyMilesPerHour = new MilePerHour(THIRTY_MILES_PER_HOUR);
     }
@@ -25,6 +26,7 @@ public class MilePerHourTest {
      * toKilometerPerHour
      * Speed: thirtyMilesPerHour
      * Expected Speed: 48.28032
+     *
      * @result 48.28032km/h is the same as 30mph
      */
     @Test
@@ -39,6 +41,7 @@ public class MilePerHourTest {
      * toMeterPerSecond
      * Speed: thirtyMilesPerHour
      * Expected Speed: 13.411201
+     *
      * @result 13.411201m/s is the same as 30mph
      */
     @Test
@@ -52,6 +55,7 @@ public class MilePerHourTest {
      * toMilePerHour
      * Speed: thirtyMilesPerHour
      * Expected Speed: thirtyMilesPerHour
+     *
      * @result thirtyMilesPerHour returns itself
      */
     @Test
@@ -65,6 +69,7 @@ public class MilePerHourTest {
      * toKnot
      * Speed: thirtyMilesPerHour
      * Expected Speed: 26.069286
+     *
      * @result 26.069286kn is the same as 30mph
      */
     @Test
@@ -72,5 +77,16 @@ public class MilePerHourTest {
         Speed convertedSpeed = thirtyMilesPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(26.069286F));
+    }
+
+    /**
+     * negative Input
+     * Speed: -1 mph
+     *
+     * @expected IllegalArgumentException
+     */
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new MilePerHour(-1));
     }
 }
