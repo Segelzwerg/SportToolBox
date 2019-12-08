@@ -28,3 +28,4 @@ Use many small commits during development. Each commit should handle only logica
 ### Pull Requests
 
 Please provide a small description as to what you have done and reference any  existing issues you have resolved.
+Please don't forget to comment PRs with `@all-contributors please add <username> for <contributions>` in order to update the all contributors list.
