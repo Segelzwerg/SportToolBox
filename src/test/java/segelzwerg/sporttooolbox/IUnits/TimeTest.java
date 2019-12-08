@@ -1,9 +1,10 @@
 package segelzwerg.sporttooolbox.IUnits;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TimeTest {
 
@@ -101,9 +102,10 @@ public class TimeTest {
      * Expected: IllegalArgumentException exception thrown
      * @result IllegalArgumentException exception
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negativeHours() {
-        new Time(-1, 0, 0);
+        assertThrows(IllegalArgumentException.class, () -> new Time(-1, 0, 0));
+
     }
 
     /**
@@ -112,9 +114,9 @@ public class TimeTest {
      * Expected: IllegalArgumentException exception thrown
      * @result IllegalArgumentException exception
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negativeMinutes() {
-        new Time(0, -1, 0);
+        assertThrows(IllegalArgumentException.class, () -> new Time(0, -1, 0));
     }
 
      /**
@@ -123,8 +125,8 @@ public class TimeTest {
       * Expected: IllegalArgumentException exception thrown
       * @result IllegalArgumentException exception
       */
-     @Test(expected = IllegalArgumentException.class)
+     @Test
     public void negativeSeconds() {
-        new Time(0, 0, -1);
+         assertThrows(IllegalArgumentException.class, () -> new Time(0, 0, -1));
     }
 }
