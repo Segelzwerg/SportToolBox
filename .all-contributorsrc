@@ -9,6 +9,16 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "talitm555",
+      "name": "Talit Mahmood",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7698562?v=4",
+      "profile": "http://www.TalitMahmood.TK",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
