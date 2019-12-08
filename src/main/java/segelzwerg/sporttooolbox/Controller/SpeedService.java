@@ -25,7 +25,7 @@ public class SpeedService {
         int hour = form.getHour();
         int minute = form.getMinute();
         int second = form.getSecond();
-        Time time = new Time(hour);
+        Time time = new Time(hour, minute, second);
 
         SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
 
