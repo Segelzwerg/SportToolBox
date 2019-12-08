@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KilometerPerHourTest {
 
@@ -72,5 +73,16 @@ public class KilometerPerHourTest {
         Speed convertedSpeed = thirtyKilometersPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(16.198704f));
+    }
+
+    /**
+     * negative Input
+     * Speed: -1 km/h
+     *
+     * @expected IllegalArgumentException
+     */
+    @Test
+    public void negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new KilometerPerHour(-1));
     }
 }
