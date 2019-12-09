@@ -53,6 +53,11 @@ public class MilePerHour implements Speed {
         return new Knot(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
+    /**
+     * formats the decimal to 2 digits
+     *
+     * @return a new MilePerHour
+     */
     @Override
     public Speed format() {
         return new MilePerHour(((float) (Math.round(speed * 100.0) / 100.0)));

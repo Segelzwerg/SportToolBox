@@ -2,13 +2,11 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
 /**
  * Pace of minutes per hundred meters
  */
 @Getter
-@ToString
 @EqualsAndHashCode
 public class MinutesPerHundredMeters implements Pace {
     private final float pace;
@@ -37,6 +35,11 @@ public class MinutesPerHundredMeters implements Pace {
         return this;
     }
 
+    /**
+     * returns the pace in min:ss
+     *
+     * @return formatted String
+     */
     @Override
     public String toString() {
         return (int) Math.floor(pace) + ":" + (int) (Math.round(pace * 60.0));

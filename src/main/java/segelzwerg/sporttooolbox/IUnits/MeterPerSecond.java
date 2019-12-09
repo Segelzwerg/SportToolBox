@@ -56,6 +56,11 @@ public class MeterPerSecond implements Speed {
         return new Knot(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
+    /**
+     * formats the decimal to 2 digits
+     *
+     * @return a new MeterPerSecond
+     */
     @Override
     public Speed format() {
         return new MeterPerSecond((float) (Math.round(speed * 100.0) / 100.0));

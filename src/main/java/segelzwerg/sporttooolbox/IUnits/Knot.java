@@ -56,6 +56,11 @@ public class Knot implements Speed {
         return this;
     }
 
+    /**
+     * formats the decimal to 2 digits
+     *
+     * @return a new Speed
+     */
     @Override
     public Speed format() {
         return new Knot((float) (Math.round(speed * 100.0) / 100.0));

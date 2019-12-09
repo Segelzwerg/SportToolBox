@@ -35,6 +35,11 @@ public class MinutesPerKilometer implements Pace {
         return new MinutesPerHundredMeters(pace * PER_KILOMETER_TO_PER_HUNDRED_METER);
     }
 
+    /**
+     * returns the pace in min:ss
+     *
+     * @return formatted String
+     */
     @Override
     public String toString() {
         return (int) Math.floor(pace) + ":" + (int) (Math.round(pace * 60.0));
