@@ -25,6 +25,19 @@ Please use Java Coding Conventions so the code is easily readable for everyone.
 
 Use many small commits during development. Each commit should handle only logical connected change.
 
+#### Controller
+
+Use for the Translator for returning from a Controller.
+
+```
+return Translator.toLocale("message");
+```
+
+#### Front End
+
+Make the changes on the main files outside the language specific folders unless it is a translation. These should only be made inside the language folders.
+
+
 ### Pull Requests
 
 Please provide a small description as to what you have done and reference any  existing issues you have resolved.
