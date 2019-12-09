@@ -74,8 +74,9 @@
                     <h5 class="card-title">Speed</h5>
                     <p class="card-text">
                         The average speed is <span th:text="${speed?.kilometerPerHour.speed}">30</span> km/h
-                        for travelling <span th:text="${form.major}">30</span> kilometer and <span
-                            th:text="${form.minor}">0</span> meter in
+                        for travelling <span th:text="${form.major}">30</span> <span
+                            th:text="${form.distanceMajorUnit}">kilometer</span> and <span
+                            th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> in
                         <span th:text="${form.hour}">1</span> hour, <span th:text="${form.minute}">0</span> minute
                         <span th:text="${form.second}">0</span> seconds.
                     </p>
