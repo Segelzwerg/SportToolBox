@@ -19,6 +19,7 @@ public class MinutesPerHundredMeters implements Pace {
 
     /**
      * Converting to minutes per kilometers
+     *
      * @return Pace instance with a converted numeric value
      */
     @Override
@@ -28,10 +29,16 @@ public class MinutesPerHundredMeters implements Pace {
 
     /**
      * Converting to minutes per hundred meters
+     *
      * @return itself, since there's no conversion to be made
      */
     @Override
     public Pace toMinutesPerHundredMeters() {
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return (int) Math.floor(pace) + ":" + (int) (Math.round(pace * 60.0));
     }
 }

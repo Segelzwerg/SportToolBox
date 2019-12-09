@@ -72,7 +72,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
-                        The average pace is <span th:text="${pace?.minutesPerKilometer.pace}">30</span> Minutes per
+                        The average pace is <span th:text="${pace?.minutesPerKilometer.toString()}">30</span> Minutes
+                        per
                         Kilometer
                         for travelling <span th:text="${form.major}">30</span> <span
                             th:text="${form.distanceMajorUnit}">kilometer</span> and
