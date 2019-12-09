@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="../static/bootstrap.min.css" rel="stylesheet"
           th:href="bootstrap.min.css" type="text/css">
-    <title>Speed Calculator</title>
+    <title>Pace Calculator</title>
 </head>
 <body>
 <div th:insert="navbar :: navbar(pace)"></div>
@@ -17,20 +17,30 @@
             <div class="card">
                 <div class="card-body">
 
-
                     <form method="post" th:object="${form}">
                         <div class="form-group">
                             <label>
                                 Kilometer
-                                <input autocomplete="off" class="form-control" th:field="*{kilometer}"
+                                <input autocomplete="off" class="form-control" th:field="*{major}"
                                        type="text" value="30">
                             </label>
+                            <select class="form-control w-auto" th:field="*{distanceMajorUnit}">
+                                <option th:text="Kilometer" th:value="kilometer">Kilometer</option>
+                                <option th:text="miles" th:value="miles">miles</option>
+                                <option th:text="nautical" th:value="nautical">nautical miles</option>
+                            </select>
                         </div>
+
                         <div class="form-group"><label>
                             Meter
-                            <input autocomplete="off" class="form-control" th:field="*{meter}"
+                            <input autocomplete="off" class="form-control" th:field="*{minor}"
                                    type="text" value="0">
                         </label>
+                            <select class="form-control w-auto" th:field="*{distanceMinorUnit}">
+                                <option th:text="Meter" th:value="meter">Meter</option>
+                                <option th:text="yards" th:value="yards">yards</option>
+                                <option th:text="fathoms" th:value="fathoms">fathoms</option>
+                            </select>
                         </div>
                         <div class="form-group"><label>
                             Hour
@@ -63,9 +73,10 @@
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
                         The average pace is <span th:text="${pace?.minutesPerKilometer.pace}">30</span> Minutes per
-                        Kiloemter
-                        for travelling <span th:text="${form.kilometer}">30</span> kilometer and
-                        <span th:text="${form.meter}">0</span> meter in
+                        Kilometer
+                        for travelling <span th:text="${form.major}">30</span> <span
+                            th:text="${form.distanceMajorUnit}">kilometer</span> and
+                        <span th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> in
                         <span th:text="${form.hour}">1</span> hour, <span th:text="${form.minute}">0</span> minute and
                         <span th:text="${form.second}">0</span> seconds.
                     </p>
