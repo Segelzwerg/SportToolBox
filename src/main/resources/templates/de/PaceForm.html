@@ -22,27 +22,27 @@
                         <div class="form-group">
                             <label>
                                 Kilometer<input autocomplete="off" class="form-control" th:field="*{kilometer}"
-                                       type="text" value="30">
+                                                type="text" value="30">
                             </label>
                         </div>
                         <div class="form-group"><label>
                             Meter<input autocomplete="off" class="form-control" th:field="*{meter}"
-                                   type="text" value="0">
+                                        type="text" value="0">
                         </label>
                         </div>
                         <div class="form-group"><label>
-                            Stunde<input autocomplete="off" class="form-control" th:field="*{hour}"
-                                   type="text" value="1">
+                            Stunde(n)<input autocomplete="off" class="form-control" th:field="*{hour}"
+                                            type="text" value="1">
                         </label>
                         </div>
                         <div class="form-group"><label>
-                            Minute<input autocomplete="off" class="form-control" th:field="*{minute}"
-                                   type="text" value="0">
+                            Minute(n)<input autocomplete="off" class="form-control" th:field="*{minute}"
+                                            type="text" value="0">
                         </label>
                         </div>
                         <div class="form-group"><label>
-                            Sekunde<input autocomplete="off" class="form-control" th:field="*{second}"
-                                   type="text" value="0">
+                            Sekunde(n)<input autocomplete="off" class="form-control" th:field="*{second}"
+                                             type="text" value="0">
                         </label>
                         </div>
                         <button class="btn btn-primary" type="submit">Berechne</button>
@@ -57,12 +57,14 @@
                 <div class="card-body">
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
-                        The average pace is <span th:text="${pace?.minutesPerKilometer.pace}">30</span> Minutes per
-                        Kiloemter
-                        for travelling <span th:text="${form.kilometer}">30</span> kilometer and
-                        <span th:text="${form.meter}">0</span> meter in
-                        <span th:text="${form.hour}">1</span> hour, <span th:text="${form.minute}">0</span> minute and
-                        <span th:text="${form.second}">0</span> seconds.
+                        Die durchschnittliche ist <span th:text="${pace?.minutesPerKilometer.pace}">30</span> Minuten
+                        pro
+                        Kilometer, wenn man
+                        <span th:text="${form.kilometer}">30</span> Kilometer und
+                        <span th:text="${form.meter}">0</span> Meter in
+                        <span th:text="${form.hour}">1</span> Stunde(n), <span th:text="${form.minute}">0</span>
+                        Minute(n) und
+                        <span th:text="${form.second}">0</span> Sekunde(n) zurück legt.
                     </p>
                 </div>
             </div>
