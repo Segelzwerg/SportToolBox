@@ -23,7 +23,7 @@ public class PaceController {
     @GetMapping("/pace")
     public String index(Model model) {
         model.addAttribute("form", new PaceForm());
-        return "PaceForm";
+        return Translator.toLocale("PaceForm");
     }
 
     /**
@@ -39,6 +39,6 @@ public class PaceController {
         Pace pace = paceService.calculatePace(form);
         PacePresenter pacePresenter = new PacePresenter(pace);
         model.addAttribute("pace", pacePresenter);
-        return "PaceForm";
+        return Translator.toLocale("PaceForm");
     }
 }
