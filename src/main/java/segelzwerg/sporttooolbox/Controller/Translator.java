@@ -10,6 +10,6 @@ public class Translator {
 
     public static String toLocale(String messageCode) {
         Locale locale = LocaleContextHolder.getLocale();
-        return "/" + locale.getLanguage() + "/" + messageCode;
+        return locale.getLanguage() + "/" + messageCode;
     }
 }
