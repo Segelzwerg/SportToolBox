@@ -14,13 +14,16 @@ public class SpeedService {
 
     /**
      * Calculate speed
+     *
      * @param form form with values
      * @return calculated speed
      */
     public Speed calculateSpeed(SpeedForm form) {
-        int kilometer = form.getKilometer();
-        int meter = form.getMeter();
-        Distance distance = new Distance(kilometer, meter);
+        String majorUnit = form.getDistanceMajorUnit();
+        String minorUnit = form.getDistanceMinorUnit();
+        int major = form.getMajor();
+        int minor = form.getMinor();
+        Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);
 
         int hour = form.getHour();
         int minute = form.getMinute();
