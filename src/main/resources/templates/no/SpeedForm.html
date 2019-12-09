@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/bootstrap.min.css" rel="stylesheet"
+          th:href="bootstrap.min.css" type="text/css">
+    <title>Speed Calculator</title>
+</head>
+<body>
+<div th:insert="navbar :: navbar(speed)">  </div>
+<div class="container">
+    <div class="row">
+        <h1>Speed Calculator</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <form method="post" th:object="${form}">
+                        <div class="form-group">
+                            <label>
+                                Kilometer
+                                <input autocomplete="off" class="form-control" th:field="*{kilometer}"
+                                       type="text" value="30">
+                            </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Meter
+                            <input autocomplete="off" class="form-control" th:field="*{meter}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Hour
+                            <input autocomplete="off" class="form-control" th:field="*{hour}"
+                                   type="text" value="1">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Minute
+                            <input autocomplete="off" class="form-control" th:field="*{minute}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <div class="form-group"><label>
+                            Second
+                            <input autocomplete="off" class="form-control" th:field="*{second}"
+                                   type="text" value="0">
+                        </label>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Calculate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm">
+            <div class="card" th:if="${speed != null}">
+                <div class="card-body">
+                    <h5 class="card-title">Speed</h5>
+                    <p class="card-text">
+                        The average speed is <span th:text="${speed?.kilometerPerHour.speed}">30</span> km/h
+                        for travelling <span th:text="${form.kilometer}">30</span> kilometer and <span
+                            th:text="${form.meter}">0</span> meter in
+                        <span th:text="${form.hour}">1</span> hour, <span th:text="${form.minute}">0</span> minute
+                        <span th:text="${form.second}">0</span> seconds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

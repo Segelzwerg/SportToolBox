@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class StartController {
     @GetMapping("/")
     public String index(Model model) {
-        return "start";
+        return Translator.toLocale("start");
     }
 }

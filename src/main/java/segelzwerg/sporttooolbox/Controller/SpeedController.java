@@ -21,17 +21,19 @@ public class SpeedController {
 
     /**
      * Get speed page
+     *
      * @param model
      * @return speed page name
      */
     @GetMapping("/speed")
     public String string(Model model) {
         model.addAttribute("form", new SpeedForm());
-        return "SpeedForm";
+        return Translator.toLocale("SpeedForm");
     }
 
     /**
      * Calculate speed
+     *
      * @param model
      * @param form
      * @return calculated speed
@@ -42,6 +44,6 @@ public class SpeedController {
         Speed speed = service.calculateSpeed(form);
         SpeedPresenter speedPresenter = new SpeedPresenter(speed);
         model.addAttribute("speed", speedPresenter);
-        return "SpeedForm";
+        return Translator.toLocale("SpeedForm");
     }
 }
