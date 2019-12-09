@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - openjdk12
+services: docker
+jobs:
+  include:
+    - stage: test
+      script: ./gradlew check
