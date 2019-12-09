@@ -18,8 +18,8 @@ public class SpeedPresenter {
     private Knot knots;
 
     public SpeedPresenter(Speed speed) {
-        kilometerPerHour = (KilometerPerHour) speed.toKilometerPerHour();
-        milesPerHour = (MilePerHour) speed.toMilePerHour();
-        knots = (Knot) speed.toKnot();
+        kilometerPerHour = (KilometerPerHour) speed.toKilometerPerHour().format();
+        milesPerHour = (MilePerHour) speed.toMilePerHour().format();
+        knots = (Knot) speed.toKnot().format();
     }
 }

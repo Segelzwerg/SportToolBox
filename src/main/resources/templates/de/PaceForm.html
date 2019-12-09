@@ -67,7 +67,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
-                        Die durchschnittliche ist <span th:text="${pace?.minutesPerKilometer.pace}">30</span> Minuten
+                        Die durchschnittliche ist <span th:text="${pace?.minutesPerKilometer.toString()}">30</span>
+                        Minuten
                         pro
                         Kilometer, wenn man
                         <span th:text="${form.major}">30</span> Kilometer und
