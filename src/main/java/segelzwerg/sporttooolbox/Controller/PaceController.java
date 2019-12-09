@@ -22,7 +22,7 @@ public class PaceController {
      */
     @GetMapping("/pace")
     public String index(Model model) {
-        model.addAttribute("form", new PaceForm());
+        model.addAttribute("form", new SpeedForm());
         return Translator.toLocale("PaceForm");
     }
 
@@ -34,7 +34,7 @@ public class PaceController {
      * @return
      */
     @PostMapping("/pace")
-    public String computePace(Model model, PaceForm form) {
+    public String computePace(Model model, SpeedForm form) {
         model.addAttribute("form", form);
         Pace pace = paceService.calculatePace(form);
         PacePresenter pacePresenter = new PacePresenter(pace);
