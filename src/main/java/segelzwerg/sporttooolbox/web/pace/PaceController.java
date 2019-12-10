@@ -1,10 +1,12 @@
-package segelzwerg.sporttooolbox.Controller;
+package segelzwerg.sporttooolbox.web.pace;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.web.Translator;
+import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 @Controller
 public class PaceController {

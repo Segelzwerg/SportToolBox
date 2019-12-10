@@ -1,25 +1,24 @@
-package segelzwerg.sporttooolbox.Controller;
+package segelzwerg.sporttooolbox.web.speed;
 
 import org.springframework.stereotype.Component;
 import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.SpeedCalculator;
 
-
 /**
- * Pace calculating service
+ * Speed calculating service
  */
 @Component
-public class PaceService {
+public class SpeedService {
 
     /**
-     * calulates pace
+     * Calculate speed
      *
-     * @param form
-     * @return calculated pace
+     * @param form form with values
+     * @return calculated speed
      */
-    public Pace calculatePace(SpeedForm form) {
+    public Speed calculateSpeed(SpeedForm form) {
         String majorUnit = form.getDistanceMajorUnit();
         String minorUnit = form.getDistanceMinorUnit();
         int major = form.getMajor();
@@ -33,6 +32,8 @@ public class PaceService {
 
         SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
 
-        return speedCalculator.computePace();
+        return speedCalculator.computeSpeed();
     }
+
+
 }

@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.Controller;
+package segelzwerg.sporttooolbox.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
