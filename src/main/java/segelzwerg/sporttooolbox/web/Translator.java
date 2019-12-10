@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.Controller;
+package segelzwerg.sporttooolbox.web;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;

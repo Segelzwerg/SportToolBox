@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.Controller;
+package segelzwerg.sporttooolbox.web.pace;
 
 import lombok.Getter;
 import lombok.ToString;
