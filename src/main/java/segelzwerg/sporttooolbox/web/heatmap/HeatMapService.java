@@ -1,7 +1,45 @@
 package segelzwerg.sporttooolbox.web.heatmap;
 
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.request.body.MultipartBody;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 @Component
 public class HeatMapService {
+    private Integer sessionId = null;
+
+    public void requestSessionId() throws UnirestException {
+        this.sessionId = Integer.parseInt(Unirest.get("http://localhost:5000/create-session")
+                .asString()
+                .getBody());
+    }
+
+    public void uploadFile(MultipartFile file) throws UnirestException, IOException {
+        if (sessionId == null) {
+            requestSessionId();
+        }
+        MultipartBody multipartBody = Unirest.post("http://localhost:5000/upload")
+                .field("session", sessionId)
+                .field("file", file.getInputStream(), file.getOriginalFilename());
+        multipartBody.toString();
+    }
+
+    public void generate() {
+        Unirest.post("http:localhost:5000/generate")
+                .field("session", sessionId);
+    }
+
+    public BufferedImage getImage() throws UnirestException, IOException {
+
+        return ImageIO.read(Unirest.post("http:localhost:5000/get-image")
+                .field("session", sessionId)
+                .asBinary()
+                .getRawBody());
+    }
 }
