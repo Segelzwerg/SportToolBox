@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" th:if="${heatmap != null}">
                 <div class="card-body">
                     <img alt="Heatmap" class="img-fluid" th:src="@{heatmap-file}">
                 </div>
