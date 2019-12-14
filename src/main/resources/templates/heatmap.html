@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="../static/bootstrap.min.css" rel="stylesheet"
@@ -22,9 +22,24 @@
                                 <input class="custom-file-input" id="file" name="file" type="file"/>
                                 <label class="custom-file-label" for="file">Choose File</label>
                             </div>
-                            <button class="btn btn-primary" type="submit">Upload</button>
+                            <button class="btn btn-primary" type="submit">Add File</button>
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <form action="/heatmap/generate" method="POST">
+
+                            <button class="btn btn-primary" type="submit">Generate Heatmap</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <img alt="Heatmap" class="img-fluid" th:src="@{heatmap-file}">
                 </div>
             </div>
         </div>
