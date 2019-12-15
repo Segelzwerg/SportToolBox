@@ -1,12 +1,9 @@
 FROM gradle
 
-RUN mkdir -p /opt/SportToolBox
-WORKDIR /opt/SportToolBox
-COPY src/ .
-COPY build.gradle .
-COPY settings.gradle .
-COPY gradlew .
-COPY gradle/ .
+MAINTAINER Marcel Haas
 
-CMD gradle bootRun
+WORKDIR /app
+COPY ./ /app
+
+CMD gradle run --stacktrace
 EXPOSE 8080

@@ -9,10 +9,15 @@ plugins {
 
 group = 'segelzwerg'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = 8
+targetCompatibility = 8
 
 application {
     mainClassName = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
+}
+
+wrapper {
+    gradleVersion = '6.0.1'
 }
 
 configurations {
