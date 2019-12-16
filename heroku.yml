@@ -1,4 +1,4 @@
 build:
   docker:
     web: Dockerfile
-    heatmap-provider: segelzwerg/heatmap-provider:stable
+    heatmap: Heatmap-Provider/Dockerfile
