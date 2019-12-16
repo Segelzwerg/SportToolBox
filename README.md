@@ -9,6 +9,8 @@ SportToolBox is a website where you calculate different metrics used in sport. I
 
 The first feature is a simple speed calculator that accepts distance in km or m and time in ```h:m:s``` to calculate speed in km/h.
 
+Clone the project and simple run `docker-compose up` in your command line. Than open your browser on `localhost:8080`.
+
 ## Contributing to SportToolBox
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md)
