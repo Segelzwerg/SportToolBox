@@ -12,7 +12,7 @@ services:
       - heatmap-provider
   heatmap-provider:
     container_name: heatmap-provider
-    image: segelzwerg/heatmap-provider
+    image: segelzwerg/heatmap-provider:stable
     # build:
     #  ./Heatmap-Provider
     ports:
