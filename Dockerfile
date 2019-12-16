@@ -5,5 +5,5 @@ MAINTAINER Marcel Haas
 WORKDIR /app
 COPY ./ /app
 
-CMD gradle run --stacktrace
+CMD gradle run
 EXPOSE 8080

@@ -1,13 +1,29 @@
 version: '3'
 services:
-  heatmap-provider:
-    build:
-      ./Heatmap-Provider
-    ports:
-      - "5000:5000"
   web:
+    container_name: sporttoolbox
     build: .
     ports:
       - "8080:8080"
+    networks:
+      network:
+        ipv4_address: 172.28.1.1
     depends_on:
       - heatmap-provider
+  heatmap-provider:
+    container_name: heatmap-provider
+    image: segelzwerg/heatmap-provider
+    # build:
+    #  ./Heatmap-Provider
+    ports:
+      - "5000:5000"
+    networks:
+      network:
+        ipv4_address: 172.28.1.2
+
+networks:
+  network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16

@@ -18,7 +18,7 @@ public class HeatMapService {
     private Integer sessionId = null;
 
     public void requestSessionId() throws UnirestException {
-        this.sessionId = Integer.parseInt(Unirest.get("http://localhost:5000/create-session")
+        this.sessionId = Integer.parseInt(Unirest.get("http://heatmap-provider:5000/create-session")
                 .asString()
                 .getBody());
     }
@@ -29,21 +29,21 @@ public class HeatMapService {
         }
         File originalFile = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") + Objects.requireNonNull(file.getOriginalFilename()));
         file.transferTo(originalFile);
-        Unirest.post("http://localhost:5000/upload")
+        Unirest.post("http://heatmap-provider:5000/upload")
                 .field("session", sessionId)
                 .field("file", originalFile)
                 .asBinary().getBody();
     }
 
     public void generate() throws UnirestException {
-        Unirest.post("http://localhost:5000/generate")
+        Unirest.post("http://heatmap-provider:5000/generate")
                 .field("session", sessionId)
                 .asString().getBody();
     }
 
     public BufferedImage getImage() throws UnirestException, IOException {
 
-        HttpResponse<InputStream> session = Unirest.post("http://localhost:5000/get-image")
+        HttpResponse<InputStream> session = Unirest.post("http://heatmap-provider:5000/get-image")
                 .field("session", sessionId)
                 .asBinary();
         InputStream rawBody = session
