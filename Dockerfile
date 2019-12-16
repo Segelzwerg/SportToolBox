@@ -1,13 +1,9 @@
-FROM gradle:5.6.2-jdk8 as BUILD
+FROM gradle
 
-RUN mkdir -p /opt/SportToolBox
-WORKDIR /opt/SportToolBox
-COPY src/ .
-COPY build.gradle .
-COPY settings.gradle .
-COPY gradlew .
-COPY gradle/ .
+MAINTAINER Marcel Haas
 
-RUN gradle wrapper
-RUN ./gradlew clean
-RUN ./gradlew build
+WORKDIR /app
+COPY ./ /app
+
+CMD gradle run
+EXPOSE 8080

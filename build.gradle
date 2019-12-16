@@ -4,14 +4,20 @@ plugins {
     id 'java'
     id 'application'
     id 'io.franzbecker.gradle-lombok' version '3.2.0'
+    id 'com.bmuschko.docker-remote-api' version '6.1.1'
 }
 
 group = 'segelzwerg'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = 8
+targetCompatibility = 8
 
 application {
     mainClassName = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
+}
+
+wrapper {
+    gradleVersion = '6.0.1'
 }
 
 configurations {
