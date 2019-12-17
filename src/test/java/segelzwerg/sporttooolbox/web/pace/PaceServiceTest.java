@@ -29,7 +29,7 @@ class PaceServiceTest {
 
         Pace pace = paceService.calculatePace(paceForm);
 
-        MinutesPerKilometer expectedPace = new MinutesPerKilometer(22);
+        MinutesPerKilometer expectedPace = new MinutesPerKilometer((float) 2.7272727);
         assertThat(pace, equalTo(expectedPace));
     }
 
