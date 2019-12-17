@@ -139,4 +139,22 @@ public class DistanceTest {
 
         assertThat(distance, equalTo(expectedDistance));
     }
+
+    @Test
+    void invalid_major_unit() {
+        int major = 10;
+        String invalidUnit = "centimeter";
+        ;
+        assertThrows(IllegalArgumentException.class, () -> Distance.createWithMajorUnit(major, invalidUnit));
+    }
+
+    @Test
+    void invalid_minor_unit() {
+        int major = 10;
+        int minor = 10;
+        String majorUnit = "kilometer";
+        String invalidUnit = "centimeter";
+        ;
+        assertThrows(IllegalArgumentException.class, () -> Distance.createWithOtherThanSIUnits(major, minor, majorUnit, invalidUnit));
+    }
 }
