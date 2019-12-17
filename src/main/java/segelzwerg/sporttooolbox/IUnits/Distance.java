@@ -34,6 +34,10 @@ public class Distance {
         this.meter = meter % 1000;
     }
 
+    public static Distance createWithMajorUnit(int major, String majorUnit) {
+        return createWithOtherThanSIUnits(major, 0, majorUnit, "");
+    }
+
     /**
      * Factory Method
      *
