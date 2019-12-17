@@ -33,8 +33,15 @@ class SpeedServiceTest {
     }
 
     @Test
-    void invalidUnit() {
+    void invalidMajorUnit() {
         speedForm.setDistanceMajorUnit("abc");
+
+        assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
+    }
+
+    @Test
+    void invalidMinorUnit() {
+        speedForm.setDistanceMinorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
     }
