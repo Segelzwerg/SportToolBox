@@ -75,7 +75,7 @@ public class DistanceTest {
     /**
      * Test 5
      * Distance 30 miles
-     * Expected: 48 km 280.3 Meters
+     * Expected: 48.28032 km
      */
     @Test
     void inti_with_miles() {
@@ -84,6 +84,24 @@ public class DistanceTest {
         Distance expectedDistance = new Distance((float) 48.28032);
 
         Distance distance = Distance.createWithMajorUnit(mile, milesUnit);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
+
+    /**
+     * Test 6
+     * Distance 30 miles 200 yards
+     * Expected: 48.28032 km + 0,18288km
+     */
+    @Test
+    void inti_with_miles_and_yards() {
+        int mile = 30;
+        int yard = 200;
+        String milesUnit = "miles";
+        String yardsUnit = "yards";
+        Distance expectedDistance = new Distance((float) 48.28032, (float) 182.88);
+
+        Distance distance = Distance.createWithOtherThanSIUnits(mile, yard, milesUnit, yardsUnit);
 
         assertThat(distance, equalTo(expectedDistance));
     }
