@@ -59,6 +59,7 @@ test {
 
 apply plugin: 'java'
 apply plugin: "io.franzbecker.gradle-lombok"
+apply plugin: 'jacoco'
 
 import io.franzbecker.gradle.lombok.task.DelombokTask
 
@@ -82,3 +83,12 @@ task generateJavadocs(type: Javadoc) {
     destinationDir = reporting.file("javadocs")
     failOnError = false;
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
