@@ -26,5 +26,11 @@ class TranslatorTest {
 
     }
 
-
+    @Test
+    void toLocale_DE() {
+        Locale.setDefault(Locale.GERMANY);
+        String translatedMessageCode = Translator.toLocale(messageCode);
+        String expectedMessageCode = "de/" + messageCode;
+        assertThat(translatedMessageCode, equalTo(expectedMessageCode));
+    }
 }
