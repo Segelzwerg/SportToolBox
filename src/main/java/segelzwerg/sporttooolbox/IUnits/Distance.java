@@ -34,6 +34,10 @@ public class Distance {
         this.meter = meter % 1000;
     }
 
+    public static Distance createWithMajorUnit(int major, String majorUnit) {
+        return createWithOtherThanSIUnits(major, 0, majorUnit, "meter");
+    }
+
     /**
      * Factory Method
      *
@@ -53,8 +57,10 @@ public class Distance {
                 return minor * 0.9144;
             case "fathom":
                 return minor * 1.8288;
-            default:
+            case "meter":
                 return minor;
+            default:
+                throw new IllegalArgumentException("This is not a valid unit: " + minorUnit);
         }
     }
 
@@ -64,8 +70,10 @@ public class Distance {
                 return major * 1.609344;
             case "nautical":
                 return major * 1.852;
-            default:
+            case "kilometer":
                 return major;
+            default:
+                throw new IllegalArgumentException("This is not a valid unit: " + majorUnit);
         }
     }
 

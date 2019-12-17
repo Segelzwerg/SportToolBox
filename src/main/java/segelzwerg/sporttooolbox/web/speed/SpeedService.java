@@ -19,8 +19,8 @@ public class SpeedService {
      * @return calculated speed
      */
     public Speed calculateSpeed(SpeedForm form) {
-        String majorUnit = form.getDistanceMajorUnit();
-        String minorUnit = form.getDistanceMinorUnit();
+        String majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
+        String minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
         int major = form.getMajor();
         int minor = form.getMinor();
         Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);

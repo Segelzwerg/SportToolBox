@@ -14,6 +14,7 @@ public class DistanceTest {
      * Test 1
      * Distance: 30km and 2002m
      * Expected Distance: 32km and 2m
+     *
      * @result 30km and 2002m is the same as 32km and 2m
      */
     @Test
@@ -28,6 +29,7 @@ public class DistanceTest {
      * Test 2
      * Distance: 30km and 999m plus 0km and 1m
      * Expected Distance: 31km
+     *
      * @result the result is 31
      */
     @Test
@@ -45,7 +47,8 @@ public class DistanceTest {
      * Distance: 60km
      * Time: 2hrs
      * Expected Speed: 30km/hr
-     * @result the result is 30 
+     *
+     * @result the result is 30
      */
     @Test
     public void sixty_kilometer_two_hour_test_speed() {
@@ -66,5 +69,92 @@ public class DistanceTest {
     @Test
     public void negative_distance() {
         assertThrows(IllegalArgumentException.class, () -> new Distance(-1));
+    }
+
+
+    /**
+     * Test 5
+     * Distance 30 miles
+     * Expected: 48.28032 km
+     */
+    @Test
+    void inti_with_miles() {
+        int mile = 30;
+        String milesUnit = "miles";
+        Distance expectedDistance = new Distance((float) 48.28032);
+
+        Distance distance = Distance.createWithMajorUnit(mile, milesUnit);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
+
+    /**
+     * Test 6
+     * Distance 30 miles 200 yards
+     * Expected: 48.28032 km + 0,18288km
+     */
+    @Test
+    void inti_with_miles_and_yards() {
+        int mile = 30;
+        int yard = 200;
+        String milesUnit = "miles";
+        String yardsUnit = "yards";
+        Distance expectedDistance = new Distance((float) 48.28032, (float) 182.88);
+
+        Distance distance = Distance.createWithOtherThanSIUnits(mile, yard, milesUnit, yardsUnit);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
+
+    /**
+     * Test 7
+     * Distance 30 miles
+     * Expected: 48.28032 km
+     */
+    @Test
+    void inti_with_nauticals() {
+        int mile = 30;
+        String milesUnit = "nautical";
+        Distance expectedDistance = new Distance((float) 55.56);
+
+        Distance distance = Distance.createWithMajorUnit(mile, milesUnit);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
+
+    /**
+     * Test 8
+     * Distance 30 miles 200 yards
+     * Expected: 48.28032 km + 0,18288km
+     */
+    @Test
+    void inti_with_nauticals_and_phatoms() {
+        int mile = 30;
+        int yard = 200;
+        String milesUnit = "nautical";
+        String yardsUnit = "fathom";
+        Distance expectedDistance = new Distance((float) 55.56, (float) 365.76);
+
+        Distance distance = Distance.createWithOtherThanSIUnits(mile, yard, milesUnit, yardsUnit);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
+
+    @Test
+    void invalid_major_unit() {
+        int major = 10;
+        String invalidUnit = "centimeter";
+        ;
+        assertThrows(IllegalArgumentException.class, () -> Distance.createWithMajorUnit(major, invalidUnit));
+    }
+
+    @Test
+    void invalid_minor_unit() {
+        int major = 10;
+        int minor = 10;
+        String majorUnit = "kilometer";
+        String invalidUnit = "centimeter";
+        ;
+        assertThrows(IllegalArgumentException.class, () -> Distance.createWithOtherThanSIUnits(major, minor, majorUnit, invalidUnit));
     }
 }
