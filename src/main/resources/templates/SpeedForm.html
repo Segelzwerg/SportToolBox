@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label> Result Unit</label>
                             <select class="form-control w-auto" th:field="*{resultUnit}">
-                                <option th:utext="kph" th:value="kilometerPerHour">kmh</option>
+                                <option th:text="kph" th:value="kilometerPerHour">kmh</option>
                                 <option th:text="mph" th:value="milesPerHour">mph</option>
                                 <option th:text="knots" th:value="knots">knots</option>
                             </select>
