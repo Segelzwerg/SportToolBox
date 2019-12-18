@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="../static/bootstrap.min.css" rel="stylesheet"
@@ -61,6 +61,14 @@
                                    type="text" value="0">
                         </label>
                         </div>
+                        <div class="form-group">
+                            <label> Result Unit</label>
+                            <select class="form-control w-auto" th:field="*{resultUnit}">
+                                <option th:utext="kph" th:value="kilometerPerHour">kmh</option>
+                                <option th:text="mph" th:value="milesPerHour">mph</option>
+                                <option th:text="knots" th:value="knots">knots</option>
+                            </select>
+                        </div>
                         <button class="btn btn-primary" type="submit">Calculate</button>
                     </form>
                 </div>
@@ -73,7 +81,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Speed</h5>
                     <p class="card-text">
-                        The average speed is <span th:text="${speed?.kilometerPerHour.speed}">30</span> km/h
+                        The average speed is <span th:text="${speed?.__${form.resultUnit}__.speed}">30</span> <span
+                            th:text="${form.resultUnit}">km/H</span>
                         for travelling <span th:text="${form.major}">30</span> <span
                             th:text="${form.distanceMajorUnit}">kilometer</span> and <span
                             th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> in
