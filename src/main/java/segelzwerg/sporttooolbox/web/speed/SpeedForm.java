@@ -11,4 +11,5 @@ public class SpeedForm {
     private int second;
     private String distanceMajorUnit;
     private String distanceMinorUnit;
+    private String resultUnit;
 }
