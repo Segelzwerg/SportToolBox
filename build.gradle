@@ -56,7 +56,9 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        excludeTags 'slow'
+    }
 }
 
 apply plugin: 'java'
