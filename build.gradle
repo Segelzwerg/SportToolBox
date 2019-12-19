@@ -56,17 +56,7 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform {
-        excludeTags 'slow'
-    }
-}
-
-task slowTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'slow'
-    }
-    check.dependsOn it
-    shouldRunAfter test
+    useJUnitPlatform()
 }
 
 apply plugin: 'java'
@@ -102,6 +92,5 @@ jacocoTestReport {
         html.enabled = true
     }
 }
-jacocoTestReport.dependsOn test
-jacocoTestReport.dependsOn slowTest
+
 check.dependsOn jacocoTestReport
