@@ -1,6 +1,6 @@
 package segelzwerg.sporttooolbox.web.speed;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,8 +21,16 @@ public class SpeedControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private SpeedForm speedForm;
+
+    @BeforeEach
+    void setUp() {
+        speedForm = new SpeedForm();
+        speedForm.setMajor(10);
+        speedForm.setHour(1);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setResultUnit("kilometerPerHour");
+    }
 
     @Test
     void speed_load_english() throws Exception {
@@ -40,11 +48,6 @@ public class SpeedControllerTest {
 
     @Test
     void speedcalculatingTest() throws Exception {
-        SpeedForm speedForm = new SpeedForm();
-        speedForm.setMajor(10);
-        speedForm.setHour(1);
-        speedForm.setDistanceMajorUnit("kilometer");
-        speedForm.setResultUnit("kilometerPerHour");
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
