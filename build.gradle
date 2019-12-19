@@ -102,5 +102,6 @@ jacocoTestReport {
         html.enabled = true
     }
 }
-
+jacocoTestReport.dependsOn test
+jacocoTestReport.dependsOn slowTest
 check.dependsOn jacocoTestReport
