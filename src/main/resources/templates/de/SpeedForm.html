@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="../static/bootstrap.min.css" rel="stylesheet"
@@ -21,14 +21,24 @@
                     <form method="post" th:object="${form}">
                         <div class="form-group">
                             <label>
-                                Kilometer<input autocomplete="off" class="form-control" th:field="*{kilometer}"
+                                Kilometer<input autocomplete="off" class="form-control" th:field="*{major}"
                                                 type="text" value="30">
                             </label>
+                            <select class="form-control w-auto" th:field="*{distanceMajorUnit}">
+                                <option th:text="Kilometer" th:value="kilometer">Kilometer</option>
+                                <option th:text="Meilen" th:value="miles">miles</option>
+                                <option th:text="Seemeilen" th:value="nautical">nautical miles</option>
+                            </select>
                         </div>
                         <div class="form-group"><label>
-                            Meter<input autocomplete="off" class="form-control" th:field="*{meter}"
+                            Meter<input autocomplete="off" class="form-control" th:field="*{minor}"
                                         type="text" value="0">
                         </label>
+                            <select class="form-control w-auto" th:field="*{distanceMinorUnit}">
+                                <option th:text="Meter" th:value="meter">Meter</option>
+                                <option th:text="Yard" th:value="yards">yards</option>
+                                <option th:text="Faden" th:value="fathoms">fathoms</option>
+                            </select>
                         </div>
                         <div class="form-group"><label>
                             Stunde(n)<input autocomplete="off" class="form-control" th:field="*{hour}"
@@ -45,6 +55,14 @@
                                              type="text" value="0">
                         </label>
                         </div>
+                        <div class="form-group">
+                            <label> Ergebnisseinheit</label>
+                            <select class="form-control w-auto" th:field="*{resultUnit}">
+                                <option th:text="'km/h'" th:value="kilometerPerHour">kmh</option>
+                                <option th:text="'Meilen pro Stunde'" th:value="milesPerHour">mph</option>
+                                <option th:text="Knoten" th:value="knots">knots</option>
+                            </select>
+                        </div>
                         <button class="btn btn-primary" type="submit">Berechne</button>
                     </form>
                 </div>
@@ -58,9 +76,12 @@
                     <h5 class="card-title">Geschwindigkeit</h5>
                     <p class="card-text">
                         Die durchschnittliche Geschwindigkeit ist <span
-                            th:text="${speed?.kilometerPerHour.speed}">30</span> km/h, wenn man
-                        <span th:text="${form.kilometer}">30</span> Kilometer and <span
-                            th:text="${form.meter}">0</span> Meter in
+                            th:text="${speed?.__${form.resultUnit}__.speed}">30</span> <span
+                            th:text="${form.resultUnit}">km/H</span>, wenn man
+                        <span th:text="${form.major}">30</span> <span
+                            th:text="${form.distanceMajorUnit}">kilometer</span> and <span
+                            th:text="${form.minor}">0</span> <span
+                            th:text="${form.distanceMinorUnit}">kilometer</span> in
                         <span th:text="${form.hour}">1</span> Stunde(n), <span th:text="${form.minute}">0</span>
                         Minute(n)
                         <span th:text="${form.second}">0</span> Sekunde(n) zurück legt.
