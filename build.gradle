@@ -65,6 +65,8 @@ task slowTest(type: Test) {
     useJUnitPlatform {
         includeTags 'slow'
     }
+    check.dependsOn it
+    shouldRunAfter test
 }
 
 apply plugin: 'java'
