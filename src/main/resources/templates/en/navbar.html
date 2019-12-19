@@ -1,4 +1,4 @@
-<html lang="nl" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" th:fragment="navbar(active)">
     <ul class="navbar-nav">
@@ -10,6 +10,9 @@
         </li>
         <li class="nav-item" th:class="${active == 'pace'}? 'active' : null">
             <a class="nav-link" href="/pace">Pace</a>
+        </li>
+        <li class="nav-item" th:class="${active == 'heatmap'}? 'active' : null">
+            <a class="nav-link" href="/heatmap">Pace</a>
         </li>
     </ul>
 </nav>

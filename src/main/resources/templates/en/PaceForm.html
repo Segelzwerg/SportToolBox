@@ -60,6 +60,14 @@
                                    type="text" value="0">
                         </label>
                         </div>
+                        <div class="form-group">
+                            <label> Result Unit</label>
+                            <select class="form-control w-auto" th:field="*{resultUnit}">
+                                <option th:text="'Minutes per Kilometer'" th:value="minutesPerKilometer">kmh</option>
+                                <option th:text="'Minutes per 100 Meter'" th:value="minutesPerHundredMeters">mph
+                                </option>
+                            </select>
+                        </div>
                         <button class="btn btn-primary" type="submit">Calculate</button>
                     </form>
                 </div>
@@ -72,7 +80,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
-                        The average pace is <span th:text="${pace?.minutesPerKilometer.toString()}">30</span> Minutes
+                        The average pace is <span th:text="${pace?.__${form.resultUnit}__.toString()}">30</span> Minutes
                         per
                         Kilometer
                         for travelling <span th:text="${form.major}">30</span> <span
