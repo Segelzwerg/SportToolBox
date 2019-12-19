@@ -61,6 +61,12 @@ test {
     }
 }
 
+task slowTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'slow'
+    }
+}
+
 apply plugin: 'java'
 apply plugin: "io.franzbecker.gradle-lombok"
 apply plugin: 'jacoco'
