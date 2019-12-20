@@ -8,15 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.BufferedImage;
 import java.util.Locale;
 
 import static io.florianlopes.spring.test.web.servlet.request.MockMvcRequestBuilderUtils.postForm;
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -33,6 +34,8 @@ public class HeatMapControllerTest {
     private HeatMapService heatMapService;
     @Autowired
     private MockMvc mockMvc;
+    @Mock
+    private BufferedImage bufferedImage;
 
     @Test
     void speed_load_english() throws Exception {
@@ -70,5 +73,15 @@ public class HeatMapControllerTest {
         doThrow(new UnirestException("")).when(heatMapService).generate();
         mockMvc.perform(post("/heatmap/generate"))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void getImage_test() throws Exception {
+        mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
+        when(heatMapService.getImage()).thenReturn(bufferedImage);
+
+        ResultActions perform = mockMvc.perform(get("/heatmap/getImage"));
+        perform.andExpect(status().is3xxRedirection());
+
     }
 }
