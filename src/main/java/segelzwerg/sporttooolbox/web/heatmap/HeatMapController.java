@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
@@ -41,9 +42,7 @@ public class HeatMapController {
 
     @PostMapping("/heatmap/generate")
     public String generate() throws UnirestException {
-
         heatMapService.generate();
-
         return "redirect:/heatmap/getImage";
 
     }
@@ -64,5 +63,9 @@ public class HeatMapController {
         return new ResponseEntity<>(bytes, httpHeaders, HttpStatus.OK);
     }
 
+    @ExceptionHandler(UnirestException.class)
+    public String error() {
+        return "/heatmap";
+    }
 
 }

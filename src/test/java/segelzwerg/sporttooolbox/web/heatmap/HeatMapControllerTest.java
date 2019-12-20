@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Locale;
 
 import static io.florianlopes.spring.test.web.servlet.request.MockMvcRequestBuilderUtils.postForm;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
@@ -69,7 +68,7 @@ public class HeatMapControllerTest {
     void generate_exception() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         doThrow(new UnirestException("")).when(heatMapService).generate();
-        assertThrows(Exception.class, () -> mockMvc.perform(post("/heatmap/generate"))
-                .andReturn());
+        mockMvc.perform(post("/heatmap/generate"))
+                .andExpect(status().isOk());
     }
 }
