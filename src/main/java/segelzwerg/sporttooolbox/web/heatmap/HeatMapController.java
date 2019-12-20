@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
+import segelzwerg.sporttooolbox.web.ImageService;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -24,9 +23,11 @@ import java.io.IOException;
 public class HeatMapController {
     private HeatMapService heatMapService;
     private BufferedImage heatmap;
+    private ImageService imageService;
 
-    public HeatMapController(HeatMapService heatMapService) {
+    public HeatMapController(HeatMapService heatMapService, ImageService imageService) {
         this.heatMapService = heatMapService;
+        this.imageService = imageService;
     }
 
     @GetMapping("/heatmap")
@@ -62,9 +63,7 @@ public class HeatMapController {
     public ResponseEntity<byte[]> getHeatmapFile() throws IOException {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.IMAGE_PNG);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(heatmap, "png", baos);
-        byte[] bytes = baos.toByteArray();
+        byte[] bytes = imageService.getImageBytes(heatmap);
         return new ResponseEntity<>(bytes, httpHeaders, HttpStatus.OK);
     }
 
