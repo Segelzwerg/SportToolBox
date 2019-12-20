@@ -41,13 +41,9 @@ public class HeatMapController {
 
     @PostMapping("/heatmap/generate")
     public String generate() throws UnirestException {
-        try {
-            heatMapService.generate();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "redirect:/heatmap";
-        }
+        heatMapService.generate();
+
         return "redirect:/heatmap/getImage";
 
     }
