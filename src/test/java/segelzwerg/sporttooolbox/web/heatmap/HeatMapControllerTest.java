@@ -7,10 +7,12 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.multipart.MultipartFile;
+import segelzwerg.sporttooolbox.web.ImageService;
 
 import java.awt.image.BufferedImage;
 import java.util.Locale;
@@ -36,6 +38,8 @@ public class HeatMapControllerTest {
     private MockMvc mockMvc;
     @Mock
     private BufferedImage bufferedImage;
+    @Mock
+    private ImageService imageService;
 
     @Test
     void speed_load_english() throws Exception {
@@ -92,5 +96,16 @@ public class HeatMapControllerTest {
 
         ResultActions perform = mockMvc.perform(get("/heatmap/getImage"));
         perform.andExpect(status().isOk());
+    }
+
+    @Test
+    void heatmap_file_test() throws Exception {
+        byte[] bytes = "test".getBytes();
+        mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
+        when(imageService.getImageBytes(isA(BufferedImage.class))).thenReturn(bytes);
+
+        mockMvc.perform(get("/heatmap-file")
+                .accept(MediaType.IMAGE_PNG))
+                .andExpect(status().isOk());
     }
 }
