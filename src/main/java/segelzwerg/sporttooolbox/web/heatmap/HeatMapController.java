@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Controller
@@ -49,7 +50,11 @@ public class HeatMapController {
 
     @GetMapping("/heatmap/getImage")
     public String getImage() throws IOException, UnirestException {
-        this.heatmap = heatMapService.getImage();
+        BufferedImage image = heatMapService.getImage();
+        if (image == null) {
+            throw new FileNotFoundException("There is no generated file on the server.");
+        }
+        this.heatmap = image;
         return "redirect:/heatmap";
     }
 
@@ -63,7 +68,7 @@ public class HeatMapController {
         return new ResponseEntity<>(bytes, httpHeaders, HttpStatus.OK);
     }
 
-    @ExceptionHandler(UnirestException.class)
+    @ExceptionHandler({UnirestException.class, FileNotFoundException.class})
     public String error() {
         return "/heatmap";
     }

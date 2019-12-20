@@ -84,4 +84,13 @@ public class HeatMapControllerTest {
         perform.andExpect(status().is3xxRedirection());
 
     }
+
+    @Test
+    void getImage_exception_test() throws Exception {
+        mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
+        when(heatMapService.getImage()).thenReturn(null);
+
+        ResultActions perform = mockMvc.perform(get("/heatmap/getImage"));
+        perform.andExpect(status().isOk());
+    }
 }
