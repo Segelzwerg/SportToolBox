@@ -20,7 +20,7 @@ import java.io.IOException;
 @Controller
 @SessionScope
 public class HeatMapController {
-    private final HeatMapService heatMapService;
+    private HeatMapService heatMapService;
     private BufferedImage heatmap;
 
     public HeatMapController(HeatMapService heatMapService) {
