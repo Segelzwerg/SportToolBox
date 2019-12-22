@@ -7,6 +7,8 @@ SportToolBox is a website where you calculate different metrics used in sport. I
 
 ## Usage
 
+_**Warning:** Currently heroku deployment is not updated. This is due to the complicated way of deploying docker compose images.
+
 The first feature is a simple speed calculator that accepts distance in km or m and time in ```h:m:s``` to calculate speed in km/h.
 
 Clone the project and simple run `docker-compose up` in your command line. Than open your browser on `localhost:8080`.
