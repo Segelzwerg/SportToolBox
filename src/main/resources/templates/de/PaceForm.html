@@ -12,6 +12,9 @@
     <div class="row">
         <h1>Pace Rechner</h1>
     </div>
+    <form action="/pace/autodistance" method="post" th:object="${form}">
+        <div th:insert="autofill-distance-buttons :: distance-buttons"></div>
+    </form>
     <div class="row">
         <div class="col-sm">
             <div class="card">

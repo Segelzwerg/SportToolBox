@@ -12,8 +12,8 @@
     <div class="row">
         <h1>Pace Calculator</h1>
     </div>
-    <form method="post" th:object="${distance}">
-        <div th:insert="autofill-distance-buttons :: distance-buttons(pace)"></div>
+    <form action="/pace/autodistance" method="post" th:object="${form}">
+        <div th:insert="autofill-distance-buttons :: distance-buttons"></div>
     </form>
     <div class="row">
         <div class="col-sm">
