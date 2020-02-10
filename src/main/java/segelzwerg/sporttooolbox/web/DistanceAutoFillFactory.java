@@ -77,6 +77,6 @@ public class DistanceAutoFillFactory {
         } else if (unit.compareTo("mi") == 0) {
             return "miles";
         }
-        return "";
+        throw new IllegalArgumentException("No matching major unit.");
     }
 }
