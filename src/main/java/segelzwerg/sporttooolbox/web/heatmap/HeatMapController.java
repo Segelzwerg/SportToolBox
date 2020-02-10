@@ -61,6 +61,7 @@ public class HeatMapController {
     @GetMapping("/heatmap-file")
     public ResponseEntity<byte[]> getHeatmapFile() throws IOException {
         if (heatmap == null) {
+            System.out.println("Heatmap is not loaded");
             throw new NullPointerException("There is no heatmap loaded.");
         }
         HttpHeaders httpHeaders = new HttpHeaders();
