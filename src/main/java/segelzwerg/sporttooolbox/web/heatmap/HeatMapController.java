@@ -55,15 +55,13 @@ public class HeatMapController {
     @GetMapping("/heatmap/getImage")
     public String getImage() throws IOException, UnirestException {
         this.heatmap = heatMapService.getImage();
+        checkHeatMap();
         return "redirect:/heatmap";
     }
 
     @GetMapping("/heatmap-file")
     public ResponseEntity<byte[]> getHeatmapFile() throws IOException {
-        if (heatmap == null) {
-            System.out.println("Heatmap is not loaded");
-            throw new NullPointerException("There is no heatmap loaded.");
-        }
+        checkHeatMap();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.IMAGE_PNG);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -72,5 +70,11 @@ public class HeatMapController {
         return new ResponseEntity<>(bytes, httpHeaders, HttpStatus.OK);
     }
 
+    private void checkHeatMap() {
+        if (heatmap == null) {
+            System.out.println("Heatmap is not loaded");
+            throw new NullPointerException("There is no heatmap loaded.");
+        }
+    }
 
 }
