@@ -3,6 +3,7 @@ package segelzwerg.sporttooolbox.web.heatmap;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,9 +17,11 @@ import java.util.Objects;
 @Component
 public class HeatMapService {
     private Integer sessionId = null;
+    @Value(value = "${heatmap.service.url}")
+    private String heatmapProviderURL;
 
     public void requestSessionId() throws UnirestException {
-        this.sessionId = Integer.parseInt(Unirest.get("http://heatmap-provider:5000/create-session")
+        this.sessionId = Integer.parseInt(Unirest.get(heatmapProviderURL + "/create-session")
                 .asString()
                 .getBody());
     }
@@ -29,21 +32,21 @@ public class HeatMapService {
         }
         File originalFile = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") + Objects.requireNonNull(file.getOriginalFilename()));
         file.transferTo(originalFile);
-        Unirest.post("http://heatmap-provider:5000/upload")
+        Unirest.post(heatmapProviderURL + "/upload")
                 .field("session", sessionId)
                 .field("file", originalFile)
                 .asBinary().getBody();
     }
 
     public void generate() throws UnirestException {
-        Unirest.post("http://heatmap-provider:5000/generate")
+        Unirest.post(heatmapProviderURL + "/generate")
                 .field("session", sessionId)
                 .asString().getBody();
     }
 
     public BufferedImage getImage() throws UnirestException, IOException {
 
-        HttpResponse<InputStream> session = Unirest.post("http://heatmap-provider:5000/get-image")
+        HttpResponse<InputStream> session = Unirest.post(heatmapProviderURL + "get-image")
                 .field("session", sessionId)
                 .asBinary();
         InputStream rawBody = session
