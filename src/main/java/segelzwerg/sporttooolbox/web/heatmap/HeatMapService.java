@@ -53,10 +53,7 @@ public class HeatMapService {
             InputStream rawBody = session
                     .getRawBody();
             return ImageIO.read(rawBody);
-        } catch (UnirestException e) {
-            e.printStackTrace();
-            throw e;
-        } catch (IOException e) {
+        } catch (UnirestException | IOException e) {
             e.printStackTrace();
             throw e;
         }
