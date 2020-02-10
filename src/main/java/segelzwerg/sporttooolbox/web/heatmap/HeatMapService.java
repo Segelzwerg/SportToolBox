@@ -46,7 +46,7 @@ public class HeatMapService {
 
     public BufferedImage getImage() throws UnirestException, IOException {
 
-        HttpResponse<InputStream> session = Unirest.post(heatmapProviderURL + "get-image")
+        HttpResponse<InputStream> session = Unirest.post(heatmapProviderURL + "/get-image")
                 .field("session", sessionId)
                 .asBinary();
         InputStream rawBody = session
