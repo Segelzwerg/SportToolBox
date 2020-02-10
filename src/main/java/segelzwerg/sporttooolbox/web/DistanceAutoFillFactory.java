@@ -11,7 +11,7 @@ public class DistanceAutoFillFactory {
         int major = getMajor(distance);
         int minor = getMinor(distance);
         String majorDistanceUnit = getMajorDistance(distance);
-        String minorDistanceUnit = getMinorUnit(distance);
+        String minorDistanceUnit = getMinorUnit(majorDistanceUnit);
 
         String resultUnit = getResultUnit(majorDistanceUnit);
 
@@ -58,11 +58,11 @@ public class DistanceAutoFillFactory {
         return "Kilometer";
     }
 
-    private static String getMinorUnit(String distance) {
-        if (distance.compareTo("Marathon") == 0 || distance.compareTo("Halfmarathon") == 0) {
-            return "Meter";
+    private static String getMinorUnit(String majorUnit) {
+        if (majorUnit.compareTo("miles") == 0) {
+            return "yards";
         }
-        return "";
+        return "Meter";
     }
 
     private static int getDistanceWithoutUnit(String distance) {
