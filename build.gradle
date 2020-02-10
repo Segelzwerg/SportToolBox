@@ -52,6 +52,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    // https://mvnrepository.com/artifact/io.florianlopes/spring-mvc-test-utils
+    compile group: 'io.florianlopes', name: 'spring-mvc-test-utils', version: '2.2.1'
 }
 
 test {
@@ -60,6 +62,7 @@ test {
 
 apply plugin: 'java'
 apply plugin: "io.franzbecker.gradle-lombok"
+apply plugin: 'jacoco'
 
 import io.franzbecker.gradle.lombok.task.DelombokTask
 
@@ -83,3 +86,12 @@ task generateJavadocs(type: Javadoc) {
     destinationDir = reporting.file("javadocs")
     failOnError = false;
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport

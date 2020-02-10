@@ -6,11 +6,16 @@ import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.SpeedCalculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Speed calculating service
  */
 @Component
 public class SpeedService {
+    List<String> validSpeedUnits = new ArrayList<>(Arrays.asList("kilometerPerHour", "milesPerHour", "knots"));
 
     /**
      * Calculate speed
@@ -19,8 +24,13 @@ public class SpeedService {
      * @return calculated speed
      */
     public Speed calculateSpeed(SpeedForm form) {
-        String majorUnit = form.getDistanceMajorUnit();
-        String minorUnit = form.getDistanceMinorUnit();
+
+        String majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
+        String minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
+        String resultUnit = ((resultUnit = form.getResultUnit()) != null) ? resultUnit : "kilometerPerHour";
+
+        checkValidUnit(validSpeedUnits, resultUnit);
+
         int major = form.getMajor();
         int minor = form.getMinor();
         Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);
@@ -35,5 +45,10 @@ public class SpeedService {
         return speedCalculator.computeSpeed();
     }
 
+    private void checkValidUnit(List<String> validUnits, String unit) {
+        if (!validUnits.contains(unit)) {
+            throw new IllegalArgumentException("This is not a valid unit: " + unit);
+        }
+    }
 
 }
