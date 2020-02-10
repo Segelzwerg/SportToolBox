@@ -46,11 +46,21 @@ public class HeatMapService {
 
     public BufferedImage getImage() throws UnirestException, IOException {
 
-        HttpResponse<InputStream> session = Unirest.post(heatmapProviderURL + "/get-image")
-                .field("session", sessionId)
-                .asBinary();
-        InputStream rawBody = session
-                .getRawBody();
-        return ImageIO.read(rawBody);
+        try {
+            HttpResponse<InputStream> session = Unirest.post(heatmapProviderURL + "/get-image")
+                    .field("session", sessionId)
+                    .asBinary();
+            InputStream rawBody = session
+                    .getRawBody();
+            return ImageIO.read(rawBody);
+        } catch (UnirestException e) {
+            System.out.println("The was not data sent.");
+            e.printStackTrace();
+            throw e;
+        } catch (IOException e) {
+            System.out.println("Conversion to png failed.");
+            e.printStackTrace();
+            throw e;
+        }
     }
 }
