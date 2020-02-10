@@ -61,6 +61,7 @@ public class HeatMapController {
 
     @GetMapping("/heatmap-file")
     public ResponseEntity<byte[]> getHeatmapFile() throws IOException {
+        checkHeatMap();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.IMAGE_PNG);
         byte[] bytes = imageService.getImageBytes(heatmap);
