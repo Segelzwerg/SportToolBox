@@ -5,6 +5,7 @@ import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DistanceAutoFillFactoryTest {
 
@@ -46,6 +47,11 @@ class DistanceAutoFillFactoryTest {
 
         assertThat(form, equalTo(expectedSpeedForm));
 
+    }
+
+    @Test
+    void InvalidUnitTest() {
+        assertThrows(IllegalArgumentException.class, () -> DistanceAutoFillFactory.autoDistance("1000Lichtjahre"));
     }
 
     private SpeedForm hundredMiles() {
