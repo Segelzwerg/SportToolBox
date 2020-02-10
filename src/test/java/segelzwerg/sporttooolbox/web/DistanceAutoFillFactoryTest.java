@@ -38,6 +38,16 @@ class DistanceAutoFillFactoryTest {
 
     }
 
+    @Test
+    void HalfMarathon() {
+        SpeedForm expectedSpeedForm = halfmarathon();
+
+        SpeedForm form = DistanceAutoFillFactory.autoDistance("Halfmarathon");
+
+        assertThat(form, equalTo(expectedSpeedForm));
+
+    }
+
     private SpeedForm hundredMiles() {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
@@ -60,6 +70,16 @@ class DistanceAutoFillFactoryTest {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(42);
         speedForm.setMinor(195);
+        speedForm.setDistanceMajorUnit("Kilometer");
+        speedForm.setDistanceMinorUnit("Meter");
+        speedForm.setResultUnit("KilometerPerHour");
+        return speedForm;
+    }
+
+    private SpeedForm halfmarathon() {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(21);
+        speedForm.setMinor((int) 97.5);
         speedForm.setDistanceMajorUnit("Kilometer");
         speedForm.setDistanceMinorUnit("Meter");
         speedForm.setResultUnit("KilometerPerHour");
