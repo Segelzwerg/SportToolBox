@@ -72,7 +72,6 @@ public class HeatMapController {
 
     private void checkHeatMap() {
         if (heatmap == null) {
-            System.out.println("Heatmap is not loaded");
             throw new NullPointerException("There is no heatmap loaded.");
         }
     }

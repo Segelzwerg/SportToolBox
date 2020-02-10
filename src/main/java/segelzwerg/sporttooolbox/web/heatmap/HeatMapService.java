@@ -54,11 +54,9 @@ public class HeatMapService {
                     .getRawBody();
             return ImageIO.read(rawBody);
         } catch (UnirestException e) {
-            System.out.println("The was not data sent.");
             e.printStackTrace();
             throw e;
         } catch (IOException e) {
-            System.out.println("Conversion to png failed.");
             e.printStackTrace();
             throw e;
         }
