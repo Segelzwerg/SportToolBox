@@ -42,7 +42,7 @@ class DistanceAutoFillFactoryTest {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
         speedForm.setDistanceMajorUnit("miles");
-        speedForm.setDistanceMinorUnit("");
+        speedForm.setDistanceMinorUnit("yards");
         speedForm.setResultUnit("MilesPerHour");
         return speedForm;
     }
@@ -51,7 +51,7 @@ class DistanceAutoFillFactoryTest {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
         speedForm.setDistanceMajorUnit("Kilometer");
-        speedForm.setDistanceMinorUnit("");
+        speedForm.setDistanceMinorUnit("Meter");
         speedForm.setResultUnit("KilometerPerHour");
         return speedForm;
     }
