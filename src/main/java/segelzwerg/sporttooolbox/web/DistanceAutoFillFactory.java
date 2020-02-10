@@ -13,13 +13,22 @@ public class DistanceAutoFillFactory {
         String majorDistanceUnit = getMajorDistance(distance);
         String minorDistanceUnit = getMinorUnit(distance);
 
+        String resultUnit = getResultUnit(majorDistanceUnit);
+
         speedForm.setMajor(major);
         speedForm.setMinor(minor);
         speedForm.setDistanceMajorUnit(majorDistanceUnit);
         speedForm.setDistanceMinorUnit(minorDistanceUnit);
-        speedForm.setResultUnit(majorDistanceUnit);
+        speedForm.setResultUnit(resultUnit);
 
         return speedForm;
+    }
+
+    private static String getResultUnit(String majorDistanceUnit) {
+        if (majorDistanceUnit.compareTo("miles") == 0) {
+            return "MilesPerHour";
+        }
+        return "KilometerPerHour";
     }
 
     private static int getMajor(String distance) {
