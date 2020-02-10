@@ -12,6 +12,7 @@ import java.util.Locale;
 
 import static io.florianlopes.spring.test.web.servlet.request.MockMvcRequestBuilderUtils.postForm;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -50,5 +51,10 @@ public class SpeedControllerTest {
     void speedcalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
+    }
+
+    @Test
+    void autoDistanceTest() throws Exception {
+        mockMvc.perform(post("/speed/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
     }
 }
