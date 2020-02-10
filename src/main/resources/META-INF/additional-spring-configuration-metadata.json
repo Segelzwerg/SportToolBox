@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "heatmap.service.url",
+      "type": "java.lang.String",
+      "description": "Save the url for the heatmap provider service."
+    }
+  ]
+}
