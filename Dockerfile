@@ -2,8 +2,8 @@ FROM gradle:jdk11 AS BUILD
 
 MAINTAINER Marcel Haas
 
-WORKDIR /app
-COPY ./ /app
+WORKDIR /home/gradle/src
+COPY . .
 RUN gradle bootJar
 
 
