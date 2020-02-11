@@ -55,4 +55,17 @@ class SpeedFactoryTest {
     void invalidUnit() {
         assertThrows(IllegalArgumentException.class, () -> SpeedFactory.createSpeedFromUnit(value, "invalidUnit"));
     }
+
+    @SuppressWarnings("ConstantConditions")
+    @Test
+    void nullUnit() {
+        String unit = null;
+        assertThrows(NullPointerException.class, () -> SpeedFactory.createSpeedFromUnit(value, unit));
+    }
+
+    @Test
+    void nullValue() {
+        Float value = null;
+        assertThrows(NullPointerException.class, () -> SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour"));
+    }
 }
