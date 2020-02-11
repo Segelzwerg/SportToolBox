@@ -1,9 +1,8 @@
-package segelzwerg.sporttooolbox.web;
+package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.SpeedCalculator;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;

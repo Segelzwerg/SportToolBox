@@ -109,4 +109,14 @@ public class Distance {
     public Pace computePace(Time time) {
         return time.computePace(kilometer, meter);
     }
+
+    /**
+     * computes the time for a given speed
+     *
+     * @param speed {@link Speed}
+     * @return {@link Time}
+     */
+    public Time computeTime(Speed speed) {
+        return speed.computeTime(kilometer, meter);
+    }
 }
