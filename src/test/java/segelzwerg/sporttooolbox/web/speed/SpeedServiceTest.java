@@ -52,7 +52,7 @@ class SpeedServiceTest {
         speedForm.setMinor(300);
         speedForm.setDistanceMajorUnit("kilometer");
         speedForm.setDistanceMinorUnit("meter");
-        speedForm.setSpeed(new KilometerPerHour(12));
+        speedForm.setSpeed(12);
         speedForm.setSpeedUnit("kilometerPerHour");
 
         Time time = speedService.calculateTime(speedForm);

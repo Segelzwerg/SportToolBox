@@ -16,14 +16,15 @@ class TimeCalculatorFactoryTest {
         int meter = 455;
         String majorUnit = "kilometer";
         String minorUnit = "meter";
-        Speed speed = new KilometerPerHour((float) (10.455 / 0.4));
+        float speedValue = (float) (10.455 / 0.4);
+        Speed speed = new KilometerPerHour(speedValue);
 
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(kilometer);
         speedForm.setMinor(meter);
         speedForm.setDistanceMajorUnit(majorUnit);
         speedForm.setDistanceMinorUnit(minorUnit);
-        speedForm.setSpeed(speed);
+        speedForm.setSpeed(speedValue);
 
         Distance distance = new Distance(kilometer, meter);
 
