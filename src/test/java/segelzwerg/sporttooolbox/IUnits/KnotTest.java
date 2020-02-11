@@ -97,7 +97,8 @@ public class KnotTest {
     @Test
     void computeTime() {
         Knot knots = new Knot((float) 17.63);
-        Time time = knots.computeTime(25, 27);
+        float fathoms = (float) (0.270 / Knot.FATHOMS_TO_NAUTICAL_MILES);
+        Time time = knots.computeTime(25, fathoms);
 
         Time expectedTime = new Time(1, 26, 0);
 
