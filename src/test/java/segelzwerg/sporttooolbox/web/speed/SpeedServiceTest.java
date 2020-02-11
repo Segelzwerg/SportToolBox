@@ -23,7 +23,7 @@ class SpeedServiceTest {
     }
 
     @Test
-    void only_kilometer() {
+    void only_kilometer_test_speed() {
         speedForm.setDistanceMajorUnit("kilometer");
 
         Speed speed = speedService.calculateSpeed(speedForm);
