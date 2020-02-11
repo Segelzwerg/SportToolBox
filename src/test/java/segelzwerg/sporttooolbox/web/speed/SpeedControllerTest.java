@@ -30,7 +30,7 @@ public class SpeedControllerTest {
         speedForm.setMajor(10);
         speedForm.setHour(1);
         speedForm.setDistanceMajorUnit("kilometer");
-        speedForm.setResultUnit("kilometerPerHour");
+        speedForm.setSpeedUnit("kilometerPerHour");
     }
 
     @Test
