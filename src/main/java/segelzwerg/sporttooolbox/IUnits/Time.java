@@ -65,6 +65,7 @@ public class Time {
         int hour = getOnlyHours();
         int minute = getOnlyMinutes();
         int second = getOnlySeconds();
+        //TODO: multilanguage support
         return hour + " hour(s), " + minute + " minute(s) and " + second + " second(s)";
     }
 
