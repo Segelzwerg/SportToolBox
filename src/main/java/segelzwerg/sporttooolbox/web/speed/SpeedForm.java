@@ -1,8 +1,6 @@
 package segelzwerg.sporttooolbox.web.speed;
 
 import lombok.Data;
-import segelzwerg.sporttooolbox.IUnits.Pace;
-import segelzwerg.sporttooolbox.IUnits.Speed;
 
 @Data
 public class SpeedForm {
@@ -21,8 +19,8 @@ public class SpeedForm {
      */
     @Deprecated
     private String resultUnit;
-    private Speed speed;
+    private float speed;
     private String speedUnit;
-    private Pace pace;
+    private float pace;
     private String paceUnit;
 }
