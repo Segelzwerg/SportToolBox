@@ -64,9 +64,11 @@
                                    type="text" value="0">
                         </label>
                         </div>
+
                         <div class="form-group">
-                            <label> Result Unit</label>
-                            <select class="form-control w-auto" th:field="*{resultUnit}">
+                            <label>Speed<input autocomplete="off" class="form-control" th:field="*{speed}" type="text"
+                                               value="0"></label>
+                            <select class="form-control w-auto" th:field="*{speedUnit}">
                                 <option th:text="kph" th:value="kilometerPerHour">kmh</option>
                                 <option th:text="mph" th:value="milesPerHour">mph</option>
                                 <option th:text="knots" th:value="knots">knots</option>
