@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode
 public class Distance {
+    public static final double MILES_TO_YARDS = 1760.0;
     private final float kilometer;
     private final float meter;
 
