@@ -9,6 +9,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 class TimeCalculatorTest {
+    /**
+     * test for 60km with 12kph
+     *
+     * @result {@link Time} with 5 hours, 0 minutes and 0 seconds
+     */
     @Test
     void sixty_kilometer_with_twelve_kph() {
         Distance sixtyKilometer = new Distance(60);
