@@ -23,4 +23,11 @@ public interface Pace {
      * @return an instance of Pace
      */
     Pace toMinutesPerHundredMeters();
+
+    /**
+     * converts the pace to Kilometer Per Hour
+     *
+     * @return {@link segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour}
+     */
+    Speed getSpeed();
 }

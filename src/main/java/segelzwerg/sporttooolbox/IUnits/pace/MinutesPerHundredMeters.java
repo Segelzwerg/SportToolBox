@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 
 /**
@@ -35,6 +36,12 @@ public class MinutesPerHundredMeters implements Pace {
     @Override
     public Pace toMinutesPerHundredMeters() {
         return this;
+    }
+
+    @Override
+    public Speed getSpeed() {
+        float speedValue = Math.round((1 / pace) * 600f) / 100f;
+        return new KilometerPerHour(speedValue);
     }
 
     /**
