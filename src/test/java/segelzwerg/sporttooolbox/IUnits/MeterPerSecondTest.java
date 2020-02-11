@@ -26,6 +26,7 @@ public class MeterPerSecondTest {
      * toKilometerPerHour
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 108.0
+     *
      * @result 30m/s = 108.0km/h
      */
     @Test
@@ -40,6 +41,7 @@ public class MeterPerSecondTest {
      * toMeterPerSecond
      * Speed: thirtyMetersPerSecond
      * Expected Speed: thirtyMetersPerSecond
+     *
      * @result thirtyMetersPerSecond return itself
      */
     @Test
@@ -53,6 +55,7 @@ public class MeterPerSecondTest {
      * toMilePerHour
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 67.108086
+     *
      * @result 30m/s = 67.108086mph
      */
     @Test
@@ -66,6 +69,7 @@ public class MeterPerSecondTest {
      * toKnot
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 58.315334
+     *
      * @result 30m/s = 58.315334kn
      */
     @Test
