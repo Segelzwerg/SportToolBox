@@ -25,6 +25,7 @@ public class KnotTest {
      * toKilometerPerHour
      * Speed: thirtyKnots
      * Expected Speed: 55.56
+     *
      * @result 30kn = 55.56mph
      */
     @Test
@@ -39,6 +40,7 @@ public class KnotTest {
      * toMeterPerSecond
      * Speed: thirtyKnots
      * Expected Speed: 15.433334
+     *
      * @result 30kn = 15.433334mph
      */
     @Test
@@ -52,6 +54,7 @@ public class KnotTest {
      * toMilePerHour
      * Speed: thirtyKnots
      * Expected Speed: 34.523384
+     *
      * @result 30kn = 34.523384mph
      */
     @Test
@@ -65,6 +68,7 @@ public class KnotTest {
      * toKnot
      * Speed: thirtyKnots
      * Expected Speed: thirtyKnots
+     *
      * @result thirtyKnots return itself
      */
     @Test
@@ -83,5 +87,20 @@ public class KnotTest {
     @Test
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new Knot(-1));
+    }
+
+    /**
+     * tests calculating a time needed for given a distance
+     * Speed: 17.63 knots
+     * Distance: 25.27 nm
+     */
+    @Test
+    void computeTime() {
+        Knot knots = new Knot((float) 17.63);
+        Time time = knots.computeTime(25, 27);
+
+        Time expectedTime = new Time(1, 26, 0);
+
+        assertThat(time, equalTo(expectedTime));
     }
 }
