@@ -65,4 +65,17 @@ public class KilometerPerHour implements Speed {
     public Speed format() {
         return new KilometerPerHour((float) (Math.round(speed * 100.0) / 100.0));
     }
+
+    /**
+     * computes the time for a given distance
+     *
+     * @param kilometer integer of the distance in kilometer
+     * @param meter     decimal of distance as integer
+     * @return {@link Time} in hours, minutes and seconds
+     */
+    @Override
+    public Time computeTime(float kilometer, float meter) {
+        float time = (kilometer + meter / 1000) / speed;
+        return new Time(time);
+    }
 }
