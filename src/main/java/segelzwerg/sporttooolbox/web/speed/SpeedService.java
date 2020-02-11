@@ -29,9 +29,9 @@ public class SpeedService {
 
         String majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
         String minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-        String resultUnit = ((resultUnit = form.getResultUnit()) != null) ? resultUnit : "kilometerPerHour";
+        String speedUnit = ((speedUnit = form.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
 
-        checkValidUnit(validSpeedUnits, resultUnit);
+        checkValidUnit(validSpeedUnits, speedUnit);
 
         SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, majorUnit, minorUnit);
 

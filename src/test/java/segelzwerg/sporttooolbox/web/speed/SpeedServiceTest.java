@@ -77,7 +77,7 @@ class SpeedServiceTest {
 
     @Test
     void invalidResultUnit() {
-        speedForm.setResultUnit("abc");
+        speedForm.setSpeedUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
     }

@@ -19,7 +19,7 @@ public class DistanceAutoFillFactory {
         speedForm.setMinor(minor);
         speedForm.setDistanceMajorUnit(majorDistanceUnit);
         speedForm.setDistanceMinorUnit(minorDistanceUnit);
-        speedForm.setResultUnit(resultUnit);
+        speedForm.setSpeedUnit(resultUnit);
 
         return speedForm;
     }

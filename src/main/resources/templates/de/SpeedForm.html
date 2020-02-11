@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label> Ergebnisseinheit</label>
-                            <select class="form-control w-auto" th:field="*{resultUnit}">
+                            <select class="form-control w-auto" th:field="*{speedUnit}">
                                 <option th:text="'km/h'" th:value="kilometerPerHour">kmh</option>
                                 <option th:text="'Meilen pro Stunde'" th:value="milesPerHour">mph</option>
                                 <option th:text="Knoten" th:value="knots">knots</option>
@@ -79,7 +79,7 @@
                     <h5 class="card-title">Geschwindigkeit</h5>
                     <p class="card-text">
                         Die durchschnittliche Geschwindigkeit ist <span
-                            th:text="${speed?.__${form.resultUnit}__.speed}">30</span> <span
+                            th:text="${speed?.__${form.speedUnit}__.speed}">30</span> <span
                             th:text="${form.resultUnit}">km/H</span>, wenn man
                         <span th:text="${form.major}">30</span> <span
                             th:text="${form.distanceMajorUnit}">kilometer</span> and <span
