@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Knot implements Speed {
+    public static final double FATHOMS_TO_NAUTICAL_MILES = 1 / 1013.3333334;
     private final float speed;
 
     public Knot(float speed) {
@@ -67,7 +68,8 @@ public class Knot implements Speed {
     }
 
     @Override
-    public Time computeTime(float kilometer, float meter) {
-        return null;
+    public Time computeTime(float nauticalMiles, float fathoms) {
+        float time = (float) ((nauticalMiles + fathoms * FATHOMS_TO_NAUTICAL_MILES) / speed);
+        return new Time(time);
     }
 }
