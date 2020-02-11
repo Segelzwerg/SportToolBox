@@ -96,6 +96,21 @@
                     </p>
                 </div>
             </div>
+            <div class="card" th:if="${time != null}">
+                <div class="card-body">
+                    <h5 class="card-title">Speed</h5>
+                    <p class="card-text">
+                        The time needed for travelling <span
+                            th:text="${form.resultUnit}">km/H</span>
+                        for travelling <span th:text="${form.major}">30</span> <span
+                            th:text="${form.distanceMajorUnit}">kilometer</span> and <span
+                            th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> with
+                        <span th:text="${form.speed}">30</span> <span
+                            th:text="${form.speedUnit}">Kilometer per Hour</span>
+                        is <span th:text="${time.toString()}">1 hour</span>.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
