@@ -1,5 +1,7 @@
 package segelzwerg.sporttooolbox.IUnits;
+
 import lombok.EqualsAndHashCode;
+
 /**
  * Time in hours, minutes and second
  */
@@ -23,9 +25,19 @@ public class Time {
     }
 
     /**
+     * converts the time from float to seconds in long
+     *
+     * @param time in hour decimals: HH.XXX
+     */
+    public Time(float time) {
+        seconds = (long) (time * 3600);
+    }
+
+    /**
      * Compute speed on specific distance
+     *
      * @param kilometer amount of kilometers
-     * @param meter amount of meters
+     * @param meter     amount of meters
      * @return calculated speed
      */
     public Speed computeSpeed(float kilometer, float meter) {
@@ -34,8 +46,9 @@ public class Time {
 
     /**
      * Compute pace given some distances
+     *
      * @param kilometer amount of kilometers
-     * @param meter amout of meters
+     * @param meter     amout of meters
      * @return calculated pace
      */
     public Pace computePace(float kilometer, float meter) {
@@ -44,8 +57,9 @@ public class Time {
 
     /**
      * Get meters from parameters
+     *
      * @param kilometer amount of kilometers
-     * @param meter amount of meters
+     * @param meter     amount of meters
      * @return numeric representation of meters
      */
     private float getMeters(float kilometer, float meter) {
@@ -54,6 +68,7 @@ public class Time {
 
     /**
      * Get minutes from class properties
+     *
      * @return numeric representation of minutes
      */
     private float getMinutes() {
