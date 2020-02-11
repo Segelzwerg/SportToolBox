@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.KilometerPerHour;
 import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.IUnits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -42,6 +43,21 @@ class SpeedServiceTest {
 
         Speed expectedSpeed = new KilometerPerHour((float) 22.5);
         assertThat(speed, equalTo(expectedSpeed));
+    }
+
+    @Test
+    void distance_speed_test_time() {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(34);
+        speedForm.setMinor(300);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+        speedForm.setSpeed(new KilometerPerHour(12));
+
+        Time time = speedService.calculateTime(speedForm);
+
+        Time expectedTime = new Time(2, 51, 30);
+        assertThat(time, equalTo(expectedTime));
     }
 
     @Test
