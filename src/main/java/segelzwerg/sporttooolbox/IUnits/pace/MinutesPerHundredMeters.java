@@ -14,7 +14,7 @@ public class MinutesPerHundredMeters implements Pace {
     private final float pace;
 
     public MinutesPerHundredMeters(float pace) {
-        this.pace = pace;
+        this.pace = Math.round(pace * 1000.0) / 1000.0f;
     }
 
     /**

@@ -14,7 +14,7 @@ public class MinutesPerKilometer implements Pace {
     private final float pace;
 
     public MinutesPerKilometer(float pace) {
-        this.pace = pace;
+        this.pace = Math.round(pace * 1000.0) / 1000.0f;
     }
 
     /**
