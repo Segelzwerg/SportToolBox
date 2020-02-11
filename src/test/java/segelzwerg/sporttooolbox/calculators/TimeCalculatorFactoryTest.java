@@ -25,6 +25,7 @@ class TimeCalculatorFactoryTest {
         speedForm.setDistanceMajorUnit(majorUnit);
         speedForm.setDistanceMinorUnit(minorUnit);
         speedForm.setSpeed(speedValue);
+        speedForm.setSpeedUnit("kilometerPerHour");
 
         Distance distance = new Distance(kilometer, meter);
 
