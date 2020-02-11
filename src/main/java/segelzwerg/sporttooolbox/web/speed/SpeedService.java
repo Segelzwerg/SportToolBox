@@ -37,6 +37,17 @@ public class SpeedService {
     }
 
     /**
+     * calculates the time given a distance and speed
+     *
+     * @param speedForm contains distance and speed and their units
+     * @return a Time object containing hours, minutes and seconds
+     */
+    public Time calculateTime(SpeedForm speedForm) {
+
+        return null;
+    }
+
+    /**
      * validates if the input units are acceptable
      *
      * @param validUnits given valid units
@@ -46,16 +57,5 @@ public class SpeedService {
         if (!validUnits.contains(unit)) {
             throw new IllegalArgumentException("This is not a valid unit: " + unit);
         }
-    }
-
-    /**
-     * calculates the time given a distance and speed
-     *
-     * @param speedForm contains distance and speed and their units
-     * @return a Time object containing hours, minutes and seconds
-     */
-    public Time calculateTime(SpeedForm speedForm) {
-
-        return null;
     }
 }
