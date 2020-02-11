@@ -1,13 +1,15 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.IUnits.speed;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.IUnits.Time;
 
 @Getter
 @Setter
 @EqualsAndHashCode
-public class MilePerHour implements Speed {
+public class MilePerHour implements Distance.Speed {
     public static final String unit = "miles per hour";
     private final float speed;
 
@@ -23,8 +25,8 @@ public class MilePerHour implements Speed {
      *
      * @return speed in kilometer per hour
      */
-    public Speed toKilometerPerHour() {
-        return new KilometerPerHour(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toKilometerPerHour() {
+        return new KilometerPerHour(speed * Distance.Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -32,8 +34,8 @@ public class MilePerHour implements Speed {
      *
      * @return speed in meter per second
      */
-    public Speed toMeterPerSecond() {
-        return new MeterPerSecond(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toMeterPerSecond() {
+        return new MeterPerSecond(speed * Distance.Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Distance.Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -41,7 +43,7 @@ public class MilePerHour implements Speed {
      *
      * @return speed in mile per hour
      */
-    public Speed toMilePerHour() {
+    public Distance.Speed toMilePerHour() {
         return this;
     }
 
@@ -50,8 +52,8 @@ public class MilePerHour implements Speed {
      *
      * @return speed in knot
      */
-    public Speed toKnot() {
-        return new Knot(speed * Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toKnot() {
+        return new Knot(speed * Distance.Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR / Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -60,7 +62,7 @@ public class MilePerHour implements Speed {
      * @return a new MilePerHour
      */
     @Override
-    public Speed format() {
+    public Distance.Speed format() {
         return new MilePerHour(((float) (Math.round(speed * 100.0) / 100.0)));
     }
 

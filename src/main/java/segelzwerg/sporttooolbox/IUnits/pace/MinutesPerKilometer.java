@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.IUnits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.IUnits.pace;
 
 /**
  * Pace interface
@@ -10,12 +10,14 @@ public interface Pace {
 
     /**
      * Converts to minutes per kilometers
+     *
      * @return an instance of Pace
      */
     Pace toMinutesPerKilometer();
 
     /**
      * Converts to minutes per hundred-meters
+     *
      * @return an instance of Pace
      */
     Pace toMinutesPerHundredMeters();

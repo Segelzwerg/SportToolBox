@@ -1,8 +1,10 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.IUnits.speed;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.IUnits.Time;
 
 /**
  * Speed in knot
@@ -10,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Knot implements Speed {
+public class Knot implements Distance.Speed {
     public static final String unit = "knots";
     private final float speed;
 
@@ -26,8 +28,8 @@ public class Knot implements Speed {
      *
      * @return speed in kilometer per hour
      */
-    public Speed toKilometerPerHour() {
-        return new KilometerPerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toKilometerPerHour() {
+        return new KilometerPerHour(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -35,8 +37,8 @@ public class Knot implements Speed {
      *
      * @return speed in meter per second
      */
-    public Speed toMeterPerSecond() {
-        return new MeterPerSecond(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toMeterPerSecond() {
+        return new MeterPerSecond(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR / Distance.Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -44,8 +46,8 @@ public class Knot implements Speed {
      *
      * @return speed in mile per hour
      */
-    public Speed toMilePerHour() {
-        return new MilePerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+    public Distance.Speed toMilePerHour() {
+        return new MilePerHour(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR / Distance.Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -53,7 +55,7 @@ public class Knot implements Speed {
      *
      * @return speed in knot
      */
-    public Speed toKnot() {
+    public Distance.Speed toKnot() {
         return this;
     }
 
@@ -63,7 +65,7 @@ public class Knot implements Speed {
      * @return a new Speed
      */
     @Override
-    public Speed format() {
+    public Distance.Speed format() {
         return new Knot((float) (Math.round(speed * 100.0) / 100.0));
     }
 

@@ -1,7 +1,7 @@
 package segelzwerg.sporttooolbox.web.pace;
 
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;

@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.IUnits.speed.MilePerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MilePerHourTest {
 
     private static final float THIRTY_MILES_PER_HOUR = 30f;
-    private static Speed thirtyMilesPerHour;
+    private static Distance.Speed thirtyMilesPerHour;
 
     /**
      * Set up before all tests
@@ -32,7 +33,7 @@ public class MilePerHourTest {
     @Test
     public void toKilometerPerHour() {
 
-        Speed convertedSpeed = thirtyMilesPerHour.toKilometerPerHour();
+        Distance.Speed convertedSpeed = thirtyMilesPerHour.toKilometerPerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(48.28032f));
     }
@@ -46,7 +47,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toMeterPerSecond() {
-        Speed convertedSpeed = thirtyMilesPerHour.toMeterPerSecond();
+        Distance.Speed convertedSpeed = thirtyMilesPerHour.toMeterPerSecond();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(13.411201F));
     }
@@ -60,7 +61,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toMilePerHour() {
-        Speed convertedSpeed = thirtyMilesPerHour.toMilePerHour();
+        Distance.Speed convertedSpeed = thirtyMilesPerHour.toMilePerHour();
 
         assertThat(convertedSpeed, is(thirtyMilesPerHour));
     }
@@ -74,7 +75,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toKnot() {
-        Speed convertedSpeed = thirtyMilesPerHour.toKnot();
+        Distance.Speed convertedSpeed = thirtyMilesPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(26.069286F));
     }

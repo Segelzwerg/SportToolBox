@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.IUnits.speed.Knot;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
-    private static Speed thirtyKnots;
+    private static Distance.Speed thirtyKnots;
 
     /**
      * Set up before all tests
@@ -31,7 +32,7 @@ public class KnotTest {
     @Test
     public void toKilometerPerHour() {
 
-        Speed convertedSpeed = thirtyKnots.toKilometerPerHour();
+        Distance.Speed convertedSpeed = thirtyKnots.toKilometerPerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(55.56F));
     }
@@ -45,7 +46,7 @@ public class KnotTest {
      */
     @Test
     public void toMeterPerSecond() {
-        Speed convertedSpeed = thirtyKnots.toMeterPerSecond();
+        Distance.Speed convertedSpeed = thirtyKnots.toMeterPerSecond();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(15.433334F));
     }
@@ -59,7 +60,7 @@ public class KnotTest {
      */
     @Test
     public void toMilePerHour() {
-        Speed convertedSpeed = thirtyKnots.toMilePerHour();
+        Distance.Speed convertedSpeed = thirtyKnots.toMilePerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(34.523384F));
     }
@@ -73,7 +74,7 @@ public class KnotTest {
      */
     @Test
     public void toKnot() {
-        Speed convertedSpeed = thirtyKnots.toKnot();
+        Distance.Speed convertedSpeed = thirtyKnots.toKnot();
 
         assertThat(convertedSpeed, is(thirtyKnots));
     }

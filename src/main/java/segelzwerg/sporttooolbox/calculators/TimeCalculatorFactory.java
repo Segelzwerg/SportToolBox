@@ -1,8 +1,7 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.Speed;
-import segelzwerg.sporttooolbox.IUnits.SpeedFactory;
+import segelzwerg.sporttooolbox.IUnits.speed.SpeedFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 public class TimeCalculatorFactory {
@@ -21,7 +20,7 @@ public class TimeCalculatorFactory {
 
         float speed = speedForm.getSpeed();
         String speedUnit = speedForm.getSpeedUnit();
-        Speed speedObject = SpeedFactory.createSpeedFromUnit(speed, speedUnit);
+        Distance.Speed speedObject = SpeedFactory.createSpeedFromUnit(speed, speedUnit);
 
         return new TimeCalculator(distance, speedObject);
     }

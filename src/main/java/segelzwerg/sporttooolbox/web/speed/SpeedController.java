@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
@@ -50,7 +50,7 @@ public class SpeedController {
     public String speedCalculating(Model model, SpeedForm form) {
         model.addAttribute("form", form);
         if (form.getSpeed() == 0) {
-            Speed speed = service.calculateSpeed(form);
+            Distance.Speed speed = service.calculateSpeed(form);
             SpeedPresenter speedPresenter = new SpeedPresenter(speed);
             model.addAttribute("speed", speedPresenter);
         } else if (form.getHour() == 0 && form.getMinute() == 0 && form.getSecond() == 0) {

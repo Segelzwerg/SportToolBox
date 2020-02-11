@@ -1,6 +1,9 @@
 package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
 
 /**
  * Time in hours, minutes and second
@@ -40,7 +43,7 @@ public class Time {
      * @param meter     amount of meters
      * @return calculated speed
      */
-    public Speed computeSpeed(float kilometer, float meter) {
+    public Distance.Speed computeSpeed(float kilometer, float meter) {
         return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
     }
 

@@ -1,7 +1,9 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.IUnits.speed;
+
+import segelzwerg.sporttooolbox.IUnits.Distance;
 
 public class SpeedFactory {
-    public static Speed createSpeedFromUnit(Float speed, String speedUnit) {
+    public static Distance.Speed createSpeedFromUnit(Float speed, String speedUnit) {
         if (speedUnit == null) {
             throw new NullPointerException("Unit must be set.");
         }

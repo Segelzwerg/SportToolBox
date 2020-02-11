@@ -2,9 +2,8 @@ package segelzwerg.sporttooolbox.calculators;
 
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.Pace;
-import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
 
 /**
  * Class to calculate speed
@@ -26,7 +25,7 @@ public class SpeedCalculator {
      *
      * @return calculated speed
      */
-    public Speed computeSpeed() {
+    public Distance.Speed computeSpeed() {
         return distance.computeSpeed(time);
     }
 

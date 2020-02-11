@@ -2,8 +2,7 @@ package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.KilometerPerHour;
-import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,7 +16,7 @@ class TimeCalculatorFactoryTest {
         String majorUnit = "kilometer";
         String minorUnit = "meter";
         float speedValue = (float) (10.455 / 0.4);
-        Speed speed = new KilometerPerHour(speedValue);
+        Distance.Speed speed = new KilometerPerHour(speedValue);
 
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(kilometer);

@@ -1,7 +1,12 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.*;
+import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.IUnits.Time;
+import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerHundredMeters;
+import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -25,9 +30,9 @@ public class SpeedCalculatorTest {
         Distance thirtyKilometer = new Distance(30);
         Time oneHour = new Time(1);
         SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, oneHour);
-        Speed expectedSpeed = new KilometerPerHour(30);
+        Distance.Speed expectedSpeed = new KilometerPerHour(30);
 
-        Speed speed = speedCalculator.computeSpeed();
+        Distance.Speed speed = speedCalculator.computeSpeed();
 
         assertThat(speed, equalTo(expectedSpeed));
     }
@@ -45,9 +50,9 @@ public class SpeedCalculatorTest {
         Distance thirtyKilometer = new Distance(15);
         Time halfAnHour = new Time(0, 30);
         SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, halfAnHour);
-        Speed expectedSpeed = new KilometerPerHour(30);
+        Distance.Speed expectedSpeed = new KilometerPerHour(30);
 
-        Speed speed = speedCalculator.computeSpeed();
+        Distance.Speed speed = speedCalculator.computeSpeed();
 
         assertThat(speed, equalTo(expectedSpeed));
     }

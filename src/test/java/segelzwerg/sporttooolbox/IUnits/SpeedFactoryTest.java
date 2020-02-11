@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.IUnits.speed.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -17,7 +18,7 @@ class SpeedFactoryTest {
 
     @Test
     void build_kilometerPerHour() {
-        Speed speed = SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour");
+        Distance.Speed speed = SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour");
 
         KilometerPerHour expectedSpeed = new KilometerPerHour(value);
 
@@ -26,7 +27,7 @@ class SpeedFactoryTest {
 
     @Test
     void build_milesPerHour() {
-        Speed speed = SpeedFactory.createSpeedFromUnit(value, "milesPerHour");
+        Distance.Speed speed = SpeedFactory.createSpeedFromUnit(value, "milesPerHour");
 
         MilePerHour expectedSpeed = new MilePerHour(value);
 
@@ -35,7 +36,7 @@ class SpeedFactoryTest {
 
     @Test
     void build_knots() {
-        Speed speed = SpeedFactory.createSpeedFromUnit(value, "knots");
+        Distance.Speed speed = SpeedFactory.createSpeedFromUnit(value, "knots");
 
         Knot expectedSpeed = new Knot(value);
 
@@ -44,7 +45,7 @@ class SpeedFactoryTest {
 
     @Test
     void build_meterPerSecond() {
-        Speed speed = SpeedFactory.createSpeedFromUnit(value, "meterPerSecond");
+        Distance.Speed speed = SpeedFactory.createSpeedFromUnit(value, "meterPerSecond");
 
         MeterPerSecond expectedSpeed = new MeterPerSecond(value);
 

@@ -2,9 +2,9 @@ package segelzwerg.sporttooolbox.web.speed;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.KilometerPerHour;
-import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Time;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -27,9 +27,9 @@ class SpeedServiceTest {
     void only_kilometer_test_speed() {
         speedForm.setDistanceMajorUnit("kilometer");
 
-        Speed speed = speedService.calculateSpeed(speedForm);
+        Distance.Speed speed = speedService.calculateSpeed(speedForm);
 
-        Speed expectedSpeed = new KilometerPerHour(22);
+        Distance.Speed expectedSpeed = new KilometerPerHour(22);
         assertThat(speed, equalTo(expectedSpeed));
     }
 
@@ -39,9 +39,9 @@ class SpeedServiceTest {
         speedForm.setDistanceMajorUnit("kilometer");
         speedForm.setDistanceMinorUnit("meter");
 
-        Speed speed = speedService.calculateSpeed(speedForm);
+        Distance.Speed speed = speedService.calculateSpeed(speedForm);
 
-        Speed expectedSpeed = new KilometerPerHour((float) 22.5);
+        Distance.Speed expectedSpeed = new KilometerPerHour((float) 22.5);
         assertThat(speed, equalTo(expectedSpeed));
     }
 
