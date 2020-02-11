@@ -89,4 +89,19 @@ public class MeterPerSecondTest {
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new MeterPerSecond(-1));
     }
+
+    /**
+     * tests calculating a time needed for given a distance
+     * Speed: 56.9 m/s
+     * Distance: 3.7km
+     */
+    @Test
+    void computeTime() {
+        MeterPerSecond meterPerSecond = new MeterPerSecond((float) 56.9);
+        Time time = meterPerSecond.computeTime(3, 700);
+
+        Time expectedTime = new Time(0, 1, 5);
+
+        assertThat(time, equalTo(expectedTime));
+    }
 }
