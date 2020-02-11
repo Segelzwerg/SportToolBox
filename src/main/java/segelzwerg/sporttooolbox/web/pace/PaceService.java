@@ -1,10 +1,9 @@
 package segelzwerg.sporttooolbox.web.pace;
 
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Pace;
-import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.SpeedCalculator;
+import segelzwerg.sporttooolbox.web.SpeedCalculatorFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import java.util.ArrayList;
@@ -32,16 +31,8 @@ public class PaceService {
         String resultUnit = ((resultUnit = form.getResultUnit()) != null) ? resultUnit : "minutesPerKilometer";
 
         checkValidUnit(validPaceUnits, resultUnit);
-        int major = form.getMajor();
-        int minor = form.getMinor();
-        Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);
 
-        int hour = form.getHour();
-        int minute = form.getMinute();
-        int second = form.getSecond();
-        Time time = new Time(hour, minute, second);
-
-        SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
+        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, majorUnit, minorUnit);
 
         return speedCalculator.computePace();
     }
