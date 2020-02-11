@@ -56,6 +56,46 @@ public class Time {
     }
 
     /**
+     * Prints the time.
+     *
+     * @return hours minutes and seconds
+     */
+    @Override
+    public String toString() {
+        int hour = getOnlyHours();
+        int minute = getOnlyMinutes();
+        int second = getOnlySeconds();
+        return hour + " hour(s), " + minute + " minute(s) and " + second + " second(s)";
+    }
+
+    /**
+     * calculates only the hours
+     *
+     * @return hours as integer
+     */
+    private int getOnlyHours() {
+        return (int) (seconds / 3600);
+    }
+
+    /**
+     * calculates only the minutes
+     *
+     * @return minutes as integer
+     */
+    private int getOnlyMinutes() {
+        return (int) (((seconds / 3600.0) - getOnlyHours()) * 60.0);
+    }
+
+    /**
+     * calculates only the seconds
+     *
+     * @return seconds as integer
+     */
+    private int getOnlySeconds() {
+        return (int) (seconds - getOnlyHours() * 3600 - getOnlyMinutes() * 60);
+    }
+
+    /**
      * Get meters from parameters
      *
      * @param kilometer amount of kilometers
