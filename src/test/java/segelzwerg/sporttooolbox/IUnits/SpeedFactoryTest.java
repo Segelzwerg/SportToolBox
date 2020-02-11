@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SpeedFactoryTest {
     float value;
@@ -48,5 +49,10 @@ class SpeedFactoryTest {
         MeterPerSecond expectedSpeed = new MeterPerSecond(value);
 
         assertThat(speed, equalTo(expectedSpeed));
+    }
+
+    @Test
+    void invalidUnit() {
+        assertThrows(IllegalArgumentException.class, () -> SpeedFactory.createSpeedFromUnit(value, "invalidUnit"));
     }
 }
