@@ -66,8 +66,15 @@ public class MeterPerSecond implements Speed {
         return new MeterPerSecond((float) (Math.round(speed * 100.0) / 100.0));
     }
 
+    /**
+     * @param kilometer integer of the distance in kilometer
+     * @param meter     decimal of distance as integer
+     * @return
+     */
     @Override
     public Time computeTime(float kilometer, float meter) {
-        return null;
+        float distance = kilometer * 1000 + meter;
+        float time = (distance / speed);
+        return new Time(0, 0, (int) time);
     }
 }
