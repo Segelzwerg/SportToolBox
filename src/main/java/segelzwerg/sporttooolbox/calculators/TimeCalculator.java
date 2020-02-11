@@ -3,7 +3,7 @@ package segelzwerg.sporttooolbox.calculators;
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
 import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 
 @EqualsAndHashCode
@@ -21,6 +21,11 @@ public class TimeCalculator {
 
         this.distance = distance;
         this.speed = speed;
+    }
+
+    public TimeCalculator(Distance distance, Pace pace) {
+        this.distance = distance;
+        this.speed = pace.getSpeed();
     }
 
     /**
