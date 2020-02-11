@@ -40,4 +40,13 @@ public interface Speed {
     float getSpeed();
 
     public Speed format();
+
+    /**
+     * computes the time for a given kilometer and meter
+     *
+     * @param kilometer integer of the distance in kilometer
+     * @param meter     decimal of distance as integer
+     * @return time with hours, minutes and seconds
+     */
+    Time computeTime(float kilometer, float meter);
 }
