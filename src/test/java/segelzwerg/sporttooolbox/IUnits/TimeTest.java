@@ -154,4 +154,17 @@ public class TimeTest {
 
         assertThat(timeObject, equalTo(expectedTime));
     }
+
+    /**
+     * test the toString method
+     */
+    @Test
+    void test_toString() {
+        Time time = new Time(34, 12, 59);
+        String timeString = time.toString();
+
+        String expectedTimeString = "34 hour(s), 12 minute(s) and 59 second(s)";
+
+        assertThat(timeString, equalTo(expectedTimeString));
+    }
 }
