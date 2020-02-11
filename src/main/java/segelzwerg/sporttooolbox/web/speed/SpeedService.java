@@ -45,6 +45,12 @@ public class SpeedService {
         return speedCalculator.computeSpeed();
     }
 
+    /**
+     * validates if the input units are acceptable
+     *
+     * @param validUnits given valid units
+     * @param unit       the unit to check
+     */
     private void checkValidUnit(List<String> validUnits, String unit) {
         if (!validUnits.contains(unit)) {
             throw new IllegalArgumentException("This is not a valid unit: " + unit);
