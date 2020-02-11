@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox;
+package segelzwerg.sporttooolbox.calculators;
 
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.IUnits.Distance;

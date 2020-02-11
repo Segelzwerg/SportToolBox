@@ -3,8 +3,10 @@ package segelzwerg.sporttooolbox.web.speed;
 import org.springframework.stereotype.Component;
 import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.SpeedCalculator;
-import segelzwerg.sporttooolbox.web.SpeedCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
+import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.TimeCalculator;
+import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,8 +45,14 @@ public class SpeedService {
      * @return a Time object containing hours, minutes and seconds
      */
     public Time calculateTime(SpeedForm speedForm) {
+        String majorUnit = ((majorUnit = speedForm.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
+        String minorUnit = ((minorUnit = speedForm.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
+        String speedUnit = ((speedUnit = speedForm.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
 
-        return null;
+        checkValidUnit(validSpeedUnits, speedUnit);
+
+        TimeCalculator timeCalculator = TimeCalculatorFactory.build(speedForm, majorUnit, minorUnit);
+        return timeCalculator.computeTime();
     }
 
     /**

@@ -2,8 +2,8 @@ package segelzwerg.sporttooolbox.web.pace;
 
 import org.springframework.stereotype.Component;
 import segelzwerg.sporttooolbox.IUnits.Pace;
-import segelzwerg.sporttooolbox.SpeedCalculator;
-import segelzwerg.sporttooolbox.web.SpeedCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
+import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import java.util.ArrayList;
