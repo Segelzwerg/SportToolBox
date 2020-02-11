@@ -2,7 +2,6 @@ package segelzwerg.sporttooolbox.IUnits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.Distance;
 import segelzwerg.sporttooolbox.IUnits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class KilometerPerHourTest {
 
     private static final float THIRTY_KM_PER_HOUR = 30f;
-    private static Distance.Speed thirtyKilometersPerHour = new KilometerPerHour(THIRTY_KM_PER_HOUR);
+    private static Speed thirtyKilometersPerHour = new KilometerPerHour(THIRTY_KM_PER_HOUR);
 
     /**
      * Set up before all tests
@@ -34,7 +33,7 @@ public class KilometerPerHourTest {
     @Test
     public void toKilometerPerHour() {
 
-        Distance.Speed convertedSpeed = thirtyKilometersPerHour.toKilometerPerHour();
+        Speed convertedSpeed = thirtyKilometersPerHour.toKilometerPerHour();
 
         assertThat(convertedSpeed, is(thirtyKilometersPerHour));
     }
@@ -48,7 +47,7 @@ public class KilometerPerHourTest {
      */
     @Test
     public void toMeterPerSecond() {
-        Distance.Speed convertedSpeed = thirtyKilometersPerHour.toMeterPerSecond();
+        Speed convertedSpeed = thirtyKilometersPerHour.toMeterPerSecond();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(8.333334f));
     }
@@ -62,7 +61,7 @@ public class KilometerPerHourTest {
      */
     @Test
     public void toMilePerHour() {
-        Distance.Speed convertedSpeed = thirtyKilometersPerHour.toMilePerHour();
+        Speed convertedSpeed = thirtyKilometersPerHour.toMilePerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(18.641136f));
     }
@@ -76,7 +75,7 @@ public class KilometerPerHourTest {
      */
     @Test
     public void toKnot() {
-        Distance.Speed convertedSpeed = thirtyKilometersPerHour.toKnot();
+        Speed convertedSpeed = thirtyKilometersPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(16.198704f));
     }

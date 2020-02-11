@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MilePerHourTest {
 
     private static final float THIRTY_MILES_PER_HOUR = 30f;
-    private static Distance.Speed thirtyMilesPerHour;
+    private static Speed thirtyMilesPerHour;
 
     /**
      * Set up before all tests
@@ -34,7 +34,7 @@ public class MilePerHourTest {
     @Test
     public void toKilometerPerHour() {
 
-        Distance.Speed convertedSpeed = thirtyMilesPerHour.toKilometerPerHour();
+        Speed convertedSpeed = thirtyMilesPerHour.toKilometerPerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(48.28032f));
     }
@@ -48,7 +48,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toMeterPerSecond() {
-        Distance.Speed convertedSpeed = thirtyMilesPerHour.toMeterPerSecond();
+        Speed convertedSpeed = thirtyMilesPerHour.toMeterPerSecond();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(13.411201F));
     }
@@ -62,7 +62,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toMilePerHour() {
-        Distance.Speed convertedSpeed = thirtyMilesPerHour.toMilePerHour();
+        Speed convertedSpeed = thirtyMilesPerHour.toMilePerHour();
 
         assertThat(convertedSpeed, is(thirtyMilesPerHour));
     }
@@ -76,7 +76,7 @@ public class MilePerHourTest {
      */
     @Test
     public void toKnot() {
-        Distance.Speed convertedSpeed = thirtyMilesPerHour.toKnot();
+        Speed convertedSpeed = thirtyMilesPerHour.toKnot();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(26.069286F));
     }

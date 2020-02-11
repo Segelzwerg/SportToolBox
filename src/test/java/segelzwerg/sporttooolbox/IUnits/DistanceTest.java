@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -55,8 +56,8 @@ public class DistanceTest {
     public void sixty_kilometer_two_hour_test_speed() {
         Distance tenKilometer = new Distance(60);
         Time twoHours = new Time(2);
-        Distance.Speed expectedSpeed = new KilometerPerHour(30);
-        Distance.Speed speed = tenKilometer.computeSpeed(twoHours);
+        Speed expectedSpeed = new KilometerPerHour(30);
+        Speed speed = tenKilometer.computeSpeed(twoHours);
 
         assertThat(speed, equalTo(expectedSpeed));
     }

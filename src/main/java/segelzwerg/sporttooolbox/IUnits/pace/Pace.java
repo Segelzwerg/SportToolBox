@@ -1,5 +1,7 @@
 package segelzwerg.sporttooolbox.IUnits.pace;
 
+import segelzwerg.sporttooolbox.IUnits.speed.Speed;
+
 /**
  * Pace interface
  */

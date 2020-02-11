@@ -12,7 +12,7 @@ import segelzwerg.sporttooolbox.IUnits.Time;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Knot implements Distance.Speed {
+public class Knot implements Speed {
     public static final String unit = "knots";
     private final float speed;
 
@@ -28,8 +28,8 @@ public class Knot implements Distance.Speed {
      *
      * @return speed in kilometer per hour
      */
-    public Distance.Speed toKilometerPerHour() {
-        return new KilometerPerHour(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR);
+    public Speed toKilometerPerHour() {
+        return new KilometerPerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -37,8 +37,8 @@ public class Knot implements Distance.Speed {
      *
      * @return speed in meter per second
      */
-    public Distance.Speed toMeterPerSecond() {
-        return new MeterPerSecond(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR / Distance.Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+    public Speed toMeterPerSecond() {
+        return new MeterPerSecond(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -46,8 +46,8 @@ public class Knot implements Distance.Speed {
      *
      * @return speed in mile per hour
      */
-    public Distance.Speed toMilePerHour() {
-        return new MilePerHour(speed * Distance.Speed.KNOT_TO_KILOMETER_PER_HOUR / Distance.Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+    public Speed toMilePerHour() {
+        return new MilePerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -55,7 +55,7 @@ public class Knot implements Distance.Speed {
      *
      * @return speed in knot
      */
-    public Distance.Speed toKnot() {
+    public Speed toKnot() {
         return this;
     }
 
@@ -65,7 +65,7 @@ public class Knot implements Distance.Speed {
      * @return a new Speed
      */
     @Override
-    public Distance.Speed format() {
+    public Speed format() {
         return new Knot((float) (Math.round(speed * 100.0) / 100.0));
     }
 

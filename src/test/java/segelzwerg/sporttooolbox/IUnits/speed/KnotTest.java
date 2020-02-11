@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
-    private static Distance.Speed thirtyKnots;
+    private static Speed thirtyKnots;
 
     /**
      * Set up before all tests
@@ -33,7 +33,7 @@ public class KnotTest {
     @Test
     public void toKilometerPerHour() {
 
-        Distance.Speed convertedSpeed = thirtyKnots.toKilometerPerHour();
+        Speed convertedSpeed = thirtyKnots.toKilometerPerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(55.56F));
     }
@@ -47,7 +47,7 @@ public class KnotTest {
      */
     @Test
     public void toMeterPerSecond() {
-        Distance.Speed convertedSpeed = thirtyKnots.toMeterPerSecond();
+        Speed convertedSpeed = thirtyKnots.toMeterPerSecond();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(15.433334F));
     }
@@ -61,7 +61,7 @@ public class KnotTest {
      */
     @Test
     public void toMilePerHour() {
-        Distance.Speed convertedSpeed = thirtyKnots.toMilePerHour();
+        Speed convertedSpeed = thirtyKnots.toMilePerHour();
 
         assertThat(convertedSpeed.getSpeed(), equalTo(34.523384F));
     }
@@ -75,7 +75,7 @@ public class KnotTest {
      */
     @Test
     public void toKnot() {
-        Distance.Speed convertedSpeed = thirtyKnots.toKnot();
+        Speed convertedSpeed = thirtyKnots.toKnot();
 
         assertThat(convertedSpeed, is(thirtyKnots));
     }

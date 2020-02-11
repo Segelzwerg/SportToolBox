@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 
 /**
  * Pace of minutes per kilometers
