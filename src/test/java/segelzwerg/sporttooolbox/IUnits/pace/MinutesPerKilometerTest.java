@@ -2,6 +2,8 @@ package segelzwerg.sporttooolbox.IUnits.pace;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -27,4 +29,12 @@ class MinutesPerKilometerTest {
         assertThat(pace, equalTo(expectedPace));
     }
 
+    @Test
+    void convert_to_kph() {
+        Speed speed = threeMinutesfifthteenPerKM.getSpeed();
+
+        KilometerPerHour kilometerPerHour = new KilometerPerHour(18.46f);
+
+        assertThat(speed, equalTo(kilometerPerHour));
+    }
 }
