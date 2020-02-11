@@ -65,4 +65,9 @@ public class Knot implements Speed {
     public Speed format() {
         return new Knot((float) (Math.round(speed * 100.0) / 100.0));
     }
+
+    @Override
+    public Time computeTime(float kilometer, float meter) {
+        return null;
+    }
 }

@@ -62,4 +62,9 @@ public class MilePerHour implements Speed {
     public Speed format() {
         return new MilePerHour(((float) (Math.round(speed * 100.0) / 100.0)));
     }
+
+    @Override
+    public Time computeTime(float kilometer, float meter) {
+        return null;
+    }
 }
