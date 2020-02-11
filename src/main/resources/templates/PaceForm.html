@@ -83,9 +83,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
-                        The average pace is <span th:text="${pace?.__${form.paceUnit}__.toString()}">30</span> Minutes
+                        The average pace is <span th:text="${pace?.__${form.paceUnit}__.toString()}">30</span> <span
+                            th:text="${pace?.__${form.paceUnit}__.unit}">Minutes
                         per
-                        Kilometer
+                        Kilometer</span>
                         for travelling <span th:text="${form.major}">30</span> <span
                             th:text="${form.distanceMajorUnit}">kilometer</span> and
                         <span th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> in

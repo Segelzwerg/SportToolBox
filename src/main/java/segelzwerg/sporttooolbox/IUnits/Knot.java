@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Knot implements Speed {
+    public static final String unit = "knots";
     private final float speed;
 
     public Knot(float speed) {

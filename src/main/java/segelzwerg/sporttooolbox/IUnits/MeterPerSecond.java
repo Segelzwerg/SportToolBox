@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class MeterPerSecond implements Speed {
+    public static final String unit = "meter per second";
     private final float speed;
 
     public MeterPerSecond(float speed) {
