@@ -33,6 +33,18 @@ class SpeedServiceTest {
     }
 
     @Test
+    void meters_and_kilos_test_speed() {
+        speedForm.setMinor(500);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+
+        Speed speed = speedService.calculateSpeed(speedForm);
+
+        Speed expectedSpeed = new KilometerPerHour((float) 22.5);
+        assertThat(speed, equalTo(expectedSpeed));
+    }
+
+    @Test
     void invalidMajorUnit() {
         speedForm.setDistanceMajorUnit("abc");
 
