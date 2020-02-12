@@ -34,14 +34,14 @@ public class SpeedControllerTest {
     }
 
     @Test
-    public void speed_load_english() throws Exception {
+    public void speedLoadEnglish() throws Exception {
         Locale.setDefault(Locale.US);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void speed_load_german() throws Exception {
+    public void speedLoadGerman() throws Exception {
         Locale.setDefault(Locale.GERMANY);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
@@ -59,7 +59,7 @@ public class SpeedControllerTest {
     }
 
     @Test
-    public void timeCalculationtest() throws Exception {
+    public void timeCalculationTest() throws Exception {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
         speedForm.setDistanceMajorUnit("kilometer");

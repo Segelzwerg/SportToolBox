@@ -14,7 +14,7 @@ public class PacePresenterTest {
     private PacePresenter presenter;
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         minutesPerKilometer = new MinutesPerKilometer((float) 5.321);
         presenter = new PacePresenter(minutesPerKilometer);
     }
