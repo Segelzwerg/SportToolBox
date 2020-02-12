@@ -33,7 +33,7 @@ class MinutesPerKilometerTest {
     void convert_to_kph() {
         Speed speed = threeMinutesfifthteenPerKM.getSpeed();
 
-        KilometerPerHour kilometerPerHour = new KilometerPerHour(18.46f);
+        KilometerPerHour kilometerPerHour = new KilometerPerHour(18.4615f);
 
         assertThat(speed, equalTo(kilometerPerHour));
     }
