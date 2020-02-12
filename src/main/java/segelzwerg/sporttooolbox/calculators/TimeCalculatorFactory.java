@@ -1,6 +1,8 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.IUnits.pace.Pace;
+import segelzwerg.sporttooolbox.IUnits.pace.PaceFactory;
 import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 import segelzwerg.sporttooolbox.IUnits.speed.SpeedFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
@@ -14,7 +16,7 @@ public class TimeCalculatorFactory {
      * @param minorUnit minor unit of the distance
      * @return {@link TimeCalculator}
      */
-    public static TimeCalculator build(SpeedForm speedForm, String majorUnit, String minorUnit) {
+    public static TimeCalculator buildFromSpeed(SpeedForm speedForm, String majorUnit, String minorUnit) {
         int major = speedForm.getMajor();
         int minor = speedForm.getMinor();
         Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);
@@ -24,5 +26,25 @@ public class TimeCalculatorFactory {
         Speed speedObject = SpeedFactory.createSpeedFromUnit(speed, speedUnit);
 
         return new TimeCalculator(distance, speedObject);
+    }
+
+    /**
+     * buiilds a {@link TimeCalculator} for pace and distance
+     *
+     * @param paceForm  {@link SpeedForm} contains pace and distance values
+     * @param majorUnit unit of the major distance unit
+     * @param minorUnit unit of the minor distance unit
+     * @return {@link TimeCalculator}
+     */
+    public static TimeCalculator buildFromPace(SpeedForm paceForm, String majorUnit, String minorUnit) {
+        int major = paceForm.getMajor();
+        int minor = paceForm.getMinor();
+        Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);
+
+        float pace = paceForm.getPace();
+        String paceUnit = paceForm.getPaceUnit();
+        Pace paceObject = PaceFactory.createPaceFromUnit(pace, paceUnit);
+
+        return new TimeCalculator(distance, paceObject);
     }
 }
