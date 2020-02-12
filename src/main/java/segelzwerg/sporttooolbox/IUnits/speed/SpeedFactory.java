@@ -1,13 +1,11 @@
 package segelzwerg.sporttooolbox.IUnits.speed;
 
+import java.util.Objects;
+
 public class SpeedFactory {
     public static Speed createSpeedFromUnit(Float speed, String speedUnit) {
-        if (speedUnit == null) {
-            throw new NullPointerException("Unit must be set.");
-        }
-        if (speed == null) {
-            throw new NullPointerException("Speed value must be set.");
-        }
+        Objects.requireNonNull(speed, "Speed must be set.");
+        Objects.requireNonNull(speedUnit);
         switch (speedUnit) {
             case "kilometerPerHour":
                 return new KilometerPerHour(speed);
