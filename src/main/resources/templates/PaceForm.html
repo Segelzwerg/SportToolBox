@@ -102,12 +102,12 @@
                     <h5 class="card-title">Time</h5>
                     <p class="card-text">
                         The time needed for travelling <span
-                            th:text="{pace?.__${form.paceUnit}__.unit}">km/H</span>
+                            th:text="${form.paceUnit}">minutes per kilometer</span>
                         for travelling <span th:text="${form.major}">30</span> <span
                             th:text="${form.distanceMajorUnit}">kilometer</span> and <span
                             th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span> with
-                        <span th:text="${form.speed}">30</span> <span
-                            th:text="${form.paceUnit}">Kilometer per Hour</span>
+                        <span th:text="${form.pace}">2:00</span> <span
+                            th:text="${form.paceUnit}">minutes per Kilometer</span>
                         is <span th:text="${time.toString()}">1 hour</span>.
                     </p>
                 </div>
