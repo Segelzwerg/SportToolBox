@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.iunits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import segelzwerg.sporttooolbox.Provisional;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
@@ -11,9 +12,16 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 @Getter
 @EqualsAndHashCode
 public class MinutesPerHundredMeters implements Pace {
+    /**
+     * String of the English unit used for output.
+     */
+    @Provisional
     public static final String unit = "minutes per 100 meters";
     private final float pace;
 
+    /**
+     * @param pace float the value of the pace. Seconds as decimals of a minute
+     */
     public MinutesPerHundredMeters(float pace) {
         this.pace = Math.round(pace * 1000.0) / 1000.0f;
     }
@@ -38,6 +46,11 @@ public class MinutesPerHundredMeters implements Pace {
         return this;
     }
 
+    /**
+     * converts the pace to kilometer per hour
+     *
+     * @return
+     */
     @Override
     public Speed getSpeed() {
         float speedValue = Math.round((1 / pace) * 600f) / 100f;
