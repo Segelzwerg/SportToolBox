@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class MilePerHour implements Speed {
-    public static final String unit = "miles per hour";
+    public static final String UNIT = "miles per hour";
     private final float speed;
 
     public MilePerHour(float speed) {

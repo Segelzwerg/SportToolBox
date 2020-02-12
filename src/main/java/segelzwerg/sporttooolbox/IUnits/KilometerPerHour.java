@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class KilometerPerHour implements Speed {
-    public final static String unit = "kilometer per hour";
+    public final static String UNIT = "kilometer per hour";
     private final float speed;
 
     public KilometerPerHour(float speed) {
