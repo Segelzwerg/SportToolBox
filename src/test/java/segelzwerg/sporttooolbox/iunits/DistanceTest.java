@@ -146,7 +146,7 @@ public class DistanceTest {
     void invalid_major_unit() {
         int major = 10;
         String invalidUnit = "centimeter";
-        ;
+
         assertThrows(IllegalArgumentException.class, () -> Distance.createWithMajorUnit(major, invalidUnit));
     }
 
@@ -156,7 +156,7 @@ public class DistanceTest {
         int minor = 10;
         String majorUnit = "kilometer";
         String invalidUnit = "centimeter";
-        ;
+
         assertThrows(IllegalArgumentException.class, () -> Distance.createWithOtherThanSIUnits(major, minor, majorUnit, invalidUnit));
     }
 }
