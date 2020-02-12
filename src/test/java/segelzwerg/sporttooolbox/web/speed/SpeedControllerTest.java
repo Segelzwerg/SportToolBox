@@ -57,4 +57,21 @@ public class SpeedControllerTest {
     void autoDistanceTest() throws Exception {
         mockMvc.perform(post("/speed/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
     }
+
+    @Test
+    void timeCalculationtest() throws Exception {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(100);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+        speedForm.setHour(0);
+        speedForm.setMinute(0);
+        speedForm.setSecond(0);
+        speedForm.setSpeed(4.3f);
+        speedForm.setSpeedUnit("kilometerPerHour");
+
+        MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
+
+        mockMvc.perform(builder).andExpect(status().isOk());
+    }
 }
