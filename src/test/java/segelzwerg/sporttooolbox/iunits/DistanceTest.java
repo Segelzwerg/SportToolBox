@@ -131,16 +131,16 @@ public class DistanceTest {
      * Expected: 48.28032 km + 0,18288km
      */
     @Test
-    public void inti_with_nauticals_and_phatoms() {
+    public void init_with_nauticals_and_phatoms() {
         int mile = 30;
         int yard = 200;
-        String milesUnit = "nautical";
-        String yardsUnit = "fathom";
-        Distance expectedDistance = new Distance((float) 55.56, (float) 365.76);
+        String milesUnit = "miles";
+        String yardsUnit = "yards";
+        Distance expectedDistance = new Distance(48, 463);
 
         Distance distance = Distance.createWithOtherThanSIUnits(mile, yard, milesUnit, yardsUnit);
 
-        assertThat(distance, equalTo(expectedDistance));
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
 
     @Test
