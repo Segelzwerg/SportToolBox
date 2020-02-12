@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.speed;
 
+import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 
 /**
@@ -58,4 +59,12 @@ public interface Speed {
      * @return time with hours, minutes and seconds
      */
     Time computeTime(float kilometer, float meter);
+
+    /**
+     * calculates the distance for travelling a given time
+     *
+     * @param time {@link Time}
+     * @return a {@link Distance}
+     */
+    Distance computeDistance(Time time);
 }
