@@ -48,7 +48,7 @@ public class SpeedControllerTest {
     }
 
     @Test
-    void speedcalculatingTest() throws Exception {
+    void speedCalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
