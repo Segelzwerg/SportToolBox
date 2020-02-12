@@ -40,7 +40,7 @@ public class MinutesPerKilometer implements Pace {
 
     @Override
     public Speed getSpeed() {
-        float speedValue = Math.round((1 / pace) * 6000f) / 100f;
+        float speedValue = Math.round((1 / pace) * 600000f) / 10000f;
         return new KilometerPerHour(speedValue);
     }
 
