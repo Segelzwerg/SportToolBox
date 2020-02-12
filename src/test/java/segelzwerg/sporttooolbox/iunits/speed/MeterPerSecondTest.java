@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -104,5 +105,19 @@ public class MeterPerSecondTest {
         Time expectedTime = new Time(0, 1, 5);
 
         assertThat(time, equalTo(expectedTime));
+    }
+
+    /**
+     * test if the distance calculated for travelling the given seconds is correct
+     */
+    @Test
+    public void computeDistance() {
+        MeterPerSecond meterPerSecond = new MeterPerSecond(4.86f);
+        int seconds = 6012;
+
+        Distance distance = meterPerSecond.computeDistance(seconds);
+        Distance expectedDistance = new Distance(29, 218);
+
+        assertThat(distance, equalTo(expectedDistance));
     }
 }
