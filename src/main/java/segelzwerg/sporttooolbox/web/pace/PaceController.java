@@ -45,13 +45,13 @@ public class PaceController {
      */
     @PostMapping("/pace")
     public String computePace(Model model, SpeedForm paceForm) {
+        model.addAttribute("form", paceForm);
         if (paceForm.getPace() == 0) {
-            model.addAttribute("form", paceForm);
             Pace pace = paceService.calculatePace(paceForm);
             PacePresenter pacePresenter = new PacePresenter(pace);
             model.addAttribute("pace", pacePresenter);
-        } else if (form.getHour() == 0 && form.getMinute() == 0 && form.getSecond() == 0) {
-            Time time = paceService.calculateTime(form);
+        } else if (paceForm.getHour() == 0 && paceForm.getMinute() == 0 && paceForm.getSecond() == 0) {
+            Time time = paceService.calculateTime(paceForm);
             model.addAttribute("time", time);
         }
         return Translator.toLocale("PaceForm");
