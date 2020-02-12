@@ -12,6 +12,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 class TimeCalculatorFactoryTest {
 
+    /**
+     * tests if the calculator is build correctly from factory using speed and distance
+     */
     @Test
     void test_build_from_speed() {
         int kilometer = 10;
@@ -38,6 +41,9 @@ class TimeCalculatorFactoryTest {
         assertThat(timeCalculator, equalTo(expectedTimeCalculator));
     }
 
+    /**
+     * tests if the calculator is build correctly from factory using pace and distance
+     */
     @Test
     void test_build_from_pace() {
         SpeedForm paceForm = new SpeedForm();
