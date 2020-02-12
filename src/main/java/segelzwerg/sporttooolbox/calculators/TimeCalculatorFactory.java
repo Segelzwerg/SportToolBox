@@ -1,10 +1,10 @@
 package segelzwerg.sporttooolbox.calculators;
 
-import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.pace.Pace;
-import segelzwerg.sporttooolbox.IUnits.pace.PaceFactory;
-import segelzwerg.sporttooolbox.IUnits.speed.Speed;
-import segelzwerg.sporttooolbox.IUnits.speed.SpeedFactory;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
+import segelzwerg.sporttooolbox.iunits.pace.PaceFactory;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
+import segelzwerg.sporttooolbox.iunits.speed.SpeedFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 public class TimeCalculatorFactory {

@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits.pace;
+package segelzwerg.sporttooolbox.iunits.pace;
 
 public class PaceFactory {
     public static Pace createPaceFromUnit(float pace, String paceUnit) {

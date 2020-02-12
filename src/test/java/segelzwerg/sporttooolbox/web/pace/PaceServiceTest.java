@@ -2,9 +2,9 @@ package segelzwerg.sporttooolbox.web.pace;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerKilometer;
-import segelzwerg.sporttooolbox.IUnits.pace.Pace;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;

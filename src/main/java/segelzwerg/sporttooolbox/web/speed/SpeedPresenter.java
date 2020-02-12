@@ -2,10 +2,10 @@ package segelzwerg.sporttooolbox.web.speed;
 
 import lombok.Getter;
 import lombok.ToString;
-import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
-import segelzwerg.sporttooolbox.IUnits.speed.Knot;
-import segelzwerg.sporttooolbox.IUnits.speed.MilePerHour;
-import segelzwerg.sporttooolbox.IUnits.speed.Speed;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
+import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Represent speed in different units

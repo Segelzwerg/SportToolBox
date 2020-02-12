@@ -1,21 +1,21 @@
-package segelzwerg.sporttooolbox.IUnits.speed;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
-import segelzwerg.sporttooolbox.IUnits.Time;
+import lombok.Setter;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 /**
- * Speed in kilometer per hour
+ * Speed in meter per second
  */
 @Getter
-@ToString
+@Setter
 @EqualsAndHashCode
-public class KilometerPerHour implements Speed {
-    public final static String unit = "kilometer per hour";
+public class MeterPerSecond implements Speed {
+    public static final String unit = "meter per second";
     private final float speed;
 
-    public KilometerPerHour(float speed) {
+    public MeterPerSecond(float speed) {
         if (speed < 0) {
             throw new IllegalArgumentException("Speed must not be negative.");
         }
@@ -28,7 +28,7 @@ public class KilometerPerHour implements Speed {
      * @return speed in kilometer per hour
      */
     public Speed toKilometerPerHour() {
-        return this;
+        return new KilometerPerHour(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -37,7 +37,7 @@ public class KilometerPerHour implements Speed {
      * @return speed in meter per second
      */
     public Speed toMeterPerSecond() {
-        return new MeterPerSecond(speed / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
+        return this;
     }
 
     /**
@@ -46,7 +46,7 @@ public class KilometerPerHour implements Speed {
      * @return speed in mile per hour
      */
     public Speed toMilePerHour() {
-        return new MilePerHour(speed / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
+        return new MilePerHour(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
 
     /**
@@ -55,29 +55,28 @@ public class KilometerPerHour implements Speed {
      * @return speed in knot
      */
     public Speed toKnot() {
-        return new Knot(speed / Speed.KNOT_TO_KILOMETER_PER_HOUR);
+        return new Knot(speed * Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR / Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
 
     /**
      * formats the decimal to 2 digits
      *
-     * @return a new KilometerPerHour
+     * @return a new MeterPerSecond
      */
     @Override
     public Speed format() {
-        return new KilometerPerHour((float) (Math.round(speed * 100.0) / 100.0));
+        return new MeterPerSecond((float) (Math.round(speed * 100.0) / 100.0));
     }
 
     /**
-     * computes the time for a given distance
-     *
      * @param kilometer integer of the distance in kilometer
      * @param meter     decimal of distance as integer
-     * @return {@link Time} in hours, minutes and seconds
+     * @return
      */
     @Override
     public Time computeTime(float kilometer, float meter) {
-        float time = (kilometer + meter / 1000) / speed;
-        return new Time(time);
+        float distance = kilometer * 1000 + meter;
+        float time = (distance / speed);
+        return new Time(0, 0, (int) time);
     }
 }

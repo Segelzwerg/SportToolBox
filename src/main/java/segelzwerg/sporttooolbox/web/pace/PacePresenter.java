@@ -2,9 +2,9 @@ package segelzwerg.sporttooolbox.web.pace;
 
 import lombok.Getter;
 import lombok.ToString;
-import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerHundredMeters;
-import segelzwerg.sporttooolbox.IUnits.pace.MinutesPerKilometer;
-import segelzwerg.sporttooolbox.IUnits.pace.Pace;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerHundredMeters;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 
 @Getter
 @ToString

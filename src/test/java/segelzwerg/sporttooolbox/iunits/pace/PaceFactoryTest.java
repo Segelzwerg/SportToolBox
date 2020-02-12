@@ -1,8 +1,8 @@
-package segelzwerg.sporttooolbox.IUnits.pace;
+package segelzwerg.sporttooolbox.iunits.pace;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.speed.SpeedFactory;
+import segelzwerg.sporttooolbox.iunits.speed.SpeedFactory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;

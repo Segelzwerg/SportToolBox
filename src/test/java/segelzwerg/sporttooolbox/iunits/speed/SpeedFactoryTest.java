@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits.speed;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

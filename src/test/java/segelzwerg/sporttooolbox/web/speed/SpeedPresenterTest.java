@@ -1,9 +1,9 @@
 package segelzwerg.sporttooolbox.web.speed;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour;
-import segelzwerg.sporttooolbox.IUnits.speed.Knot;
-import segelzwerg.sporttooolbox.IUnits.speed.MilePerHour;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
+import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

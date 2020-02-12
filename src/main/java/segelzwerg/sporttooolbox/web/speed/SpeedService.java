@@ -1,12 +1,12 @@
 package segelzwerg.sporttooolbox.web.speed;
 
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.IUnits.speed.Speed;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
 import segelzwerg.sporttooolbox.calculators.TimeCalculator;
 import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import java.util.ArrayList;
 import java.util.Arrays;

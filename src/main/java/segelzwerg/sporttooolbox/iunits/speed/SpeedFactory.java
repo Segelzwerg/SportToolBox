@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits.speed;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import java.util.Objects;
 

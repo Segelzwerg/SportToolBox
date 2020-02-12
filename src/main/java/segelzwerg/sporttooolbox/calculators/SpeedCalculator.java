@@ -1,10 +1,10 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import lombok.EqualsAndHashCode;
-import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.Time;
-import segelzwerg.sporttooolbox.IUnits.pace.Pace;
-import segelzwerg.sporttooolbox.IUnits.speed.Speed;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Class to calculate speed

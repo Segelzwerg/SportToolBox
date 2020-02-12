@@ -1,6 +1,6 @@
-package segelzwerg.sporttooolbox.IUnits.pace;
+package segelzwerg.sporttooolbox.iunits.pace;
 
-import segelzwerg.sporttooolbox.IUnits.speed.Speed;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Pace interface
@@ -27,7 +27,7 @@ public interface Pace {
     /**
      * converts the pace to Kilometer Per Hour
      *
-     * @return {@link segelzwerg.sporttooolbox.IUnits.speed.KilometerPerHour}
+     * @return {@link segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour}
      */
     Speed getSpeed();
 }
