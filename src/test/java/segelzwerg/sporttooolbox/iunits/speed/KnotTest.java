@@ -106,4 +106,18 @@ public class KnotTest {
 
         assertThat(time, equalTo(expectedTime));
     }
+
+    /**
+     * test if the distance calculated for travelling the given seconds is correct
+     */
+    @Test
+    public void computeDistance() {
+        Knot knots = new Knot(4.86f);
+        int seconds = 6012;
+
+        Distance distance = knots.computeDistance(seconds);
+        Distance expectedDistance = new Distance(15, 31);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
 }

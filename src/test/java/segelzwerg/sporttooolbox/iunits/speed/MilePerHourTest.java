@@ -106,4 +106,18 @@ public class MilePerHourTest {
 
         assertThat(time, equalTo(expectedTime));
     }
+
+    /**
+     * test if the distance calculated for travelling the given seconds is correct
+     */
+    @Test
+    public void computeDistance() {
+        MilePerHour milePerHour = new MilePerHour(4.86f);
+        int seconds = 6012;
+
+        Distance distance = milePerHour.computeDistance(seconds);
+        Distance expectedDistance = new Distance(13, 62);
+
+        assertThat(distance, equalTo(expectedDistance));
+    }
 }
