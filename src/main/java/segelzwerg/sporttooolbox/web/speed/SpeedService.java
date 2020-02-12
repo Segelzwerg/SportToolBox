@@ -27,13 +27,9 @@ public class SpeedService {
      */
     public Speed calculateSpeed(SpeedForm form) {
 
-        String majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-        String minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-        String speedUnit = ((speedUnit = form.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
+        UnitParser unitParser = new UnitParser(form).invoke();
 
-        checkValidUnit(validSpeedUnits, speedUnit);
-
-        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, majorUnit, minorUnit);
+        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, unitParser.getMajorUnit(), unitParser.getMinorUnit());
 
         return speedCalculator.computeSpeed();
     }
@@ -45,13 +41,9 @@ public class SpeedService {
      * @return a Time object containing hours, minutes and seconds
      */
     public Time calculateTime(SpeedForm speedForm) {
-        String majorUnit = ((majorUnit = speedForm.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-        String minorUnit = ((minorUnit = speedForm.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-        String speedUnit = ((speedUnit = speedForm.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
+        UnitParser unitParser = new UnitParser(speedForm).invoke();
 
-        checkValidUnit(validSpeedUnits, speedUnit);
-
-        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, majorUnit, minorUnit);
+        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
         return timeCalculator.computeTime();
     }
 
@@ -64,6 +56,33 @@ public class SpeedService {
     private void checkValidUnit(List<String> validUnits, String unit) {
         if (!validUnits.contains(unit)) {
             throw new IllegalArgumentException("This is not a valid unit: " + unit);
+        }
+    }
+
+    private class UnitParser {
+        private SpeedForm form;
+        private String majorUnit;
+        private String minorUnit;
+
+        public UnitParser(SpeedForm form) {
+            this.form = form;
+        }
+
+        public String getMajorUnit() {
+            return majorUnit;
+        }
+
+        public String getMinorUnit() {
+            return minorUnit;
+        }
+
+        public UnitParser invoke() {
+            majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
+            minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
+            String speedUnit = ((speedUnit = form.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
+
+            checkValidUnit(validSpeedUnits, speedUnit);
+            return this;
         }
     }
 }
