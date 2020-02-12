@@ -16,7 +16,7 @@ public class MinutesPerHundredMeters implements Pace {
      * String of the English unit used for output.
      */
     @Provisional
-    public static final String unit = "minutes per 100 meters";
+    public static final String UNIT = "minutes per 100 meters";
     private final float pace;
 
     /**

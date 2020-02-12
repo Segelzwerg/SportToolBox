@@ -12,7 +12,7 @@ import segelzwerg.sporttooolbox.iunits.Time;
 @Setter
 @EqualsAndHashCode
 public class MeterPerSecond implements Speed {
-    public static final String unit = "meter per second";
+    public static final String UNIT = "meter per second";
     private final float speed;
 
     public MeterPerSecond(float speed) {

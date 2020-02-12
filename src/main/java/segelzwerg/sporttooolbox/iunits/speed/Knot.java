@@ -13,7 +13,7 @@ import segelzwerg.sporttooolbox.iunits.Time;
 @Setter
 @EqualsAndHashCode
 public class Knot implements Speed {
-    public static final String unit = "knots";
+    public static final String UNIT = "knots";
     private final float speed;
 
     public Knot(float speed) {

@@ -11,7 +11,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 @Getter
 @EqualsAndHashCode
 public class MinutesPerKilometer implements Pace {
-    public static final String unit = "minutes per kilometer";
+    public static final String UNIT = "minutes per kilometer";
     private final float pace;
 
     public MinutesPerKilometer(float pace) {
