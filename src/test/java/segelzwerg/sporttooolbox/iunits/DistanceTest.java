@@ -20,7 +20,7 @@ public class DistanceTest {
      * @result 30km and 2002m is the same as 32km and 2m
      */
     @Test
-    public void overflow_test() {
+    public void overflowTest() {
         Distance thirtyKM_twoThousandTwoMeter = new Distance(30, 2002);
         Distance expectedDistance = new Distance(32, 2);
 
@@ -35,7 +35,7 @@ public class DistanceTest {
      * @result the result is 31
      */
     @Test
-    public void add_distance_test() {
+    public void addDistanceTest() {
         Distance thirtyKilometer = new Distance(30, 999);
         Distance thirtyonekilometer = thirtyKilometer.addDistance(new Distance(0, 1));
 
@@ -69,7 +69,7 @@ public class DistanceTest {
      */
 
     @Test
-    public void negative_distance() {
+    public void negativeDistance() {
         assertThrows(IllegalArgumentException.class, () -> new Distance(-1));
     }
 
@@ -80,7 +80,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    public void inti_with_miles() {
+    public void intiWithMiles() {
         int mile = 30;
         String milesUnit = "miles";
         Distance expectedDistance = new Distance((float) 48.28032);
@@ -114,7 +114,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    public void inti_with_nauticals() {
+    public void intiWithNauticals() {
         int mile = 30;
         String milesUnit = "nautical";
         Distance expectedDistance = new Distance((float) 55.56);
@@ -143,7 +143,7 @@ public class DistanceTest {
     }
 
     @Test
-    public void invalid_major_unit() {
+    public void invalidMajorUnit() {
         int major = 10;
         String invalidUnit = "centimeter";
 
@@ -151,7 +151,7 @@ public class DistanceTest {
     }
 
     @Test
-    public void invalid_minor_unit() {
+    public void invalidMinorUnit() {
         int major = 10;
         int minor = 10;
         String majorUnit = "kilometer";

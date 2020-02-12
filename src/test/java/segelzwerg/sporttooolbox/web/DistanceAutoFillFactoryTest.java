@@ -40,8 +40,8 @@ public class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    public void halfMarathon() {
-        SpeedForm expectedSpeedForm = halfmarathon();
+    public void testHalfMarathon() {
+        SpeedForm expectedSpeedForm = halfMarathon();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("Halfmarathon");
 
@@ -82,7 +82,7 @@ public class DistanceAutoFillFactoryTest {
         return speedForm;
     }
 
-    private SpeedForm halfmarathon() {
+    private SpeedForm halfMarathon() {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(21);
         speedForm.setMinor((int) 97.5);
