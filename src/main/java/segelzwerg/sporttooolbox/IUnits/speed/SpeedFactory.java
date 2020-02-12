@@ -15,7 +15,8 @@ public class SpeedFactory {
                 return new MeterPerSecond(speed);
             case "knots":
                 return new Knot(speed);
+            default:
+                throw new IllegalArgumentException("The unit was invalid: " + speedUnit);
         }
-        throw new IllegalArgumentException("The unit was invalid: " + speedUnit);
     }
 }
