@@ -160,4 +160,28 @@ public class DistanceTest {
 
         assertThrows(IllegalArgumentException.class, () -> Distance.createWithOtherThanSIUnits(major, minor, majorUnit, invalidUnit));
     }
+
+    /**
+     * create distance object from a float value in miles
+     */
+    @Test
+    public void createWithMiles() {
+        Distance miles = Distance.createWithMiles(42.31f);
+        Distance expectedDistance = new Distance(68, 90);
+
+        Assertions.assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
+
+    }
+
+    /**
+     * create a distance from a float mile
+     */
+    @Test
+    public void init_with_float_miles() {
+        int yards = (int) (0.31f * Distance.MILES_TO_YARDS);
+        Distance distance = Distance.createWithOtherThanSIUnits(42, yards, "miles", "yards");
+        Distance expectedDistance = new Distance(68, 90);
+
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
