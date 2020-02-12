@@ -77,9 +77,9 @@ public class SpeedService {
         }
 
         public UnitParser invoke() {
-            majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-            minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-            String speedUnit = ((speedUnit = form.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
+            majorUnit = ((majorUnit = form.getDistanceMajorUnit()) == null) ? "kilometer" : majorUnit;
+            minorUnit = ((minorUnit = form.getDistanceMinorUnit()) == null) ? "meter" : minorUnit;
+            String speedUnit = ((speedUnit = form.getSpeedUnit()) == null) ? "kilometerPerHour" : speedUnit;
 
             checkValidUnit(validSpeedUnits, speedUnit);
             return this;

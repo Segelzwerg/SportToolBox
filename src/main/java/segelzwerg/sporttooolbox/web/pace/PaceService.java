@@ -73,9 +73,9 @@ public class PaceService {
         }
 
         public UnitParser invoke() {
-            majorUnit = ((majorUnit = paceForm.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-            minorUnit = ((minorUnit = paceForm.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-            String paceUnit = ((paceUnit = paceForm.getPaceUnit()) != null) ? paceUnit : "minutesPerKilometer";
+            majorUnit = ((majorUnit = paceForm.getDistanceMajorUnit()) == null) ? "kilometer" : majorUnit;
+            minorUnit = ((minorUnit = paceForm.getDistanceMinorUnit()) == null) ? "meter" : minorUnit;
+            String paceUnit = ((paceUnit = paceForm.getPaceUnit()) == null) ? "minutesPerKilometer" : paceUnit;
 
             checkValidUnit(validPaceUnits, paceUnit);
             return this;
