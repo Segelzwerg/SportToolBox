@@ -11,7 +11,11 @@ Thank you very much for contributing.
 ### Testing
 
 If you implement or change code, please run the tests so we can avoid regression. Preferably create tests before working on the code. It is also possible to create tests without adding new code.
-This projects uses mockito and hamcrest.
+
+This projects uses mockito.
+
+:exclamation: Since 0.5.0 we use assertj for assertions. Please use assertions, that prints real values on failing instead of hash codes.
+
 
 ### Working on issues
 
