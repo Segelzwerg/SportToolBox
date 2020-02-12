@@ -63,8 +63,8 @@ public interface Speed {
     /**
      * calculates the distance for travelling a given time
      *
-     * @param time {@link Time}
+     * @param seconds float amount of seconds to travel
      * @return a {@link Distance}
      */
-    Distance computeDistance(Time time);
+    Distance computeDistance(float seconds);
 }
