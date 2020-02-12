@@ -9,7 +9,13 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
  */
 @EqualsAndHashCode
 public class Distance {
+    /**
+     * factor to convert miles into yards
+     */
     public static final double MILES_TO_YARDS = 1760.0;
+    /**
+     * factor to convert fathoms to nautical miles
+     */
     public static final double FATHOMS_TO_NAUTICAL_MILES = 1 / 1013.3333334;
     private final float kilometer;
     private final float meter;

@@ -13,14 +13,32 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 public class Time {
     private final long seconds;
 
+    /**
+     * constructor with only hours given
+     *
+     * @param hour integer of the duration in hours
+     */
     public Time(int hour) {
         this(hour, 0, 0);
     }
 
+    /**
+     * constructor with only hours and minutes given
+     *
+     * @param hour    integer of the duration's hours
+     * @param minutes interg of the duration's minutes
+     */
     public Time(int hour, int minutes) {
         this(hour, minutes, 0);
     }
 
+    /**
+     * full constructor
+     *
+     * @param hour    integer of the duration's hours
+     * @param minutes integer of the duration's minutes
+     * @param seconds integer of the duration's seconds
+     */
     public Time(int hour, int minutes, int seconds) {
         if (hour < 0 || minutes < 0 || seconds < 0) {
             throw new IllegalArgumentException("Times must not be negative");

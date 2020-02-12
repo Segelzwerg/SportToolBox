@@ -6,13 +6,16 @@ import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
+/**
+ * Calculator for a given distance and pace or speed
+ */
 @EqualsAndHashCode
 public class TimeCalculator {
     private final Distance distance;
     private final Speed speed;
 
     /**
-     * constructor
+     * constructor for distance and speed
      *
      * @param distance {@link Distance}
      * @param speed    {@link Speed}
@@ -23,6 +26,12 @@ public class TimeCalculator {
         this.speed = speed;
     }
 
+    /**
+     * constructor for distance and pace
+     *
+     * @param distance {@link Distance}
+     * @param pace     {@link Pace}
+     */
     public TimeCalculator(Distance distance, Pace pace) {
         this.distance = distance;
         this.speed = pace.getSpeed();
