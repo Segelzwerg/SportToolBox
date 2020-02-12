@@ -114,7 +114,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    void inti_with_nauticals() {
+    public void inti_with_nauticals() {
         int mile = 30;
         String milesUnit = "nautical";
         Distance expectedDistance = new Distance((float) 55.56);
