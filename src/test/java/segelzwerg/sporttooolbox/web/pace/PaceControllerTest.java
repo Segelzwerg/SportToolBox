@@ -49,7 +49,7 @@ class PaceControllerTest {
     }
 
     @Test
-    void pacecalculatingTest() throws Exception {
+    void paceCalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/pace", paceForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
