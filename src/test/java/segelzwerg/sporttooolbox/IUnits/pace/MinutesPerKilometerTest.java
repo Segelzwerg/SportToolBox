@@ -37,4 +37,15 @@ class MinutesPerKilometerTest {
 
         assertThat(speed, equalTo(kilometerPerHour));
     }
+
+    @Test
+    void convert_4_30_to_kph() {
+        MinutesPerKilometer minutesPerKilometer = new MinutesPerKilometer(4.5f);
+
+        Speed speed = minutesPerKilometer.getSpeed();
+
+        KilometerPerHour expectedSpeed = new KilometerPerHour(13.3333f);
+
+        assertThat(speed, equalTo(expectedSpeed));
+    }
 }
