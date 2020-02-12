@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class DistanceAutoFillFactoryTest {
 
     @Test
-    public void OneHundredMiles() {
+    public void oneHundredMiles() {
         SpeedForm expectedSpeedForm = hundredMiles();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("100mi");
@@ -20,7 +20,7 @@ public class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    public void OneHundredKilometer() {
+    public void oneHundredKilometer() {
         SpeedForm expectedSpeedForm = hundredKilometer();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("100km");
@@ -30,7 +30,7 @@ public class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    public void Marathon() {
+    public void testMarathon() {
         SpeedForm expectedSpeedForm = marathon();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("Marathon");
@@ -40,7 +40,7 @@ public class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    public void HalfMarathon() {
+    public void halfMarathon() {
         SpeedForm expectedSpeedForm = halfmarathon();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("Halfmarathon");
