@@ -51,7 +51,7 @@ public class SpeedService {
 
         checkValidUnit(validSpeedUnits, speedUnit);
 
-        TimeCalculator timeCalculator = TimeCalculatorFactory.build(speedForm, majorUnit, minorUnit);
+        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, majorUnit, minorUnit);
         return timeCalculator.computeTime();
     }
 
