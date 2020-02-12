@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.web.speed;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
@@ -59,6 +60,22 @@ public class SpeedServiceTest {
 
         Time expectedTime = new Time(2, 51, 30);
         assertThat(time, equalTo(expectedTime));
+    }
+
+    @Test
+    public void speed_time_test_distance() {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setSpeed(34.32f);
+        speedForm.setSpeedUnit("milesPerHour");
+        speedForm.setHour(1);
+        speedForm.setHour(21);
+        speedForm.setSecond(19);
+
+        Distance distance = speedService.calculateDistance(speedForm);
+
+        Distance expectedDistance = new Distance(74, 856);
+
+        assertThat(distance, equalTo(expectedDistance));
     }
 
     @Test
