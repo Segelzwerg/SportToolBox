@@ -96,6 +96,16 @@ public class Distance {
     }
 
     /**
+     * @param distance float miles with decimals
+     * @return a distance object
+     */
+    public static Distance createWithMiles(float distance) {
+        int miles = (int) Math.floor(distance);
+        int yards = (int) (Math.round((distance - miles) * MILES_TO_YARDS * 100f) / 100f);
+        return Distance.createWithOtherThanSIUnits(miles, yards, "miles", "yards");
+    }
+
+    /**
      * Add distance
      *
      * @param toAdd distance to add
