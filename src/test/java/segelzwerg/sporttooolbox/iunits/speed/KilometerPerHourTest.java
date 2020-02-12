@@ -97,7 +97,7 @@ public class KilometerPerHourTest {
      * Distance: 321.6km
      */
     @Test
-    void computeTime() {
+    public void computeTime() {
         KilometerPerHour kilometerPerHour = new KilometerPerHour((float) 54.8);
         Time time = kilometerPerHour.computeTime(321, 600);
 

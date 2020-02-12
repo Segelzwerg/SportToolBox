@@ -7,16 +7,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class SpeedFactoryTest {
+public class SpeedFactoryTest {
     float value;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         value = 123;
     }
 
     @Test
-    void build_kilometerPerHour() {
+    public void build_kilometerPerHour() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour");
 
         KilometerPerHour expectedSpeed = new KilometerPerHour(value);
@@ -25,7 +25,7 @@ class SpeedFactoryTest {
     }
 
     @Test
-    void build_milesPerHour() {
+    public void build_milesPerHour() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "milesPerHour");
 
         MilePerHour expectedSpeed = new MilePerHour(value);
@@ -34,7 +34,7 @@ class SpeedFactoryTest {
     }
 
     @Test
-    void build_knots() {
+    public void build_knots() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "knots");
 
         Knot expectedSpeed = new Knot(value);
@@ -43,7 +43,7 @@ class SpeedFactoryTest {
     }
 
     @Test
-    void build_meterPerSecond() {
+    public void build_meterPerSecond() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "meterPerSecond");
 
         MeterPerSecond expectedSpeed = new MeterPerSecond(value);
@@ -52,19 +52,19 @@ class SpeedFactoryTest {
     }
 
     @Test
-    void invalidUnit() {
+    public void invalidUnit() {
         assertThrows(IllegalArgumentException.class, () -> SpeedFactory.createSpeedFromUnit(value, "invalidUnit"));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test
-    void nullUnit() {
+    public void nullUnit() {
         String unit = null;
         assertThrows(NullPointerException.class, () -> SpeedFactory.createSpeedFromUnit(value, unit));
     }
 
     @Test
-    void nullValue() {
+    public void nullValue() {
         Float value = null;
         assertThrows(NullPointerException.class, () -> SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour"));
     }

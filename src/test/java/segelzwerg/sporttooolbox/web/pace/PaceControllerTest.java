@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PaceControllerTest {
+public class PaceControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,7 +26,7 @@ class PaceControllerTest {
     private SpeedForm paceForm;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         paceForm = new SpeedForm();
         paceForm.setMajor(10);
         paceForm.setHour(1);
@@ -35,32 +35,32 @@ class PaceControllerTest {
     }
 
     @Test
-    void pace_load_english() throws Exception {
+    public void pace_load_english() throws Exception {
         Locale.setDefault(Locale.US);
         mockMvc.perform(get("/pace"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void pace_load_german() throws Exception {
+    public void pace_load_german() throws Exception {
         Locale.setDefault(Locale.GERMANY);
         mockMvc.perform(get("/pace"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void paceCalculatingTest() throws Exception {
+    public void paceCalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/pace", paceForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
 
     @Test
-    void autoDistanceTest() throws Exception {
+    public void autoDistanceTest() throws Exception {
         mockMvc.perform(post("/pace/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
     }
 
     @Test
-    void timeCalculationTest() throws Exception {
+    public void timeCalculationTest() throws Exception {
         SpeedForm paceForm = new SpeedForm();
         paceForm.setMajor(100);
         paceForm.setDistanceMajorUnit("kilometer");

@@ -8,28 +8,28 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-class MinutesPerHundredMetersTest {
+public class MinutesPerHundredMetersTest {
     private MinutesPerHundredMeters oneMinutefifthteenPerKM;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         oneMinutefifthteenPerKM = new MinutesPerHundredMeters(1.25f);
     }
 
     @Test
-    void convert_to_minutes_per_100_meters() {
+    public void convert_to_minutes_per_100_meters() {
         assertThat(oneMinutefifthteenPerKM, equalTo(oneMinutefifthteenPerKM.toMinutesPerHundredMeters()));
     }
 
     @Test
-    void convert_to_minutes_per_kilometer() {
+    public void convert_to_minutes_per_kilometer() {
         MinutesPerKilometer pace = (MinutesPerKilometer) oneMinutefifthteenPerKM.toMinutesPerKilometer();
         MinutesPerKilometer expectedPace = new MinutesPerKilometer(12.5f);
         assertThat(pace, equalTo(expectedPace));
     }
 
     @Test
-    void convert_to_kph() {
+    public void convert_to_kph() {
         Speed speed = oneMinutefifthteenPerKM.getSpeed();
 
         KilometerPerHour kilometerPerHour = new KilometerPerHour(4.8f);

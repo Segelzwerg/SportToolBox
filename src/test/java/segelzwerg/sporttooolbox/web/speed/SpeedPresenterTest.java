@@ -8,9 +8,9 @@ import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-class SpeedPresenterTest {
+public class SpeedPresenterTest {
     @Test
-    void constructorTest() {
+    public void constructorTest() {
         KilometerPerHour kilometerPerHour = new KilometerPerHour((float) 30.567);
         SpeedPresenter presenter = new SpeedPresenter(kilometerPerHour);
 

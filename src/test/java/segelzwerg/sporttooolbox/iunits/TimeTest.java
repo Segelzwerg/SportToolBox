@@ -146,7 +146,7 @@ public class TimeTest {
      * the input is hours in decimals
      */
     @Test
-    void floatConstructor() {
+    public void floatConstructor() {
         float time = (float) 73.56;
         Time timeObject = new Time(time);
 
@@ -159,7 +159,7 @@ public class TimeTest {
      * test the toString method
      */
     @Test
-    void test_toString() {
+    public void test_toString() {
         Time time = new Time(34, 12, 59);
         String timeString = time.toString();
 

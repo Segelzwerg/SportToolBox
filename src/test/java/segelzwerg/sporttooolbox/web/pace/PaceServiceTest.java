@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class PaceServiceTest {
+public class PaceServiceTest {
 
     private SpeedForm paceForm;
     private PaceService paceService;
@@ -25,7 +25,7 @@ class PaceServiceTest {
     }
 
     @Test
-    void only_kilometer() {
+    public void only_kilometer() {
         paceForm.setDistanceMajorUnit("kilometer");
 
         Pace pace = paceService.calculatePace(paceForm);
@@ -35,7 +35,7 @@ class PaceServiceTest {
     }
 
     @Test
-    void distance_speed_test_time() {
+    public void distance_speed_test_time() {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(34);
         speedForm.setMinor(300);
@@ -51,21 +51,21 @@ class PaceServiceTest {
     }
 
     @Test
-    void invalidMajorUnit() {
+    public void invalidMajorUnit() {
         paceForm.setDistanceMajorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));
     }
 
     @Test
-    void invalidMinorUnit() {
+    public void invalidMinorUnit() {
         paceForm.setDistanceMinorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));
     }
 
     @Test
-    void invalidResultUnit() {
+    public void invalidResultUnit() {
         paceForm.setPaceUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));

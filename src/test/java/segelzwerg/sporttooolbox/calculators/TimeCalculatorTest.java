@@ -10,12 +10,12 @@ import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-class TimeCalculatorTest {
+public class TimeCalculatorTest {
 
     private Distance sixtyKilometer;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         sixtyKilometer = new Distance(60);
     }
 
@@ -25,7 +25,7 @@ class TimeCalculatorTest {
      * @result {@link Time} with 5 hours, 0 minutes and 0 seconds
      */
     @Test
-    void sixty_kilometer_with_twelve_kph() {
+    public void sixty_kilometer_with_twelve_kph() {
         KilometerPerHour twelveKPH = new KilometerPerHour(12);
         Time expectedTime = new Time(5, 0, 0);
 
@@ -36,7 +36,7 @@ class TimeCalculatorTest {
     }
 
     @Test
-    void sixty_kilometer_with_four_min_per_km() {
+    public void sixty_kilometer_with_four_min_per_km() {
         MinutesPerKilometer fiveMinutesPerKilometer = new MinutesPerKilometer(4);
         Time expectedTime = new Time(4, 0, 0);
 

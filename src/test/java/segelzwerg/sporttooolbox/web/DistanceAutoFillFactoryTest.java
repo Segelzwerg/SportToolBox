@@ -7,10 +7,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class DistanceAutoFillFactoryTest {
+public class DistanceAutoFillFactoryTest {
 
     @Test
-    void OneHundredMiles() {
+    public void OneHundredMiles() {
         SpeedForm expectedSpeedForm = hundredMiles();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("100mi");
@@ -20,7 +20,7 @@ class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    void OneHundredKilometer() {
+    public void OneHundredKilometer() {
         SpeedForm expectedSpeedForm = hundredKilometer();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("100km");
@@ -30,7 +30,7 @@ class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    void Marathon() {
+    public void Marathon() {
         SpeedForm expectedSpeedForm = marathon();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("Marathon");
@@ -40,7 +40,7 @@ class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    void HalfMarathon() {
+    public void HalfMarathon() {
         SpeedForm expectedSpeedForm = halfmarathon();
 
         SpeedForm form = DistanceAutoFillFactory.autoDistance("Halfmarathon");
@@ -50,7 +50,7 @@ class DistanceAutoFillFactoryTest {
     }
 
     @Test
-    void InvalidUnitTest() {
+    public void InvalidUnitTest() {
         assertThrows(IllegalArgumentException.class, () -> DistanceAutoFillFactory.autoDistance("1000Lichtjahre"));
     }
 

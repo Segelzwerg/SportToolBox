@@ -42,21 +42,21 @@ public class HeatMapControllerTest {
     private ImageService imageService;
 
     @Test
-    void speed_load_english() throws Exception {
+    public void speed_load_english() throws Exception {
         Locale.setDefault(Locale.US);
         mockMvc.perform(get("/heatmap"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void speed_load_german() throws Exception {
+    public void speed_load_german() throws Exception {
         Locale.setDefault(Locale.GERMANY);
         mockMvc.perform(get("/heatmap"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void upload_test() throws Exception {
+    public void upload_test() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         doNothing().when(heatMapService).uploadFile(isA(MultipartFile.class));
         mockMvc.perform(postForm("/heatmap/upload", file))
@@ -64,7 +64,7 @@ public class HeatMapControllerTest {
     }
 
     @Test
-    void generate_test() throws Exception {
+    public void generate_test() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         doNothing().when(heatMapService).generate();
         mockMvc.perform(post("/heatmap/generate"))
@@ -72,7 +72,7 @@ public class HeatMapControllerTest {
     }
 
     @Test
-    void generate_exception() throws Exception {
+    public void generate_exception() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         doThrow(new UnirestException("")).when(heatMapService).generate();
         mockMvc.perform(post("/heatmap/generate"))
@@ -80,7 +80,7 @@ public class HeatMapControllerTest {
     }
 
     @Test
-    void getImage_test() throws Exception {
+    public void getImage_test() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         when(heatMapService.getImage()).thenReturn(bufferedImage);
 
@@ -90,7 +90,7 @@ public class HeatMapControllerTest {
     }
 
     @Test
-    void getImage_exception_test() throws Exception {
+    public void getImage_exception_test() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         when(heatMapService.getImage()).thenReturn(null);
 
@@ -99,7 +99,7 @@ public class HeatMapControllerTest {
     }
 
     @Test
-    void heatmap_file_test() throws Exception {
+    public void heatmap_file_test() throws Exception {
         byte[] bytes = "test".getBytes();
         mockMvc = MockMvcBuilders.standaloneSetup(heatMapController).build();
         when(imageService.getImageBytes(isA(BufferedImage.class))).thenReturn(bytes);

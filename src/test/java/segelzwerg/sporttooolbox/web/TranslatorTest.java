@@ -8,7 +8,7 @@ import java.util.Locale;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-class TranslatorTest {
+public class TranslatorTest {
 
 
     private String messageCode;
@@ -19,7 +19,7 @@ class TranslatorTest {
     }
 
     @Test
-    void toLocale_US() {
+    public void toLocale_US() {
         Locale.setDefault(Locale.US);
         String translatedMessageCode = Translator.toLocale(messageCode);
         assertThat(translatedMessageCode, equalTo(messageCode));
@@ -27,7 +27,7 @@ class TranslatorTest {
     }
 
     @Test
-    void toLocale_DE() {
+    public void toLocale_DE() {
         Locale.setDefault(Locale.GERMANY);
         String translatedMessageCode = Translator.toLocale(messageCode);
         String expectedMessageCode = "de/" + messageCode;

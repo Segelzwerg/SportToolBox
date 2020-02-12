@@ -10,13 +10,13 @@ import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-class TimeCalculatorFactoryTest {
+public class TimeCalculatorFactoryTest {
 
     /**
      * tests if the calculator is build correctly from factory using speed and distance
      */
     @Test
-    void test_build_from_speed() {
+    public void test_build_from_speed() {
         int kilometer = 10;
         int meter = 455;
         String majorUnit = "kilometer";
@@ -45,7 +45,7 @@ class TimeCalculatorFactoryTest {
      * tests if the calculator is build correctly from factory using pace and distance
      */
     @Test
-    void test_build_from_pace() {
+    public void test_build_from_pace() {
         SpeedForm paceForm = new SpeedForm();
         int kilometer = 26;
         int meter = 415;

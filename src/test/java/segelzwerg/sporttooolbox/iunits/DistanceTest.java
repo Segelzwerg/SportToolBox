@@ -80,7 +80,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    void inti_with_miles() {
+    public void inti_with_miles() {
         int mile = 30;
         String milesUnit = "miles";
         Distance expectedDistance = new Distance((float) 48.28032);
@@ -96,7 +96,7 @@ public class DistanceTest {
      * Expected: 48.28032 km + 0,18288km
      */
     @Test
-    void inti_with_miles_and_yards() {
+    public void inti_with_miles_and_yards() {
         int mile = 30;
         int yard = 200;
         String milesUnit = "miles";
@@ -130,7 +130,7 @@ public class DistanceTest {
      * Expected: 48.28032 km + 0,18288km
      */
     @Test
-    void inti_with_nauticals_and_phatoms() {
+    public void inti_with_nauticals_and_phatoms() {
         int mile = 30;
         int yard = 200;
         String milesUnit = "nautical";
@@ -143,7 +143,7 @@ public class DistanceTest {
     }
 
     @Test
-    void invalid_major_unit() {
+    public void invalid_major_unit() {
         int major = 10;
         String invalidUnit = "centimeter";
 
@@ -151,7 +151,7 @@ public class DistanceTest {
     }
 
     @Test
-    void invalid_minor_unit() {
+    public void invalid_minor_unit() {
         int major = 10;
         int minor = 10;
         String majorUnit = "kilometer";
