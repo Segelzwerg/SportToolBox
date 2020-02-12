@@ -39,6 +39,13 @@ public interface Speed {
      */
     Speed toKnot();
 
+    /**
+     * This will be removed as it works as getter. The method does tend to break Demeter's Law.
+     * Use methods of implementation instead.
+     *
+     * @return float representing a speed value
+     */
+    @Deprecated
     float getSpeed();
 
     public Speed format();
