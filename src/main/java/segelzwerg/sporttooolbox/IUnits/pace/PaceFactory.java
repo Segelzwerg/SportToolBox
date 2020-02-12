@@ -7,7 +7,8 @@ public class PaceFactory {
                 return new MinutesPerKilometer(pace);
             case "minutesPerHundredMeters":
                 return new MinutesPerHundredMeters(pace);
+            default:
+                throw new IllegalArgumentException("The unit was invalid: " + paceUnit);
         }
-        throw new IllegalArgumentException("The unit was invalid: " + paceUnit);
     }
 }
