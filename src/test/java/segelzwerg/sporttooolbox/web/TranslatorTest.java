@@ -19,7 +19,7 @@ public class TranslatorTest {
     }
 
     @Test
-    public void toLocale_US() {
+    public void toLocaleUS() {
         Locale.setDefault(Locale.US);
         String translatedMessageCode = Translator.toLocale(messageCode);
         assertThat(translatedMessageCode, equalTo(messageCode));
@@ -27,7 +27,7 @@ public class TranslatorTest {
     }
 
     @Test
-    public void toLocale_DE() {
+    public void toLocaleDE() {
         Locale.setDefault(Locale.GERMANY);
         String translatedMessageCode = Translator.toLocale(messageCode);
         String expectedMessageCode = "de/" + messageCode;
