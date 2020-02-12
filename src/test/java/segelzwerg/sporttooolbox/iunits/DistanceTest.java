@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
@@ -41,7 +42,7 @@ public class DistanceTest {
 
         Distance expected = new Distance(31, 0);
 
-        assertThat(thirtyonekilometer, equalTo(expected));
+        Assertions.assertThat(thirtyonekilometer).isEqualToComparingFieldByField(expected);
     }
 
     /**
@@ -105,7 +106,7 @@ public class DistanceTest {
 
         Distance distance = Distance.createWithOtherThanSIUnits(mile, yard, milesUnit, yardsUnit);
 
-        assertThat(distance, equalTo(expectedDistance));
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
 
     /**
