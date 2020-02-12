@@ -40,8 +40,11 @@ public class Distance {
      * @param meter     - and meters.  meters will be added to the kilometers
      */
     public Distance(float kilometer, float meter) {
-        this.kilometer = kilometer + (int) meter / 1000;
-        this.meter = meter % 1000;
+        double total = Math.round((kilometer + meter / 1000f) * 1000f) / 1000f;
+        int absKilometer = (int) Math.floor(total);
+        float absMeter = Math.round((total - absKilometer) * 1000f * 10f) / 10f;
+        this.kilometer = absKilometer;
+        this.meter = absMeter;
     }
 
     public static Distance createWithMajorUnit(int major, String majorUnit) {
@@ -58,7 +61,12 @@ public class Distance {
      * @return Distance
      */
     public static Distance createWithOtherThanSIUnits(int major, int minor, String majorUnit, String minorUnit) {
-        return new Distance((float) convertMajorToKilometer(major, majorUnit), (float) convertMinorToMeter(minor, minorUnit));
+        float kilometer = (float) convertMajorToKilometer(major, majorUnit);
+        float meter = (float) convertMinorToMeter(minor, minorUnit) / 1000f;
+        double total = Math.floor((kilometer + meter) * 1000f) / 1000f;
+        int absKilometer = (int) Math.floor(total);
+        int absMeter = (int) Math.round((total - absKilometer) * 10000) / 10;
+        return new Distance(absKilometer, absMeter);
     }
 
     private static double convertMinorToMeter(float minor, String minorUnit) {
