@@ -97,7 +97,7 @@ public class KnotTest {
      * Distance: 25.27 nm
      */
     @Test
-    void computeTime() {
+    public void computeTime() {
         Knot knots = new Knot((float) 17.63);
         float fathoms = (float) (0.270 / Distance.FATHOMS_TO_NAUTICAL_MILES);
         Time time = knots.computeTime(25, fathoms);
