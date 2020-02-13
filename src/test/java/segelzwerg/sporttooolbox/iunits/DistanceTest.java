@@ -20,7 +20,7 @@ public class DistanceTest {
      * @result 30km and 2002m is the same as 32km and 2m
      */
     @Test
-    public void overflow_test() {
+    public void overflowTest() {
         Distance thirtyKM_twoThousandTwoMeter = new Distance(30, 2002);
         Distance expectedDistance = new Distance(32, 2);
 
@@ -35,7 +35,7 @@ public class DistanceTest {
      * @result the result is 31
      */
     @Test
-    public void add_distance_test() {
+    public void addDistanceTest() {
         Distance thirtyKilometer = new Distance(30, 999);
         Distance thirtyonekilometer = thirtyKilometer.addDistance(new Distance(0, 1));
 
@@ -53,7 +53,7 @@ public class DistanceTest {
      * @result the result is 30
      */
     @Test
-    public void sixty_kilometer_two_hour_test_speed() {
+    public void sixtyKilometerTwoHourTestSpeed() {
         Distance tenKilometer = new Distance(60);
         Time twoHours = new Time(2);
         Speed expectedSpeed = new KilometerPerHour(30);
@@ -69,7 +69,7 @@ public class DistanceTest {
      */
 
     @Test
-    public void negative_distance() {
+    public void negativeDistance() {
         assertThrows(IllegalArgumentException.class, () -> new Distance(-1));
     }
 
@@ -80,7 +80,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    void inti_with_miles() {
+    void initWithMiles() {
         int mile = 30;
         String milesUnit = "miles";
         Distance expectedDistance = new Distance((float) 48.28032);
@@ -96,7 +96,7 @@ public class DistanceTest {
      * Expected: 48.28032 km + 0,18288km
      */
     @Test
-    void inti_with_miles_and_yards() {
+    void initWithMilesAndYards() {
         int mile = 30;
         int yard = 200;
         String milesUnit = "miles";
@@ -114,7 +114,7 @@ public class DistanceTest {
      * Expected: 48.28032 km
      */
     @Test
-    void inti_with_nauticals() {
+    void initWithNauticals() {
         int mile = 30;
         String milesUnit = "nautical";
         Distance expectedDistance = new Distance((float) 55.56);
@@ -130,7 +130,7 @@ public class DistanceTest {
      * Expected: 48.28032 km + 0,18288km
      */
     @Test
-    void inti_with_nauticals_and_phatoms() {
+    void initWithNauticalAndPhatoms() {
         int mile = 30;
         int yard = 200;
         String milesUnit = "nautical";
@@ -143,7 +143,7 @@ public class DistanceTest {
     }
 
     @Test
-    void invalid_major_unit() {
+    void invalidMajorUnit() {
         int major = 10;
         String invalidUnit = "centimeter";
         ;
@@ -151,7 +151,7 @@ public class DistanceTest {
     }
 
     @Test
-    void invalid_minor_unit() {
+    void invalidMinorUnit() {
         int major = 10;
         int minor = 10;
         String majorUnit = "kilometer";
