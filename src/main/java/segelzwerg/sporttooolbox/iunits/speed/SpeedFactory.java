@@ -2,7 +2,7 @@ package segelzwerg.sporttooolbox.iunits.speed;
 
 import java.util.Objects;
 
-public class SpeedFactory {
+public final class SpeedFactory {
     /**
      * private constructor to prevent instantiating
      */
