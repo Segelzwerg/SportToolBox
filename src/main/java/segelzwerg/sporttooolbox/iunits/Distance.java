@@ -1,6 +1,7 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.IUnits.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**

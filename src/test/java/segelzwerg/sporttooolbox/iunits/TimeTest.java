@@ -1,4 +1,4 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits;
 
 import org.junit.jupiter.api.Test;
 

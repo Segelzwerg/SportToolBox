@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
 import segelzwerg.sporttooolbox.calculators.TimeCalculator;
 import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
+import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import java.util.ArrayList;

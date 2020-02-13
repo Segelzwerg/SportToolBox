@@ -1,6 +1,6 @@
 package segelzwerg.sporttooolbox.calculators;
 
-import segelzwerg.sporttooolbox.IUnits.Distance;
+import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import segelzwerg.sporttooolbox.iunits.speed.SpeedFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
