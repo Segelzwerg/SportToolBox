@@ -82,7 +82,7 @@ class PaceControllerTest {
         speedForm.setMinute(0);
         speedForm.setSecond(0);
         speedForm.setPace(4.3f);
-        speedForm.setPaceUnit("kilometerPerHour");
+        speedForm.setPaceUnit("minutesPerKilometer");
 
         MockHttpServletRequestBuilder builder = postForm("/pace", speedForm);
 
