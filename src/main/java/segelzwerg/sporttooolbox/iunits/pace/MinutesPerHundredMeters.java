@@ -1,7 +1,8 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Pace of minutes per hundred meters

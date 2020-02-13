@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
-import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
