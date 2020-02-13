@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.web.speed;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Distance;
@@ -75,7 +76,7 @@ public class SpeedServiceTest {
 
         Distance expectedDistance = new Distance(74, 856);
 
-        assertThat(distance, equalTo(expectedDistance));
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
 
     @Test
