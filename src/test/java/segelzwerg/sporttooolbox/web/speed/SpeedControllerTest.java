@@ -34,7 +34,7 @@ public class SpeedControllerTest {
     }
 
     @Test
-    public void speed_load_english() throws Exception {
+    public void speedLoadEnglish() throws Exception {
         Locale.setDefault(Locale.US);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
