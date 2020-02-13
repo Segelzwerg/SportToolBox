@@ -20,7 +20,7 @@ public final class TimeCalculatorFactory {
      * @param minorUnit minor unit of the distance
      * @return {@link TimeCalculator}
      */
-    public static TimeCalculator build(SpeedForm speedForm, String majorUnit, String minorUnit) {
+    public static TimeCalculator buildFromSpeed(SpeedForm speedForm, String majorUnit, String minorUnit) {
         int major = speedForm.getMajor();
         int minor = speedForm.getMinor();
         Distance distance = Distance.createWithOtherThanSIUnits(major, minor, majorUnit, minorUnit);

@@ -45,7 +45,7 @@ public class SpeedService {
      */
     public Time calculateTime(SpeedForm speedForm) {
         UnitParser unitParser = new UnitParser(speedForm).invoke();
-        TimeCalculator timeCalculator = TimeCalculatorFactory.build(speedForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
+        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
         return timeCalculator.computeTime();
     }
 

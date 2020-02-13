@@ -29,7 +29,7 @@ public class TimeCalculatorFactoryTest {
 
         Distance distance = new Distance(kilometer, meter);
 
-        TimeCalculator timeCalculator = TimeCalculatorFactory.build(speedForm, majorUnit, minorUnit);
+        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, majorUnit, minorUnit);
 
         TimeCalculator expectedTimeCalculator = new TimeCalculator(distance, speed);
 
