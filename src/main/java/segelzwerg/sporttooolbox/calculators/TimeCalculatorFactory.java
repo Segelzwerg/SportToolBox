@@ -7,6 +7,12 @@ import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 public class TimeCalculatorFactory {
     /**
+     * prevents instantiating
+     */
+    private TimeCalculatorFactory() {
+    }
+
+    /**
      * builds a {@link TimeCalculator}
      *
      * @param speedForm {@link SpeedForm}
