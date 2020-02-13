@@ -1,41 +1,52 @@
 package segelzwerg.sporttooolbox.iunits.pace;
 
+import org.assertj.core.util.FloatComparator;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class MinutesPerKilometerTest {
+    private static FloatComparator closeEnough;
+    private MinutesPerKilometer threeMinutesFifteenPerKM;
 
-    private MinutesPerKilometer threeMinutesfifthteenPerKM;
+    @BeforeAll
+    public static void beforeAll() {
+        closeEnough = new FloatComparator(0.0001f);
+    }
 
     @BeforeEach
     public void setUp() {
-        threeMinutesfifthteenPerKM = new MinutesPerKilometer(3.25f);
+        threeMinutesFifteenPerKM = new MinutesPerKilometer(3.25f);
     }
 
     @Test
     public void convert_to_minutes_per_kilometer() {
-        assertThat(threeMinutesfifthteenPerKM, equalTo(threeMinutesfifthteenPerKM.toMinutesPerKilometer()));
+        assertThat(threeMinutesFifteenPerKM).isEqualToComparingFieldByField(threeMinutesFifteenPerKM.toMinutesPerKilometer());
     }
 
     @Test
     public void convert_to_minutes_per_100_meters() {
-        MinutesPerHundredMeters pace = (MinutesPerHundredMeters) threeMinutesfifthteenPerKM.toMinutesPerHundredMeters();
+        MinutesPerHundredMeters pace = (MinutesPerHundredMeters) threeMinutesFifteenPerKM.toMinutesPerHundredMeters();
         MinutesPerHundredMeters expectedPace = new MinutesPerHundredMeters(0.325f);
-        assertThat(pace, equalTo(expectedPace));
+        assertThat(pace)
+                .usingComparatorForFields(closeEnough, "pace")
+                .isEqualToComparingFieldByField(expectedPace);
     }
 
     @Test
     public void convert_to_kph() {
-        Speed speed = threeMinutesfifthteenPerKM.getSpeed();
+        Speed speed = threeMinutesFifteenPerKM.getSpeed();
 
-        KilometerPerHour kilometerPerHour = new KilometerPerHour(18.4615f);
+        Speed kilometerPerHour = new KilometerPerHour(18.4615f);
 
-        assertThat(speed, equalTo(kilometerPerHour));
+        assertThat(speed)
+                .usingComparatorForFields(closeEnough, "speed")
+                .isEqualToComparingFieldByField(kilometerPerHour);
     }
 
     @Test
@@ -46,6 +57,8 @@ public class MinutesPerKilometerTest {
 
         KilometerPerHour expectedSpeed = new KilometerPerHour(13.3333f);
 
-        assertThat(speed, equalTo(expectedSpeed));
+        assertThat(speed)
+                .usingComparatorForFields(closeEnough, "speed")
+                .isEqualToComparingFieldByField(expectedSpeed);
     }
 }
