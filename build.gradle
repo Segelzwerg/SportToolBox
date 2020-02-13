@@ -28,6 +28,7 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+    codacy
 }
 
 repositories {
@@ -35,6 +36,7 @@ repositories {
     maven {
         url "https://plugins.gradle.org/m2/"
     }
+    jcenter()
 }
 
 dependencies {
@@ -53,6 +55,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     // https://mvnrepository.com/artifact/io.florianlopes/spring-mvc-test-utils
     compile group: 'io.florianlopes', name: 'spring-mvc-test-utils', version: '2.2.1'
+    codacy 'com.codacy:codacy-coverage-reporter:latest.release'
 }
 
 test {
@@ -91,6 +94,18 @@ jacocoTestReport {
         xml.enabled = true
         html.enabled = true
     }
+}
+
+task sendCoverageToCodacy(type: JavaExec, dependsOn: jacocoTestReport) {
+    main = "com.codacy.CodacyCoverageReporter"
+    classpath = configurations.codacy
+    args = [
+            "report",
+            "-l",
+            "Java",
+            "-r",
+            "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+    ]
 }
 
 check.dependsOn jacocoTestReport
