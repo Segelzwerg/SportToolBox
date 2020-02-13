@@ -98,7 +98,7 @@ public class MilePerHourTest {
      * Distance: 13.78 miles
      */
     @Test
-    void computeTime() {
+    public void computeTime() {
         MilePerHour milesPerHour = new MilePerHour((float) 6.19);
         Time time = milesPerHour.computeTime(13, (float) (0.780 * Distance.MILES_TO_YARDS));
 
