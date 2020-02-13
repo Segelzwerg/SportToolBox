@@ -184,4 +184,28 @@ public class DistanceTest {
 
         Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
+
+    /**
+     * this test inaccurate due to round problems
+     */
+    @Disabled
+    @Test
+    public void createWithNautical() {
+        Distance nautical = Distance.createWithNauticals(75.341f);
+        Distance expectedDistance = new Distance(139, 532);
+
+        Assertions.assertThat(nautical).isEqualToComparingFieldByField(expectedDistance);
+    }
+
+    /**
+     * this test inaccurate due to round problems
+     */
+    @Disabled
+    @Test
+    public void createWithNauticalWithLotsOfDecimals() {
+        Distance nautical = Distance.createWithNauticals(8.1162f);
+        Distance expectedDistance = new Distance(15, 31);
+
+        Assertions.assertThat(nautical).isEqualToComparingFieldByFieldRecursively(expectedDistance);
+    }
 }
