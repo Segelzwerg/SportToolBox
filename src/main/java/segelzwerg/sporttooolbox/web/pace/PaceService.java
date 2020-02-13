@@ -26,12 +26,12 @@ public class PaceService {
     /**
      * calulates pace
      *
-     * @param form
+     * @param paceForm
      * @return calculated pace
      */
-    public Pace calculatePace(SpeedForm form) {
-        UnitParser unitParser = new UnitParser(form).invoke();
-        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, unitParser.getMajorUnit(), unitParser.getMinorUnit());
+    public Pace calculatePace(SpeedForm paceForm) {
+        UnitParser unitParser = new UnitParser(paceForm).invoke();
+        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
 
         return speedCalculator.computePace();
     }
