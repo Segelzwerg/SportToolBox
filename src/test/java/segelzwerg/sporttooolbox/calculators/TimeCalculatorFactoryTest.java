@@ -9,9 +9,9 @@ import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-class TimeCalculatorFactoryTest {
+public class TimeCalculatorFactoryTest {
     @Test
-    void test_build() {
+    public void testBuild() {
         int kilometer = 10;
         int meter = 455;
         String majorUnit = "kilometer";
