@@ -1,9 +1,11 @@
 package segelzwerg.sporttooolbox.web.pace;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -31,6 +33,22 @@ public class PaceServiceTest {
 
         MinutesPerKilometer expectedPace = new MinutesPerKilometer((float) 2.7272727);
         assertThat(pace, equalTo(expectedPace));
+    }
+
+    @Test
+    public void testTimeFromDistanceAndSpeed() {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(34);
+        speedForm.setMinor(300);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+        speedForm.setPace(4.5f);
+        speedForm.setPaceUnit("minutesPerKilometer");
+
+        Time time = paceService.calculateTime(speedForm);
+
+        Time expectedTime = new Time(2, 34, 21);
+        Assertions.assertThat(time).isEqualToComparingFieldByField(expectedTime);
     }
 
     @Test
