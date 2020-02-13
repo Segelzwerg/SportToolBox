@@ -109,4 +109,3 @@ task sendCoverageToCodacy(type: JavaExec, dependsOn: jacocoTestReport) {
 }
 
 check.dependsOn jacocoTestReport
-check.finalizedBy(sendCoverageToCodacy)
