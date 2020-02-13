@@ -4,6 +4,8 @@ import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
+import static java.lang.Math.round;
+
 /**
  * Represents distance in kilometers and meters
  */
@@ -40,9 +42,9 @@ public class Distance {
      * @param meter     - and meters.  meters will be added to the kilometers
      */
     public Distance(float kilometer, float meter) {
-        double total = Math.round((kilometer + meter / 1000f) * 1000f) / 1000f;
+        double total = round((kilometer + meter / 1000f) * 1000f) / 1000f;
         int absKilometer = (int) Math.floor(total);
-        float absMeter = Math.round((total - absKilometer) * 1000f * 10f) / 10f;
+        float absMeter = round((total - absKilometer) * 1000f * 10f) / 10f;
         this.kilometer = absKilometer;
         this.meter = absMeter;
     }
@@ -63,9 +65,9 @@ public class Distance {
     public static Distance createWithOtherThanSIUnits(int major, int minor, String majorUnit, String minorUnit) {
         float kilometer = (float) convertMajorToKilometer(major, majorUnit);
         float meter = (float) convertMinorToMeter(minor, minorUnit) / 1000f;
-        double total = Math.floor((kilometer + meter) * 1000f) / 1000f;
+        double total = Math.floor((kilometer + meter) * 10000f) / 10000f;
         int absKilometer = (int) Math.floor(total);
-        int absMeter = (int) Math.round((total - absKilometer) * 10000) / 10;
+        int absMeter = (int) round((total - absKilometer) * 1000);
         return new Distance(absKilometer, absMeter);
     }
 
@@ -101,8 +103,14 @@ public class Distance {
      */
     public static Distance createWithMiles(float distance) {
         int miles = (int) Math.floor(distance);
-        int yards = (int) (Math.round((distance - miles) * MILES_TO_YARDS * 100f) / 100f);
+        int yards = (int) (round((distance - miles) * MILES_TO_YARDS * 100f) / 100f);
         return Distance.createWithOtherThanSIUnits(miles, yards, "miles", "yards");
+    }
+
+    public static Distance createWithNauticals(float distance) {
+        int nautical = (int) Math.floor(distance);
+        int fathom = (int) (round((distance - nautical) / FATHOMS_TO_NAUTICAL_MILES * 10f) / 10f);
+        return Distance.createWithOtherThanSIUnits(nautical, fathom, "nautical", "fathom");
     }
 
     /**
