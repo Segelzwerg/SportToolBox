@@ -23,4 +23,11 @@ public interface Pace {
      * @return an instance of Pace
      */
     Pace toMinutesPerHundredMeters();
+
+    /**
+     * converts pace to speed
+     *
+     * @return {@link segelzwerg.sporttooolbox.iunits.speed.MeterPerSecond} as it is SI
+     */
+    Speed getSpeed();
 }

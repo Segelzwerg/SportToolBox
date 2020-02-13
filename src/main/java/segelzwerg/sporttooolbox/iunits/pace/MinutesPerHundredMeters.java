@@ -38,6 +38,11 @@ public class MinutesPerHundredMeters implements Pace {
         return this;
     }
 
+    @Override
+    public Speed getSpeed() {
+        return new KilometerPerHour(6f / pace);
+    }
+
     /**
      * returns the pace in min:ss
      *
