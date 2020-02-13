@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class SpeedServiceTest {
+public class SpeedServiceTest {
 
     private SpeedForm speedForm;
     private SpeedService speedService;
@@ -24,7 +24,7 @@ class SpeedServiceTest {
     }
 
     @Test
-    void only_kilometer_test_speed() {
+    public void onlyKilometerTestSpeed() {
         speedForm.setDistanceMajorUnit("kilometer");
 
         Speed speed = speedService.calculateSpeed(speedForm);
@@ -34,7 +34,7 @@ class SpeedServiceTest {
     }
 
     @Test
-    void meters_and_kilos_test_speed() {
+    public void metersAndKilosTestSpeed() {
         speedForm.setMinor(500);
         speedForm.setDistanceMajorUnit("kilometer");
         speedForm.setDistanceMinorUnit("meter");
@@ -46,7 +46,7 @@ class SpeedServiceTest {
     }
 
     @Test
-    void distance_speed_test_time() {
+    public void distanceSpeedTestTime() {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(34);
         speedForm.setMinor(300);
@@ -62,21 +62,21 @@ class SpeedServiceTest {
     }
 
     @Test
-    void invalidMajorUnit() {
+    public void invalidMajorUnit() {
         speedForm.setDistanceMajorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
     }
 
     @Test
-    void invalidMinorUnit() {
+    public void invalidMinorUnit() {
         speedForm.setDistanceMinorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
     }
 
     @Test
-    void invalidResultUnit() {
+    public void invalidResultUnit() {
         speedForm.setSpeedUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> speedService.calculateSpeed(speedForm));
