@@ -1,8 +1,10 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 /**
  * Speed in knot
@@ -11,6 +13,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Knot implements Speed {
+    public static final String UNIT = "knots";
     private final float speed;
 
     public Knot(float speed) {
@@ -64,5 +67,11 @@ public class Knot implements Speed {
     @Override
     public Speed format() {
         return new Knot((float) (Math.round(speed * 100.0) / 100.0));
+    }
+
+    @Override
+    public Time computeTime(float nauticalMiles, float fathoms) {
+        float time = (float) ((nauticalMiles + fathoms * Distance.FATHOMS_TO_NAUTICAL_MILES) / speed);
+        return new Time(time);
     }
 }

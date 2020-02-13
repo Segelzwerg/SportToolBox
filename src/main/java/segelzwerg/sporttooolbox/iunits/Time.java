@@ -1,5 +1,11 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits;
+
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.IUnits.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
+
 /**
  * Time in hours, minutes and second
  */
@@ -23,9 +29,19 @@ public class Time {
     }
 
     /**
+     * converts the time from float to seconds in long
+     *
+     * @param time in hour decimals: HH.XXX
+     */
+    public Time(float time) {
+        seconds = (long) (time * 3600);
+    }
+
+    /**
      * Compute speed on specific distance
+     *
      * @param kilometer amount of kilometers
-     * @param meter amount of meters
+     * @param meter     amount of meters
      * @return calculated speed
      */
     public Speed computeSpeed(float kilometer, float meter) {
@@ -34,8 +50,9 @@ public class Time {
 
     /**
      * Compute pace given some distances
+     *
      * @param kilometer amount of kilometers
-     * @param meter amout of meters
+     * @param meter     amout of meters
      * @return calculated pace
      */
     public Pace computePace(float kilometer, float meter) {
@@ -43,9 +60,51 @@ public class Time {
     }
 
     /**
+     * Prints the time.
+     *
+     * @return hours minutes and seconds
+     */
+    @Override
+    public String toString() {
+        int hour = getOnlyHours();
+        int minute = getOnlyMinutes();
+        int second = getOnlySeconds();
+        //TODO: multilanguage support
+        return hour + " hour(s), " + minute + " minute(s) and " + second + " second(s)";
+    }
+
+    /**
+     * calculates only the hours
+     *
+     * @return hours as integer
+     */
+    private int getOnlyHours() {
+        return (int) (seconds / 3600);
+    }
+
+    /**
+     * calculates only the minutes
+     *
+     * @return minutes as integer
+     */
+    private int getOnlyMinutes() {
+        return (int) (((seconds / 3600.0) - getOnlyHours()) * 60.0);
+    }
+
+    /**
+     * calculates only the seconds
+     *
+     * @return seconds as integer
+     */
+    private int getOnlySeconds() {
+        return (int) (seconds - getOnlyHours() * 3600 - getOnlyMinutes() * 60);
+    }
+
+    /**
      * Get meters from parameters
+     *
      * @param kilometer amount of kilometers
-     * @param meter amount of meters
+     * @param meter     amount of meters
      * @return numeric representation of meters
      */
     private float getMeters(float kilometer, float meter) {
@@ -54,6 +113,7 @@ public class Time {
 
     /**
      * Get minutes from class properties
+     *
      * @return numeric representation of minutes
      */
     private float getMinutes() {

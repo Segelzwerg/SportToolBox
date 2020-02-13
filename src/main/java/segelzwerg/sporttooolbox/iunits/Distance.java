@@ -1,12 +1,16 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Represents distance in kilometers and meters
  */
 @EqualsAndHashCode
 public class Distance {
+    public static final double MILES_TO_YARDS = 1760.0;
+    public static final double FATHOMS_TO_NAUTICAL_MILES = 1 / 1013.3333334;
     private final float kilometer;
     private final float meter;
 
@@ -108,5 +112,15 @@ public class Distance {
      */
     public Pace computePace(Time time) {
         return time.computePace(kilometer, meter);
+    }
+
+    /**
+     * computes the time for a given speed
+     *
+     * @param speed {@link Speed}
+     * @return {@link Time}
+     */
+    public Time computeTime(Speed speed) {
+        return speed.computeTime(kilometer, meter);
     }
 }

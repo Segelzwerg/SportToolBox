@@ -1,7 +1,9 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -88,5 +90,20 @@ public class MilePerHourTest {
     @Test
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new MilePerHour(-1));
+    }
+
+    /**
+     * tests calculating a time needed for given a distance
+     * Speed: 6.19 mph
+     * Distance: 13.78 miles
+     */
+    @Test
+    public void computeTime() {
+        MilePerHour milesPerHour = new MilePerHour((float) 6.19);
+        Time time = milesPerHour.computeTime(13, (float) (0.780 * Distance.MILES_TO_YARDS));
+
+        Time expectedTime = new Time(2, 13, 34);
+
+        assertThat(time, equalTo(expectedTime));
     }
 }

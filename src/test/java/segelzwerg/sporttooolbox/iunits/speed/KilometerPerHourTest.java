@@ -1,7 +1,8 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -26,6 +27,7 @@ public class KilometerPerHourTest {
      * toKilometerPerHour
      * Speed: thirtyKilometersPerHour
      * Expected Speed: thirtyKilometersPerHour
+     *
      * @result thirtyKilometersPerHour return itself
      */
     @Test
@@ -40,6 +42,7 @@ public class KilometerPerHourTest {
      * toMeterPerSecond
      * Speed: thirtyKilometersPerHour
      * Expected Speed: 8.333334
+     *
      * @result 30km/h = 8.333334m/s
      */
     @Test
@@ -53,6 +56,7 @@ public class KilometerPerHourTest {
      * toMilePerHour
      * Speed: thirtyKilometersPerHour
      * Expected Speed: 18.641136
+     *
      * @result 30km/h = 18.641136mph
      */
     @Test
@@ -66,6 +70,7 @@ public class KilometerPerHourTest {
      * toKnot
      * Speed: thirtyKilometersPerHour
      * Expected Speed: 16.198704
+     *
      * @result 30km/h = 16.198704kn
      */
     @Test
@@ -84,5 +89,20 @@ public class KilometerPerHourTest {
     @Test
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new KilometerPerHour(-1));
+    }
+
+    /**
+     * tests calculating a time needed for given a distance
+     * Speed: 54.8 km/h
+     * Distance: 321.6km
+     */
+    @Test
+    public void computeTime() {
+        KilometerPerHour kilometerPerHour = new KilometerPerHour((float) 54.8);
+        Time time = kilometerPerHour.computeTime(321, 600);
+
+        Time expectedTime = new Time(5, 52, 7);
+
+        assertThat(time, equalTo(expectedTime));
     }
 }

@@ -9,6 +9,7 @@ import lombok.Getter;
 @Getter
 @EqualsAndHashCode
 public class MinutesPerHundredMeters implements Pace {
+    public static final String unit = "minutes per 100 meters";
     private final float pace;
 
     public MinutesPerHundredMeters(float pace) {

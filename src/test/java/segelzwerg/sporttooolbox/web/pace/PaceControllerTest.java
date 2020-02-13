@@ -31,7 +31,7 @@ class PaceControllerTest {
         paceForm.setMajor(10);
         paceForm.setHour(1);
         paceForm.setDistanceMajorUnit("kilometer");
-        paceForm.setResultUnit("minutesPerKilometer");
+        paceForm.setPaceUnit("minutesPerKilometer");
     }
 
     @Test

@@ -1,7 +1,8 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -26,6 +27,7 @@ public class MeterPerSecondTest {
      * toKilometerPerHour
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 108.0
+     *
      * @result 30m/s = 108.0km/h
      */
     @Test
@@ -40,6 +42,7 @@ public class MeterPerSecondTest {
      * toMeterPerSecond
      * Speed: thirtyMetersPerSecond
      * Expected Speed: thirtyMetersPerSecond
+     *
      * @result thirtyMetersPerSecond return itself
      */
     @Test
@@ -53,6 +56,7 @@ public class MeterPerSecondTest {
      * toMilePerHour
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 67.108086
+     *
      * @result 30m/s = 67.108086mph
      */
     @Test
@@ -66,6 +70,7 @@ public class MeterPerSecondTest {
      * toKnot
      * Speed: thirtyMetersPerSecond
      * Expected Speed: 58.315334
+     *
      * @result 30m/s = 58.315334kn
      */
     @Test
@@ -84,5 +89,20 @@ public class MeterPerSecondTest {
     @Test
     public void negativeInput() {
         assertThrows(IllegalArgumentException.class, () -> new MeterPerSecond(-1));
+    }
+
+    /**
+     * tests calculating a time needed for given a distance
+     * Speed: 56.9 m/s
+     * Distance: 3.7km
+     */
+    @Test
+    public void computeTime() {
+        MeterPerSecond meterPerSecond = new MeterPerSecond((float) 56.9);
+        Time time = meterPerSecond.computeTime(3, 700);
+
+        Time expectedTime = new Time(0, 1, 5);
+
+        assertThat(time, equalTo(expectedTime));
     }
 }

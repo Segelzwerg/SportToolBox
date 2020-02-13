@@ -1,7 +1,13 @@
-package segelzwerg.sporttooolbox;
+package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.*;
+import segelzwerg.sporttooolbox.IUnits.MinutesPerHundredMeters;
+import segelzwerg.sporttooolbox.IUnits.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -17,6 +23,7 @@ public class SpeedCalculatorTest {
      * Distance: 30 km
      * Time: 1 hour
      * Expected Speed: 30 km / hour
+     *
      * @result the result of computeSpeed() is 30
      */
     @Test
@@ -36,6 +43,7 @@ public class SpeedCalculatorTest {
      * Distance: 15 km
      * Time: 0.5 hour
      * Expected Speed: 30 km / hour
+     *
      * @result the result of computeSpeed() is 30
      */
     @Test
@@ -55,6 +63,7 @@ public class SpeedCalculatorTest {
      * Distance: 1 km
      * Time: 1 hour, 1 minute and 3 seconds
      * Expected Pace: 61.05 min / km
+     *
      * @result the computed result is 61.05
      */
     @Test
@@ -74,6 +83,7 @@ public class SpeedCalculatorTest {
      * Distance: 1 km
      * Time: 1 hour, 1 minute and 3 seconds
      * Expected Pace: 6.105 min / 100m
+     *
      * @result the converted result is 6.105
      */
     @Test
@@ -93,6 +103,7 @@ public class SpeedCalculatorTest {
      * Distance: 1 km
      * Time: 1 hour, 1 minute and 3 seconds
      * Expected Pace: 61.05 min / km
+     *
      * @result the converted result is 61.05
      */
     @Test

@@ -49,7 +49,7 @@ class PaceServiceTest {
 
     @Test
     void invalidResultUnit() {
-        paceForm.setResultUnit("abc");
+        paceForm.setPaceUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));
     }

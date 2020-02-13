@@ -1,13 +1,16 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.Time;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 public class MilePerHour implements Speed {
+    public static final String UNIT = "miles per hour";
     private final float speed;
 
     public MilePerHour(float speed) {
@@ -61,5 +64,11 @@ public class MilePerHour implements Speed {
     @Override
     public Speed format() {
         return new MilePerHour(((float) (Math.round(speed * 100.0) / 100.0)));
+    }
+
+    @Override
+    public Time computeTime(float miles, float yards) {
+        float time = (float) ((miles + yards / Distance.MILES_TO_YARDS) / speed);
+        return new Time(time);
     }
 }
