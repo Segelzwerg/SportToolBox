@@ -3,6 +3,19 @@ package segelzwerg.sporttooolbox.iunits.speed;
 import java.util.Objects;
 
 public class SpeedFactory {
+    /**
+     * private constructor to prevent instantiating
+     */
+    private SpeedFactory() {
+    }
+
+    /**
+     * constructs a speed object
+     *
+     * @param speed     float - value of the speed
+     * @param speedUnit String - name of the speed unit
+     * @return {@link Speed}s
+     */
     public static Speed createSpeedFromUnit(Float speed, String speedUnit) {
         Objects.requireNonNull(speed, "Speed must be set.");
         Objects.requireNonNull(speedUnit);
