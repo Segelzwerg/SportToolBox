@@ -5,7 +5,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import segelzwerg.sporttooolbox.iunits.speed.SpeedFactory;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
-public class TimeCalculatorFactory {
+public final class TimeCalculatorFactory {
     /**
      * prevents instantiating
      */
