@@ -8,7 +8,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SpeedFactoryTest {
-    float value;
+    private float value;
 
     @BeforeEach
     public void setUp() {
@@ -52,7 +52,7 @@ public class SpeedFactoryTest {
     }
 
     @Test
-    void invalidUnit() {
+    public void invalidUnit() {
         assertThrows(IllegalArgumentException.class, () -> SpeedFactory.createSpeedFromUnit(value, "invalidUnit"));
     }
 
