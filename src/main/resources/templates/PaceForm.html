@@ -64,7 +64,8 @@
                         </label>
                         </div>
                         <div class="form-group">
-                            <label> Pace Unit</label>
+                            <label> Pace <input autocomplete="off" class="form-control" th:field="*{pace}" type="text"
+                                                value="0"></label>
                             <select class="form-control w-auto" th:field="*{paceUnit}">
                                 <option th:text="'Minutes per Kilometer'" th:value="minutesPerKilometer">kmh</option>
                                 <option th:text="'Minutes per 100 Meter'" th:value="minutesPerHundredMeters">mph
