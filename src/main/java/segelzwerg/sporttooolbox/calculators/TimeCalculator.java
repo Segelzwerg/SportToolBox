@@ -24,6 +24,17 @@ public class TimeCalculator {
     }
 
     /**
+     * constructor
+     *
+     * @param distance {@link Distance}
+     * @param pace     {@link Pace}
+     */
+    public TimeCalculator(Distance distance, Pace pace) {
+        this.distance = distance;
+        this.speed = pace.getSpeed();
+    }
+
+    /**
      * calculates the time for a given distance and speed
      *
      * @return {@link Time}
