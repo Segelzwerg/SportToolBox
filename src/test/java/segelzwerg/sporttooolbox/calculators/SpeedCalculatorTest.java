@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.IUnits.*;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

@@ -1,5 +1,10 @@
 package segelzwerg.sporttooolbox.IUnits;
 
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
+import segelzwerg.sporttooolbox.iunits.speed.MeterPerSecond;
+import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
+
 import java.util.Objects;
 
 public class SpeedFactory {
