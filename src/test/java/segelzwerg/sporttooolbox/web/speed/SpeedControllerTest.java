@@ -20,6 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SpeedControllerTest {
+    private final String locationProvider = "locations";
 
     @Autowired
     private MockMvc mockMvc;
@@ -40,7 +41,7 @@ public class SpeedControllerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("locations")
+    @MethodSource(locationProvider)
     @SneakyThrows
     public void loadContext(Locale locale) {
         Locale.setDefault(locale);
@@ -49,7 +50,7 @@ public class SpeedControllerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("locations")
+    @MethodSource(locationProvider)
     @SneakyThrows
     public void speedCalculatingTest(Locale locale) {
         Locale.setDefault(locale);
@@ -59,7 +60,7 @@ public class SpeedControllerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("locations")
+    @MethodSource(locationProvider)
     @SneakyThrows
     public void autoDistanceTest(Locale locale) {
         Locale.setDefault(locale);
@@ -68,7 +69,7 @@ public class SpeedControllerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("locations")
+    @MethodSource(locationProvider)
     @SneakyThrows
     public void timeCalculationTest(Locale locale) {
         Locale.setDefault(locale);
