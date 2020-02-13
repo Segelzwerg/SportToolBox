@@ -1,4 +1,6 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.speed;
+
+import segelzwerg.sporttooolbox.IUnits.Time;
 
 /**
  * Speed interface

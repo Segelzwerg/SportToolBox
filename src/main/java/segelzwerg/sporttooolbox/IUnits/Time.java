@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Time in hours, minutes and second

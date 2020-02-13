@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.IUnits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Represents distance in kilometers and meters

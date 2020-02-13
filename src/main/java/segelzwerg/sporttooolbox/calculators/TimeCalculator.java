@@ -2,8 +2,8 @@ package segelzwerg.sporttooolbox.calculators;
 
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.IUnits.Distance;
-import segelzwerg.sporttooolbox.IUnits.Speed;
 import segelzwerg.sporttooolbox.IUnits.Time;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 @EqualsAndHashCode
 public class TimeCalculator {
