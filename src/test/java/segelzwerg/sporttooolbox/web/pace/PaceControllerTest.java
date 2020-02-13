@@ -67,4 +67,25 @@ class PaceControllerTest {
                 .param("distance", "50km"))
                 .andExpect(status().is3xxRedirection());
     }
+
+    @ParameterizedTest
+    @MethodSource("locations")
+    @SneakyThrows
+    public void timeCalculationTest(Locale locale) {
+        Locale.setDefault(locale);
+
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(100);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+        speedForm.setHour(0);
+        speedForm.setMinute(0);
+        speedForm.setSecond(0);
+        speedForm.setPace(4.3f);
+        speedForm.setPaceUnit("kilometerPerHour");
+
+        MockHttpServletRequestBuilder builder = postForm("/pace", speedForm);
+
+        mockMvc.perform(builder).andExpect(status().isOk());
+    }
 }
