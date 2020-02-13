@@ -25,7 +25,7 @@ public class SpeedControllerTest {
     private SpeedForm speedForm;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         speedForm = new SpeedForm();
         speedForm.setMajor(10);
         speedForm.setHour(1);
@@ -34,32 +34,32 @@ public class SpeedControllerTest {
     }
 
     @Test
-    void speed_load_english() throws Exception {
+    public void speed_load_english() throws Exception {
         Locale.setDefault(Locale.US);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void speed_load_german() throws Exception {
+    public void speed_load_german() throws Exception {
         Locale.setDefault(Locale.GERMANY);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void speedCalculatingTest() throws Exception {
+    public void speedCalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
 
     @Test
-    void autoDistanceTest() throws Exception {
+    public void autoDistanceTest() throws Exception {
         mockMvc.perform(post("/speed/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
     }
 
     @Test
-    void timeCalculationtest() throws Exception {
+    public void timeCalculationTest() throws Exception {
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
         speedForm.setDistanceMajorUnit("kilometer");
