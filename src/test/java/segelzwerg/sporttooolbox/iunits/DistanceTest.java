@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.iunits;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
@@ -167,7 +168,7 @@ public class DistanceTest {
     @Test
     public void createWithMiles() {
         Distance miles = Distance.createWithMiles(42.31f);
-        Distance expectedDistance = new Distance(68, 90);
+        Distance expectedDistance = new Distance(68, 91);
 
         Assertions.assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
 
@@ -180,7 +181,7 @@ public class DistanceTest {
     public void init_with_float_miles() {
         int yards = (int) (0.31f * Distance.MILES_TO_YARDS);
         Distance distance = Distance.createWithOtherThanSIUnits(42, yards, "miles", "yards");
-        Distance expectedDistance = new Distance(68, 90);
+        Distance expectedDistance = new Distance(68, 91);
 
         Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
