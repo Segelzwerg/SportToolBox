@@ -40,7 +40,7 @@ public class PaceService {
 
     public Time calculateTime(SpeedForm paceForm) {
         UnitParser unitParser = new UnitParser(paceForm).invoke();
-        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
+        TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromPace(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
         return timeCalculator.computeTime();
     }
 
