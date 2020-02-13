@@ -39,6 +39,12 @@ public interface Speed {
      */
     Speed toKnot();
 
+    /**
+     * deprecated no getter for private fields.
+     *
+     * @return
+     */
+    @Deprecated
     float getSpeed();
 
     public Speed format();
