@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SpeedControllerTest {
-    private final String locationProvider = "locations";
+    private static final String locationProvider = "locations";
 
     @Autowired
     private MockMvc mockMvc;
