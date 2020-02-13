@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import segelzwerg.sporttooolbox.IUnits.Pace;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.TimeCalculator;
+import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
@@ -34,6 +36,12 @@ public class PaceService {
         SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
 
         return speedCalculator.computePace();
+    }
+
+    public Time calculateTime(SpeedForm paceForm) {
+        UnitParser unitParser = new UnitParser(paceForm).invoke();
+        TimeCalculator timeCalculator = TimeCalculatorFactory.build(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
+        return timeCalculator.computeTime();
     }
 
     private void checkValidUnit(List<String> validUnits, String unit) {
