@@ -56,14 +56,14 @@ public class SpeedFactoryTest {
         assertThrows(IllegalArgumentException.class, () -> SpeedFactory.createSpeedFromUnit(value, "invalidUnit"));
     }
 
-    @SuppressWarnings({"ConstantConditions", "PMD.DataAnanomly"})
+    @SuppressWarnings({"ConstantConditions", "PMD"})
     @Test
     public void nullUnit() {
         String unit = null;
         assertThrows(NullPointerException.class, () -> SpeedFactory.createSpeedFromUnit(value, unit));
     }
 
-    @SuppressWarnings("PMD.DataAnanomly")
+    @SuppressWarnings("PMD")
     @Test
     public void nullValue() {
         Float value = null;
