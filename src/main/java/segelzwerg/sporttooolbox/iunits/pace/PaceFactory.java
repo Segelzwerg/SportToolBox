@@ -15,6 +15,13 @@ public final class PaceFactory {
      * @return
      */
     public static Pace createPaceFromUnit(float pace, String paceUnit) {
-        return null;
+        switch (paceUnit) {
+            case "minutesPerKilometer":
+                return new MinutesPerKilometer(pace);
+            case "minutesPerHundredMeters":
+                return new MinutesPerHundredMeters(pace);
+            default:
+                throw new IllegalArgumentException("The unit was invalid: " + paceUnit);
+        }
     }
 }
