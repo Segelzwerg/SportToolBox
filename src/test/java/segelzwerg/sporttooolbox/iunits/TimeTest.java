@@ -146,7 +146,7 @@ public class TimeTest {
      * the input is hours in decimals
      */
     @Test
-    void floatConstructor() {
+    public void floatConstructor() {
         float time = (float) 73.56;
         Time timeObject = new Time(time);
 
