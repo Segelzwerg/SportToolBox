@@ -3,6 +3,7 @@ package segelzwerg.sporttooolbox.iunits.speed;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 
 /**
@@ -79,5 +80,11 @@ public class KilometerPerHour implements Speed {
     public Time computeTime(float kilometer, float meter) {
         float time = (kilometer + meter / 1000) / speed;
         return new Time(time);
+    }
+
+    @Override
+    public Distance computeDistance(float seconds) {
+        float distance = speed * seconds / 3600f;
+        return Distance.createWithMiles(distance);
     }
 }
