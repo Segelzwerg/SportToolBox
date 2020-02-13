@@ -1,7 +1,9 @@
 package segelzwerg.sporttooolbox.web.speed;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +26,10 @@ public class SpeedControllerTest {
 
     private SpeedForm speedForm;
 
+    public static Locale[] locations() {
+        return new Locale[]{Locale.US, Locale.GERMANY};
+    }
+
     @BeforeEach
     public void setUp() {
         speedForm = new SpeedForm();
@@ -33,26 +39,40 @@ public class SpeedControllerTest {
         speedForm.setSpeedUnit("kilometerPerHour");
     }
 
-    @Test
-    public void speedLoadEnglish() throws Exception {
-        Locale.setDefault(Locale.US);
+    @ParameterizedTest
+    @MethodSource("locations")
+    @SneakyThrows
+    public void loadContext(Locale locale) {
+        Locale.setDefault(locale);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
     }
 
-    @Test
-    public void speedCalculatingTest() throws Exception {
+    @ParameterizedTest
+    @MethodSource("locations")
+    @SneakyThrows
+    public void speedCalculatingTest(Locale locale) {
+        Locale.setDefault(locale);
+
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
     }
 
-    @Test
-    public void autoDistanceTest() throws Exception {
+    @ParameterizedTest
+    @MethodSource("locations")
+    @SneakyThrows
+    public void autoDistanceTest(Locale locale) {
+        Locale.setDefault(locale);
+
         mockMvc.perform(post("/speed/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
     }
 
-    @Test
-    public void timeCalculationTest() throws Exception {
+    @ParameterizedTest
+    @MethodSource("locations")
+    @SneakyThrows
+    public void timeCalculationTest(Locale locale) {
+        Locale.setDefault(locale);
+
         SpeedForm speedForm = new SpeedForm();
         speedForm.setMajor(100);
         speedForm.setDistanceMajorUnit("kilometer");
