@@ -1,22 +1,24 @@
 package segelzwerg.sporttooolbox.web.pace;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.IUnits.MinutesPerKilometer;
-import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class PaceServiceTest {
+public class PaceServiceTest {
 
     private SpeedForm paceForm;
     private PaceService paceService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         paceForm = new SpeedForm();
         paceForm.setMajor(22);
         paceForm.setHour(1);
@@ -24,7 +26,7 @@ class PaceServiceTest {
     }
 
     @Test
-    void only_kilometer() {
+    public void onlyKilometer() {
         paceForm.setDistanceMajorUnit("kilometer");
 
         Pace pace = paceService.calculatePace(paceForm);
@@ -34,21 +36,37 @@ class PaceServiceTest {
     }
 
     @Test
-    void invalidMajorUnit() {
+    public void testTimeFromDistanceAndSpeed() {
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(34);
+        speedForm.setMinor(300);
+        speedForm.setDistanceMajorUnit("kilometer");
+        speedForm.setDistanceMinorUnit("meter");
+        speedForm.setPace(4.5f);
+        speedForm.setPaceUnit("minutesPerKilometer");
+
+        Time time = paceService.calculateTime(speedForm);
+
+        Time expectedTime = new Time(2, 34, 21);
+        Assertions.assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
+
+    @Test
+    public void invalidMajorUnit() {
         paceForm.setDistanceMajorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));
     }
 
     @Test
-    void invalidMinorUnit() {
+    public void invalidMinorUnit() {
         paceForm.setDistanceMinorUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));
     }
 
     @Test
-    void invalidResultUnit() {
+    public void invalidResultUnit() {
         paceForm.setPaceUnit("abc");
 
         assertThrows(IllegalArgumentException.class, () -> paceService.calculatePace(paceForm));

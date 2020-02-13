@@ -1,7 +1,9 @@
-package segelzwerg.sporttooolbox.IUnits;
+package segelzwerg.sporttooolbox.iunits.pace;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
  * Pace of minutes per kilometers
@@ -34,6 +36,11 @@ public class MinutesPerKilometer implements Pace {
     @Override
     public Pace toMinutesPerHundredMeters() {
         return new MinutesPerHundredMeters(pace * PER_KILOMETER_TO_PER_HUNDRED_METER);
+    }
+
+    @Override
+    public Speed getSpeed() {
+        return new KilometerPerHour(60f / pace);
     }
 
     /**

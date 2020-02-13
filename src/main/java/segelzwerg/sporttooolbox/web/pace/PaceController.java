@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
-import segelzwerg.sporttooolbox.IUnits.Pace;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
@@ -39,16 +40,21 @@ public class PaceController {
      * calculates pace
      *
      * @param model
-     * @param speedForm
+     * @param paceForm
      * @return
      */
     @PostMapping("/pace")
-    public String computePace(Model model, SpeedForm speedForm) {
-        form = speedForm;
-        model.addAttribute("form", speedForm);
-        Pace pace = paceService.calculatePace(speedForm);
-        PacePresenter pacePresenter = new PacePresenter(pace);
-        model.addAttribute("pace", pacePresenter);
+    public String computePace(Model model, SpeedForm paceForm) {
+        form = paceForm;
+        model.addAttribute("form", paceForm);
+        if (paceForm.getPace() == 0) {
+            Pace pace = paceService.calculatePace(paceForm);
+            PacePresenter pacePresenter = new PacePresenter(pace);
+            model.addAttribute("pace", pacePresenter);
+        } else if (paceForm.getSecond() == 0 && paceForm.getMinute() == 0 && paceForm.getHour() == 0) {
+            Time time = paceService.calculateTime(paceForm);
+            model.addAttribute("time", time);
+        }
         return Translator.toLocale("PaceForm");
     }
 
