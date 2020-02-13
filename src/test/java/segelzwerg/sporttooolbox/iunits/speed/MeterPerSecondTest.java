@@ -97,7 +97,7 @@ public class MeterPerSecondTest {
      * Distance: 3.7km
      */
     @Test
-    void computeTime() {
+    public void computeTime() {
         MeterPerSecond meterPerSecond = new MeterPerSecond((float) 56.9);
         Time time = meterPerSecond.computeTime(3, 700);
 
