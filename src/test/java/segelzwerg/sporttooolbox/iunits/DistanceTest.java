@@ -142,21 +142,23 @@ public class DistanceTest {
         assertThat(distance, equalTo(expectedDistance));
     }
 
+    @SuppressWarnings("PMD")
     @Test
     void invalidMajorUnit() {
         int major = 10;
         String invalidUnit = "centimeter";
-        ;
+
         assertThrows(IllegalArgumentException.class, () -> Distance.createWithMajorUnit(major, invalidUnit));
     }
 
+    @SuppressWarnings("PMD")
     @Test
     void invalidMinorUnit() {
         int major = 10;
         int minor = 10;
         String majorUnit = "kilometer";
         String invalidUnit = "centimeter";
-        ;
+
         assertThrows(IllegalArgumentException.class, () -> Distance.createWithOtherThanSIUnits(major, minor, majorUnit, invalidUnit));
     }
 }
