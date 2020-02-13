@@ -30,13 +30,8 @@ public class PaceService {
      * @return calculated pace
      */
     public Pace calculatePace(SpeedForm form) {
-        String majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-        String minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-        String paceUnit = ((paceUnit = form.getPaceUnit()) != null) ? paceUnit : "minutesPerKilometer";
-
-        checkValidUnit(validPaceUnits, paceUnit);
-
-        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, majorUnit, minorUnit);
+        UnitParser unitParser = new UnitParser(form).invoke();
+        SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(form, unitParser.getMajorUnit(), unitParser.getMinorUnit());
 
         return speedCalculator.computePace();
     }
