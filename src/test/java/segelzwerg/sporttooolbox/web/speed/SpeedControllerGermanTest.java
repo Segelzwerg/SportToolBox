@@ -27,11 +27,11 @@ public class SpeedControllerGermanTest {
         speedForm.setHour(1);
         speedForm.setDistanceMajorUnit("kilometer");
         speedForm.setSpeedUnit("kilometerPerHour");
+        Locale.setDefault(Locale.GERMANY);
     }
 
     @Test
     public void speedLoadGerman() throws Exception {
-        Locale.setDefault(Locale.GERMANY);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
     }
