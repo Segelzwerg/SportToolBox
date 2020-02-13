@@ -1,5 +1,8 @@
 package segelzwerg.sporttooolbox.web.speed;
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import segelzwerg.sporttooolbox.IUnits.Time;
 import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
@@ -58,27 +61,18 @@ public class SpeedService {
         }
     }
 
+    @Getter
+    @RequiredArgsConstructor
     private class UnitParser {
-        private SpeedForm form;
+        @NonNull
+        private final SpeedForm speedForm;
         private String majorUnit;
         private String minorUnit;
 
-        public UnitParser(SpeedForm form) {
-            this.form = form;
-        }
-
-        public String getMajorUnit() {
-            return majorUnit;
-        }
-
-        public String getMinorUnit() {
-            return minorUnit;
-        }
-
         public UnitParser invoke() {
-            majorUnit = ((majorUnit = form.getDistanceMajorUnit()) != null) ? majorUnit : "kilometer";
-            minorUnit = ((minorUnit = form.getDistanceMinorUnit()) != null) ? minorUnit : "meter";
-            String speedUnit = ((speedUnit = form.getSpeedUnit()) != null) ? speedUnit : "kilometerPerHour";
+            majorUnit = ((majorUnit = speedForm.getDistanceMajorUnit()) == null) ? "kilometer" : majorUnit;
+            minorUnit = ((minorUnit = speedForm.getDistanceMinorUnit()) == null) ? "meter" : minorUnit;
+            String speedUnit = ((speedUnit = speedForm.getSpeedUnit()) == null) ? "kilometerPerHour" : speedUnit;
 
             checkValidUnit(validSpeedUnits, speedUnit);
             return this;
