@@ -41,13 +41,6 @@ public class SpeedControllerTest {
     }
 
     @Test
-    public void speed_load_german() throws Exception {
-        Locale.setDefault(Locale.GERMANY);
-        mockMvc.perform(get("/speed"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
     public void speedCalculatingTest() throws Exception {
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
         mockMvc.perform(builder).andExpect(status().isOk());
