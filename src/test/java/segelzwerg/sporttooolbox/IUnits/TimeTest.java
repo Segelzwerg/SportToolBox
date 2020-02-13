@@ -159,7 +159,7 @@ public class TimeTest {
      * test the toString method
      */
     @Test
-    void test_toString() {
+    public void testToString() {
         Time time = new Time(34, 12, 59);
         String timeString = time.toString();
 
