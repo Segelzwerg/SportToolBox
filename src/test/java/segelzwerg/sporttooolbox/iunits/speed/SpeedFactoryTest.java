@@ -16,7 +16,7 @@ public class SpeedFactoryTest {
     }
 
     @Test
-    public void build_kilometerPerHour() {
+    public void buildKilometerPerHour() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "kilometerPerHour");
 
         KilometerPerHour expectedSpeed = new KilometerPerHour(value);
@@ -25,7 +25,7 @@ public class SpeedFactoryTest {
     }
 
     @Test
-    public void build_milesPerHour() {
+    public void buildMilesPerHour() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "milesPerHour");
 
         MilePerHour expectedSpeed = new MilePerHour(value);
@@ -34,7 +34,7 @@ public class SpeedFactoryTest {
     }
 
     @Test
-    public void build_knots() {
+    public void buildKnots() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "knots");
 
         Knot expectedSpeed = new Knot(value);
@@ -43,7 +43,7 @@ public class SpeedFactoryTest {
     }
 
     @Test
-    public void build_meterPerSecond() {
+    public void buildMeterPerSecond() {
         Speed speed = SpeedFactory.createSpeedFromUnit(value, "meterPerSecond");
 
         MeterPerSecond expectedSpeed = new MeterPerSecond(value);
