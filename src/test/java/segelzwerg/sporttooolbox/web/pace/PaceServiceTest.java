@@ -24,7 +24,7 @@ public class PaceServiceTest {
     }
 
     @Test
-    public void only_kilometer() {
+    public void onlyKilometer() {
         paceForm.setDistanceMajorUnit("kilometer");
 
         Pace pace = paceService.calculatePace(paceForm);
