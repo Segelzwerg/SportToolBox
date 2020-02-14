@@ -11,8 +11,14 @@
     "lint-md": "remark ."
   },
   "remarkConfig": {
+    "settings": {
+      "emphasis": "*",
+      "strong": "*"
+    },
     "plugins": [
-      "remark-preset-lint-recommended"
+      "remark-preset-lint-recommended",
+      "remark-lint-emphasis-marker",
+      "remark-lint-strong-marker"
     ]
   },
   "dependencies": {
