@@ -2,11 +2,13 @@
 
 Thank you very much for contributing.
 
-## How to?
+## How to
 
-* Please fork the project
-* Work on the code in the fork
-* Create a Pull Request to the main project
+We use a git flow with feature branches. So if you make addition to a feature make a PR to the feature branch and if you created a completely new featutre make a feature branch and than a PR to develop branch.
+
+-   Please fork the project
+-   Work on the code in the fork
+-   make a PR to the appropriate branch in the main project
 
 ### Testing
 
@@ -15,7 +17,6 @@ If you implement or change code, please run the tests so we can avoid regression
 This projects uses mockito.
 
 :exclamation: Since 0.5.0 we use assertj for assertions. Please use assertions, that prints real values on failing instead of hash codes.
-
 
 ### Working on issues
 
@@ -33,14 +34,11 @@ Use many small commits during development. Each commit should handle only logica
 
 Use for the Translator for returning from a Controller.
 
-```
-return Translator.toLocale("message");
-```
+    return Translator.toLocale("message");
 
 #### Front End
 
 Make the changes on the main files outside the language specific folders unless it is a translation. These should only be made inside the language folders.
-
 
 ### Pull Requests
 
