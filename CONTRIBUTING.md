@@ -6,9 +6,9 @@ Thank you very much for contributing.
 
 We use a git flow with feature branches. So if you make addition to a feature make a PR to the feature branch and if you created a completely new featutre make a feature branch and than a PR to develop branch.
 
-* Please fork the project
-* Work on the code in the fork
-* make a PR to the appropriate branch in the main project
+-   Please fork the project
+-   Work on the code in the fork
+-   make a PR to the appropriate branch in the main project
 
 ### Testing
 
@@ -34,9 +34,7 @@ Use many small commits during development. Each commit should handle only logica
 
 Use for the Translator for returning from a Controller.
 
-```
-return Translator.toLocale("message");
-```
+    return Translator.toLocale("message");
 
 #### Front End
 
