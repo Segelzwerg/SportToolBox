@@ -58,6 +58,15 @@
                                              type="text" value="0">
                         </label>
                         </div>
+                        <div class="form-group">
+                            <label> Pace <input autocomplete="off" class="form-control" th:field="*{speed}" type="text"
+                                                value="0"></label>
+                            <select class="form-control w-auto" th:field="*{paceUnit}">
+                                <option th:text="'Minuten pro Kilometer'" th:value="minutesPerKilometer">kmh</option>
+                                <option th:text="'Minuten pro 100 Meter'" th:value="minutesPerHundredMeters">mph
+                                </option>
+                            </select>
+                        </div>
                         <button class="btn btn-primary" type="submit">Berechne</button>
                     </form>
                 </div>
@@ -71,11 +80,13 @@
                     <h5 class="card-title">Pace</h5>
                     <p class="card-text">
                         Die durchschnittliche ist <span th:text="${pace?.__${form.paceUnit}__.toString()}">30</span>
-                        Minuten
-                        pro
-                        Kilometer, wenn man
-                        <span th:text="${form.major}">30</span> Kilometer und
-                        <span th:text="${form.minor}">0</span> Meter in
+                        <span
+                                th:text="${pace?.__${form.paceUnit}__.unit}">Minutes
+                        per
+                        Kilometer</span>, wenn man
+                        <span th:text="${form.major}">30</span> <span
+                            th:text="${form.distanceMajorUnit}">Kilometer</span> and
+                        <span th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">Meter</span> in
                         <span th:text="${form.hour}">1</span> Stunde(n), <span th:text="${form.minute}">0</span>
                         Minute(n) und
                         <span th:text="${form.second}">0</span> Sekunde(n) zurück legt.
