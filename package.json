@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "all-contributors-cli": "^6.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git.//github.com/Segelzwerg/SportToolBox.git"
   }
 }
