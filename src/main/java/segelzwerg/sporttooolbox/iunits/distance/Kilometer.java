@@ -21,10 +21,12 @@ public class Kilometer extends Distance {
         this.meter = meter;
     }
 
+    @Override
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
     }
 
+    @Override
     public Kilometer addDistance(Distance distance) {
         if (Kilometer.class != distance.getClass()) {
             throw new IllegalArgumentException("Currently only Kilometer Additions is allowed.");

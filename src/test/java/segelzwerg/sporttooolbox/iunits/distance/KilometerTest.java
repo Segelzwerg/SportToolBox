@@ -60,10 +60,10 @@ public class KilometerTest {
      */
     @Test
     public void sixtyKilometerTwoHourTestSpeed() {
-        Kilometer tenKilometer = new Kilometer(60);
+        Kilometer sixty = new Kilometer(60);
         Time twoHours = new Time(2);
         Speed expectedSpeed = new KilometerPerHour(30);
-        Speed speed = tenKilometer.computeSpeed(twoHours);
+        Speed speed = sixty.computeSpeed(twoHours);
 
         MatcherAssert.assertThat(speed, equalTo(expectedSpeed));
     }
@@ -77,5 +77,4 @@ public class KilometerTest {
     public void negativeKilometer() {
         assertThrows(IllegalArgumentException.class, () -> new Kilometer(-1));
     }
-    
 }
