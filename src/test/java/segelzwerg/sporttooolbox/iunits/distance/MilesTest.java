@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
@@ -8,6 +9,9 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MilesTest {
+
+    private final FloatComparator floatComparator = new FloatComparator(0.0001f);
+
     @Test
     void constructorTest() {
         Miles miles = new Miles(1);
@@ -57,6 +61,6 @@ class MilesTest {
 
         MilePerHour expectedSpeed = new MilePerHour(0.3551f);
 
-        assertThat(speed).isEqualToComparingFieldByField(expectedSpeed);
+        assertThat(speed).usingComparatorForFields(floatComparator, "speed").isEqualToComparingFieldByField(expectedSpeed);
     }
 }
