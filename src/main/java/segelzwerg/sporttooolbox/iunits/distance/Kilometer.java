@@ -13,8 +13,9 @@ public class Kilometer extends Distance {
 
     public Kilometer(int kilometer, int meter) {
         super(kilometer, meter);
-        if (kilometer < 0 || meter < 0)
+        if (kilometer < 0 || meter < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + kilometer + "km " + meter + "m.");
+        }
         this.kilometer = kilometer;
         this.meter = meter;
     }
@@ -26,8 +27,9 @@ public class Kilometer extends Distance {
 
     @Override
     public Kilometer addDistance(Distance distance) {
-        if (Kilometer.class != distance.getClass())
+        if (Kilometer.class != distance.getClass()) {
             throw new IllegalArgumentException("Currently only Kilometer Additions is allowed.");
+        }
         Kilometer otherKilometer = (Kilometer) distance;
         int kilometer = otherKilometer.kilometer + this.kilometer;
         int meter = otherKilometer.meter + this.meter;
