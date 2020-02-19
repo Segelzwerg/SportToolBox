@@ -45,7 +45,11 @@ class Miles implements Distance {
      */
     @Override
     public Speed computeSpeed(Time time) {
-        return null;
+        return time.computeMPH(getMiles());
+    }
+
+    private float getMiles() {
+        return miles + yards / MILES_TO_YARDS;
     }
 
     /**
