@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 public class Kilometer extends Distance {
@@ -21,7 +22,7 @@ public class Kilometer extends Distance {
     }
 
     public Speed computeSpeed(Time time) {
-        return null;
+        return time.computeSpeed(kilometer, meter);
     }
 
     public Kilometer addDistance(Distance distance) {
