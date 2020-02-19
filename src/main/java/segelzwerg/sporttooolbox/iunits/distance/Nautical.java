@@ -26,7 +26,13 @@ class Nautical implements Distance {
      */
     @Override
     public Distance addDistance(Distance toAdd) {
-        return null;
+        if (Nautical.class != toAdd.getClass()) {
+            throw new IllegalArgumentException("Currently only Nauticals are allowed to add.");
+        }
+        Nautical otherNautical = (Nautical) toAdd;
+        int nautical = this.nautical + otherNautical.nautical;
+        float fathoms = this.fathoms + otherNautical.fathoms;
+        return new Nautical(nautical, fathoms);
     }
 
     /**
