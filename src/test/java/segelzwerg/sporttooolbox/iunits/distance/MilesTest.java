@@ -48,4 +48,15 @@ class MilesTest {
 
         assertThat(speed).isEqualToComparingFieldByField(expectedSpeed);
     }
+
+    @Test
+    void speedWithYards() {
+        Miles yards = new Miles(0, 1250);
+        Time time = new Time(2, 0, 0);
+        Speed speed = yards.computeSpeed(time);
+
+        MilePerHour expectedSpeed = new MilePerHour(0.3551f);
+
+        assertThat(speed).isEqualToComparingFieldByField(expectedSpeed);
+    }
 }
