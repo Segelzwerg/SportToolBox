@@ -15,6 +15,9 @@ class Miles implements Distance {
     }
 
     Miles(int miles, int yards) {
+        if (miles < 0 || yards < 0) {
+            throw new IllegalArgumentException("Distances must not be negative. " + miles + "mi " + yards + "yrd.");
+        }
         this.yards = (int) (yards % MILES_TO_YARDS);
         this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
