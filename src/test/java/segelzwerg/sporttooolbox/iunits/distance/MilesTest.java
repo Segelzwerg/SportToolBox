@@ -17,8 +17,8 @@ class MilesTest {
 
     @Test
     void overflowTest() {
-        Miles miles = new Miles(1759, 1);
-        Miles expectedMiles = new Miles(1760, 0);
+        Miles miles = new Miles(0, 1761);
+        Miles expectedMiles = new Miles(1, 1);
 
         assertThat(miles).isEqualToComparingFieldByField(expectedMiles);
     }
