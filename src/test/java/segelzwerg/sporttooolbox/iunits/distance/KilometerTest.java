@@ -31,7 +31,7 @@ public class KilometerTest {
         Kilometer kilometer = new Kilometer(30, 2002);
         Kilometer expectedKilometer = new Kilometer(32, 2);
 
-        MatcherAssert.assertThat(kilometer, equalTo(expectedKilometer));
+        assertThat(kilometer).isEqualToComparingFieldByField(expectedKilometer);
     }
 
     /**
@@ -48,7 +48,7 @@ public class KilometerTest {
 
         Kilometer expected = new Kilometer(31, 0);
 
-        MatcherAssert.assertThat(thirtyOneKilometer, equalTo(expected));
+        assertThat(thirtyOneKilometer).isEqualToComparingFieldByField(expected);
     }
 
     /**
