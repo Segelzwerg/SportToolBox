@@ -22,4 +22,16 @@ class MilesTest {
 
         assertThat(miles).isEqualToComparingFieldByField(expectedMiles);
     }
+
+    @Test
+    void addMilesTest() {
+        Miles miles = new Miles(0, 1759);
+        Miles oneYard = new Miles(0, 1);
+
+        Distance distance = miles.addDistance(oneYard);
+
+        Miles expectedDistance = new Miles(1, 0);
+
+        assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
