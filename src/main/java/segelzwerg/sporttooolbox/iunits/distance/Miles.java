@@ -5,7 +5,7 @@ import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 class Miles implements Distance {
-    private static final double MILES_TO_YARDS = 1760.0;
+    private static final float MILES_TO_YARDS = 1760f;
 
     private final int miles;
     private final int yards;
@@ -15,9 +15,8 @@ class Miles implements Distance {
     }
 
     Miles(int miles, int yards) {
-        double total = yards + (miles / Miles.MILES_TO_YARDS);
-        this.miles = (int) Math.abs(total);
-        this.yards = (int) ((total - this.miles) * Miles.MILES_TO_YARDS);
+        this.yards = (int) (yards % MILES_TO_YARDS);
+        this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
 
     /**
