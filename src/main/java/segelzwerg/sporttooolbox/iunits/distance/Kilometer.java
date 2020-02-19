@@ -26,6 +26,12 @@ public class Kilometer extends Distance {
     }
 
     public Kilometer addDistance(Distance distance) {
-        return null;
+        if (Kilometer.class != distance.getClass()) {
+            throw new IllegalArgumentException("Currently only Kilometer Additions is allowed.");
+        }
+        Kilometer otherKilometer = (Kilometer) distance;
+        int kilometer = otherKilometer.kilometer + this.kilometer;
+        int meter = otherKilometer.meter + this.meter;
+        return new Kilometer(kilometer, meter);
     }
 }
