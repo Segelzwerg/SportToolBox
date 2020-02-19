@@ -27,4 +27,19 @@ public class NauticalTest {
         assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
     }
+
+    @Test
+    public void additionTest() {
+        Nautical nautical = new Nautical(1, 300);
+        Nautical otherNautical = new Nautical(0, 800);
+
+        Nautical expectedDistance = new Nautical(2, 86);
+
+        Distance distance = nautical.addDistance(otherNautical);
+
+        assertThat(distance).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
+        assertThat(distance).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
+
+
+    }
 }
