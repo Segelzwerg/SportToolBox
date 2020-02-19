@@ -3,7 +3,7 @@ package segelzwerg.sporttooolbox.iunits.speed;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 
 /**

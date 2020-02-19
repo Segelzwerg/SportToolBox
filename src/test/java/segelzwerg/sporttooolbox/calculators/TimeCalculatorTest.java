@@ -1,7 +1,7 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 
