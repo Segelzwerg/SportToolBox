@@ -1,9 +1,8 @@
-package segelzwerg.sporttooolbox.iunits.Kilometer;
+package segelzwerg.sporttooolbox.iunits.distance;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
-import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
