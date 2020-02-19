@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
@@ -11,6 +12,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
  */
 @EqualsAndHashCode(of = "seconds")
 public class Time {
+    private static final float HOURS_TO_SECONDS = 3_600f;
     private final long seconds;
 
     public Time(int hour) {
@@ -38,12 +40,38 @@ public class Time {
     }
 
     /**
+     * Get meters from parameters
+     *
+     * @param kilometer amount of kilometers
+     * @param meter     amount of meters
+     * @return numeric representation of meters
+     */
+    private static float getMeters(float kilometer, float meter) {
+        return (kilometer + meter / 1000);
+    }
+
+    public KilometerPerHour computeKPH(float kilometer) {
+        return new KilometerPerHour(3_600f * kilometer / seconds);
+    }
+
+    /**
+     * calculates the speed in miles per hour
+     *
+     * @param miles float representing the distance in miles
+     * @return {@link MilePerHour}
+     */
+    public MilePerHour computeMPH(float miles) {
+        return new MilePerHour(HOURS_TO_SECONDS * miles / seconds);
+    }
+
+    /**
      * Compute speed on specific distance
      *
      * @param kilometer amount of kilometers
      * @param meter     amount of meters
      * @return calculated speed
      */
+    @Deprecated
     public Speed computeSpeed(float kilometer, float meter) {
         return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
     }
@@ -98,17 +126,6 @@ public class Time {
      */
     private int getOnlySeconds() {
         return (int) (seconds - getOnlyHours() * 3600 - getOnlyMinutes() * 60);
-    }
-
-    /**
-     * Get meters from parameters
-     *
-     * @param kilometer amount of kilometers
-     * @param meter     amount of meters
-     * @return numeric representation of meters
-     */
-    private float getMeters(float kilometer, float meter) {
-        return (kilometer + meter / 1000);
     }
 
     /**
