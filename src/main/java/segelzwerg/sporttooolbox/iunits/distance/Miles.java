@@ -27,7 +27,14 @@ class Miles implements Distance {
      */
     @Override
     public Distance addDistance(Distance toAdd) {
-        return null;
+        if (Miles.class != toAdd.getClass()) {
+            throw new IllegalArgumentException("Currently only Miles addition is allowed.");
+        }
+        Miles otherMiles = (Miles) toAdd;
+
+        int miles = this.miles + otherMiles.miles;
+        int yards = this.yards + otherMiles.yards;
+        return new Miles(miles, yards);
     }
 
     /**
