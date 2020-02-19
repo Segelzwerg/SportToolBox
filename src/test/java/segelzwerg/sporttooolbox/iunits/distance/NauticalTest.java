@@ -13,4 +13,14 @@ public class NauticalTest {
 
         assertThat(nautical).isEqualToComparingFieldByField(expectedNautical);
     }
+
+    @Test
+    public void overflowTest() {
+        Nautical nautical = new Nautical(0, 1013);
+
+        Distance expectedDistance = new Nautical(1, 1);
+
+        assertThat(nautical).isEqualToComparingFieldByField(expectedDistance);
+
+    }
 }
