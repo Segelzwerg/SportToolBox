@@ -1,8 +1,9 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerHundredMeters;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
@@ -28,7 +29,7 @@ public class SpeedCalculatorTest {
      */
     @Test
     public void thirty_kilometer_one_hour_test_speed() {
-        Distance thirtyKilometer = new Distance(30);
+        Distance thirtyKilometer = new Kilometer(30);
         Time oneHour = new Time(1);
         SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, oneHour);
         Speed expectedSpeed = new KilometerPerHour(30);
@@ -48,7 +49,7 @@ public class SpeedCalculatorTest {
      */
     @Test
     public void fifteen_kilometer_half_hour_test_speed() {
-        Distance thirtyKilometer = new Distance(15);
+        Distance thirtyKilometer = new Kilometer(15);
         Time halfAnHour = new Time(0, 30);
         SpeedCalculator speedCalculator = new SpeedCalculator(thirtyKilometer, halfAnHour);
         Speed expectedSpeed = new KilometerPerHour(30);
@@ -68,7 +69,7 @@ public class SpeedCalculatorTest {
      */
     @Test
     public void one_kilometer_ran_through_one_hour_one_minute_and_three_seconds_should_generate_sixty_one_dot_zero_five_minutes_per_kilometer() {
-        Distance distance = new Distance(1);
+        Distance distance = new Kilometer(1);
         Time time = new Time(1, 1, 3);
         SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
         Pace expectedPace = new MinutesPerKilometer(61.05f);
@@ -88,7 +89,7 @@ public class SpeedCalculatorTest {
      */
     @Test
     public void converting_minutes_per_kilometer_to_minutes_per_hundred_meters_should_work() {
-        Distance distance = new Distance(1);
+        Distance distance = new Kilometer(1);
         Time time = new Time(1, 1, 3);
         SpeedCalculator speedCalculator = new SpeedCalculator(distance, time);
         Pace expectedPace = new MinutesPerHundredMeters(6.105f);

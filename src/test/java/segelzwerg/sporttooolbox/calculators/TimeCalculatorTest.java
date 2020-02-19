@@ -1,8 +1,9 @@
 package segelzwerg.sporttooolbox.calculators;
 
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +17,7 @@ public class TimeCalculatorTest {
      */
     @Test
     public void sixtyKilometerWithTwelveKph() {
-        Distance sixtyKilometer = new Distance(60);
+        Distance sixtyKilometer = new Kilometer(60);
         KilometerPerHour twelveKPH = new KilometerPerHour(12);
         Time expectedTime = new Time(5, 0, 0);
 
