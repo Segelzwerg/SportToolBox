@@ -5,6 +5,7 @@ import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 public class Kilometer implements Distance {
+    private static final double KILOMETER_TO_METERS = 1000;
     private final int kilometer;
     private final int meter;
 
@@ -16,13 +17,14 @@ public class Kilometer implements Distance {
         if (kilometer < 0 || meter < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + kilometer + "km " + meter + "m.");
         }
-        this.kilometer = kilometer;
-        this.meter = meter;
+
+        this.meter = meter % 1000;
+        this.kilometer = (int) (kilometer + Math.floor(meter / 1000f));
     }
 
     public Kilometer(float kilometer) {
         this.kilometer = (int) Math.abs(kilometer);
-        meter = (int) ((kilometer - this.kilometer) * 1000);
+        meter = (int) ((kilometer - this.kilometer) * KILOMETER_TO_METERS);
     }
 
     @Override
