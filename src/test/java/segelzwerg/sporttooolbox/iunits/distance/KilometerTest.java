@@ -43,7 +43,8 @@ public class KilometerTest {
     @Test
     public void addKilometerTest() {
         Kilometer thirtyKilometer = new Kilometer(30, 999);
-        Kilometer thirtyOneKilometer = thirtyKilometer.addDistance(new Kilometer(0, 1));
+        Kilometer oneMeter = new Kilometer(0, 1);
+        Kilometer thirtyOneKilometer = thirtyKilometer.addDistance(oneMeter);
 
         Kilometer expected = new Kilometer(31, 0);
 
