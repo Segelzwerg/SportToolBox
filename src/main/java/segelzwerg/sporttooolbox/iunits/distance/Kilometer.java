@@ -20,6 +20,12 @@ public class Kilometer extends Distance {
         this.meter = meter;
     }
 
+    public Kilometer(float kilometer) {
+        super(kilometer);
+        this.kilometer = (int) Math.abs(kilometer);
+        meter = (int) ((kilometer - this.kilometer) * 1000);
+    }
+
     @Override
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
