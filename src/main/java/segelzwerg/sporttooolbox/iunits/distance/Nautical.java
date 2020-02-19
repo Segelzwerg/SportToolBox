@@ -7,11 +7,11 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 class Nautical implements Distance {
     private final float NAUTICAL_TO_FATHOMS = 1012.68591f;
     private final int nautical;
-    private final int fathoms;
+    private final float fathoms;
 
-    Nautical(int nautical, int fathoms) {
-        this.nautical = nautical;
-        this.fathoms = fathoms;
+    Nautical(int nautical, float fathoms) {
+        this.fathoms = fathoms % NAUTICAL_TO_FATHOMS;
+        this.nautical = (int) (nautical + fathoms / NAUTICAL_TO_FATHOMS);
     }
 
     Nautical(int nautical) {
