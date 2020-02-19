@@ -7,6 +7,7 @@ import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class MilesTest {
 
@@ -62,5 +63,10 @@ class MilesTest {
         MilePerHour expectedSpeed = new MilePerHour(0.3551f);
 
         assertThat(speed).usingComparatorForFields(floatComparator, "speed").isEqualToComparingFieldByField(expectedSpeed);
+    }
+
+    @Test
+    void negativeInpute() {
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Miles(-1, -1));
     }
 }
