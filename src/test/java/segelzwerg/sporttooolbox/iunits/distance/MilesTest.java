@@ -66,7 +66,7 @@ public class MilesTest {
     }
 
     @Test
-    public void negativeInpute() {
+    public void negativeInput() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Miles(-1, -1));
     }
 }
