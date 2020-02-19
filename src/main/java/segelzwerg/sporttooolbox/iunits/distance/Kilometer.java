@@ -1,9 +1,10 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-public class Kilometer extends Distance {
+public class Kilometer implements Distance {
     private final int kilometer;
     private final int meter;
 
@@ -12,7 +13,6 @@ public class Kilometer extends Distance {
     }
 
     public Kilometer(int kilometer, int meter) {
-        super(kilometer, meter);
         if (kilometer < 0 || meter < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + kilometer + "km " + meter + "m.");
         }
@@ -21,7 +21,6 @@ public class Kilometer extends Distance {
     }
 
     public Kilometer(float kilometer) {
-        super(kilometer);
         this.kilometer = (int) Math.abs(kilometer);
         meter = (int) ((kilometer - this.kilometer) * 1000);
     }
@@ -29,6 +28,28 @@ public class Kilometer extends Distance {
     @Override
     public Speed computeSpeed(Time time) {
         return time.computeSpeed(kilometer, meter);
+    }
+
+    /**
+     * Compute pace given a specific time
+     *
+     * @param time amount of time
+     * @return calculated pace
+     */
+    @Override
+    public Pace computePace(Time time) {
+        return null;
+    }
+
+    /**
+     * computes the time for a given speed
+     *
+     * @param speed {@link Speed}
+     * @return {@link Time}
+     */
+    @Override
+    public Time computeTime(Speed speed) {
+        return null;
     }
 
     @Override
