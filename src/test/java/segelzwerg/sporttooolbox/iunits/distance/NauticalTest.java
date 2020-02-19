@@ -22,7 +22,7 @@ public class NauticalTest {
     public void overflowTest() {
         Nautical nautical = new Nautical(0, 1013);
 
-        Distance expectedDistance = new Nautical(1, 0.31409f);
+        Distance expectedDistance = new Nautical(1, 0.3101f);
 
         assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
@@ -33,7 +33,7 @@ public class NauticalTest {
         Nautical nautical = new Nautical(1, 300);
         Nautical otherNautical = new Nautical(0, 800);
 
-        Nautical expectedDistance = new Nautical(2, 86);
+        Nautical expectedDistance = new Nautical(2, 86.22f);
 
         Distance distance = nautical.addDistance(otherNautical);
 
