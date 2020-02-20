@@ -12,8 +12,8 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
  */
 @EqualsAndHashCode(of = "seconds")
 public class Time {
+    private static final float SECONDS_PER_HOUR = 3_600f;
     private static final float HOURS_TO_SECONDS = 3_600f;
-    public static final float SECONDS_PER_HOUR = 3_600f;
     private final long seconds;
 
     public Time(int hour) {
@@ -77,8 +77,8 @@ public class Time {
         return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
     }
 
-    public MinutesPerKilometer computeMinPerKM(int meter) {
-        return new MinutesPerKilometer(SECONDS_PER_HOUR * meter / seconds);
+    public MinutesPerKilometer computeMinPerKM(float kilometer) {
+        return new MinutesPerKilometer(getMinutes() / kilometer);
     }
 
     /**
