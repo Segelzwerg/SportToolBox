@@ -53,8 +53,9 @@ class Nautical implements Distance {
      */
     @Override
     public Speed computeSpeed(Time time) {
-        return null;
+        return time.computeKnots(getNautical());
     }
+
 
     /**
      * Compute pace given a specific time
@@ -76,5 +77,9 @@ class Nautical implements Distance {
     @Override
     public Time computeTime(Speed speed) {
         return speed.computeTime(nautical, fathoms);
+    }
+
+    private float getNautical() {
+        return nautical + fathoms / NAUTICAL_TO_FATHOMS;
     }
 }
