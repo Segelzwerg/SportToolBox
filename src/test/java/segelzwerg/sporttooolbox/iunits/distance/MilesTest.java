@@ -32,6 +32,12 @@ public class MilesTest {
         assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
     }
 
+
+    @Test
+    public void floatConstructorNegativeInput() {
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Miles(-1f));
+    }
+
     @Test
     public void overflowTest() {
         Miles miles = new Miles(0, 1761);
