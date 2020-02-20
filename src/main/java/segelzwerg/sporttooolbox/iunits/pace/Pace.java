@@ -9,6 +9,7 @@ public interface Pace {
     float KILO = 1000.0f;
     float PER_KILOMETER_TO_PER_HUNDRED_METER = 0.1f;
     float PER_HUNDRED_METER_TO_PER_KILOMETER = 10.0f;
+    float PER_MILE_TO_PER_KM = 0.621371f;
 
     /**
      * Converts to minutes per kilometers
