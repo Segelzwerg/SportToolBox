@@ -9,9 +9,6 @@ import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
-
 public class TimeCalculatorFactoryTest {
     @Test
     public void testBuildFromSpeed() {
@@ -36,7 +33,8 @@ public class TimeCalculatorFactoryTest {
 
         TimeCalculator expectedTimeCalculator = new TimeCalculator(distance, speed);
 
-        assertThat(timeCalculator, equalTo(expectedTimeCalculator));
+        Assertions.assertThat(timeCalculator).isEqualToComparingFieldByFieldRecursively(expectedTimeCalculator);
+
     }
 
     @Test
@@ -62,6 +60,6 @@ public class TimeCalculatorFactoryTest {
 
         TimeCalculator expectedTimeCalculator = new TimeCalculator(distance, pace);
 
-        Assertions.assertThat(timeCalculator).isEqualToComparingFieldByField(expectedTimeCalculator);
+        Assertions.assertThat(timeCalculator).isEqualToComparingFieldByFieldRecursively(expectedTimeCalculator);
     }
 }
