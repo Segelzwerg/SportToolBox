@@ -78,4 +78,9 @@ public class Knot implements Speed {
         float time = (float) ((nauticalMiles + fathoms * Distance.FATHOMS_TO_NAUTICAL_MILES) / speed);
         return new Time(time);
     }
+
+    @Override
+    public Distance computeDistance() {
+        return null;
+    }
 }

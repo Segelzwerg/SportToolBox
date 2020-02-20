@@ -75,4 +75,9 @@ public class MilePerHour implements Speed {
         float time = (float) ((miles + yards / Distance.MILES_TO_YARDS) / speed);
         return new Time(time);
     }
+
+    @Override
+    public Distance computeDistance() {
+        return null;
+    }
 }
