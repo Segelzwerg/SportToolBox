@@ -65,7 +65,7 @@ class Nautical implements Distance {
      */
     @Override
     public Time computeTime(Speed speed) {
-        return null;
+        return speed.computeTime(nautical, fathoms);
     }
 
     private float getFathoms(float fathoms) {
