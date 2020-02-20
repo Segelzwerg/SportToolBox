@@ -22,7 +22,7 @@ public class Miles implements Distance {
         this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
 
-    Miles(float miles) {
+    public Miles(float miles) {
         if (miles < 0) {
             throw new IllegalArgumentException("Distances must not be negative. " + miles + "mi.");
         }
