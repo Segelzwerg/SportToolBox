@@ -1,8 +1,11 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import org.assertj.core.util.FloatComparator;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
@@ -11,6 +14,8 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KilometerTest {
+    private final FloatComparator floatComparator = new FloatComparator(0.001f);
+
     @Test
     void constructorTest() {
         Kilometer kilometer = new Kilometer(1);
@@ -88,5 +93,17 @@ public class KilometerTest {
 
 
         assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
+
+    @Test
+    public void computePaceTest() {
+        Kilometer kilometer = new Kilometer(65, 123);
+        Time time = new Time(1, 43, 12);
+        Pace expectedPace = new MinutesPerKilometer(1.5847f);
+
+        Pace pace = kilometer.computePace(time);
+
+        assertThat(pace).usingComparatorForFields(floatComparator).isEqualToComparingFieldByField(expectedPace);
+
     }
 }
