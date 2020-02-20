@@ -72,9 +72,9 @@ public class MilesTest {
 
     @Test
     public void computeTimeTest() {
-        Miles miles = new Miles(23, 500);
+        Miles miles = new Miles(23, 284);
         MilePerHour milePerHour = new MilePerHour(12.5f);
-        Time expectedTime = new Time(1, 52, 48);
+        Time expectedTime = new Time(1, 51, 10);
 
         Time time = miles.computeTime(milePerHour);
 
