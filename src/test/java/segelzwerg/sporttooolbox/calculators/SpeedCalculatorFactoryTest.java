@@ -34,6 +34,6 @@ public class SpeedCalculatorFactoryTest {
 
         SpeedCalculator expectedSpeedCalculator = new SpeedCalculator(distance, time);
 
-        Assertions.assertThat(speedCalculator).isEqualToComparingFieldByField(expectedSpeedCalculator);
+        Assertions.assertThat(speedCalculator).isEqualToComparingFieldByFieldRecursively(expectedSpeedCalculator);
     }
 }
