@@ -5,8 +5,8 @@ import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 class Miles implements Distance {
+    private static final float MILES_TO_KM = 1.609f;
     private static final float MILES_TO_YARDS = 1760f;
-
     private final int miles;
     private final int yards;
 
@@ -68,7 +68,7 @@ class Miles implements Distance {
 
     @Override
     public Kilometer toKilometer() {
-        return null;
+        return new Kilometer(getMiles() * MILES_TO_KM);
     }
 
     /**
