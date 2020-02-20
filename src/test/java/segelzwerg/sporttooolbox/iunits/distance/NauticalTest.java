@@ -79,7 +79,7 @@ public class NauticalTest {
 
         Pace pace = nautical.computePace(time);
 
-        assertThat(pace).usingComparatorForFields(speedComparator).isEqualToComparingFieldByField(expectedPace);
+        assertThat(pace).usingComparatorForFields(speedComparator, "pace").isEqualToComparingFieldByField(expectedPace);
 
     }
 }
