@@ -19,6 +19,11 @@ class Nautical implements Distance {
         this(nautical, 0);
     }
 
+    Nautical(float nautical) {
+        this.nautical = (int) Math.abs(nautical);
+        fathoms = (nautical - this.nautical) * NAUTICAL_TO_FATHOMS;
+    }
+
     private static float getFathoms(float fathoms) {
         if (fathoms < NAUTICAL_TO_FATHOMS) {
             return fathoms % NAUTICAL_TO_FATHOMS;
