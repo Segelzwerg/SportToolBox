@@ -74,6 +74,6 @@ class Miles implements Distance {
      */
     @Override
     public Time computeTime(Speed speed) {
-        return null;
+        return speed.computeTime(miles, yards);
     }
 }
