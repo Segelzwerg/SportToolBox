@@ -2,6 +2,8 @@ package segelzwerg.sporttooolbox.iunits.distance;
 
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,7 +41,17 @@ public class NauticalTest {
 
         assertThat(distance).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(distance).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
+    }
+
+    @Test
+    public void computeTimeTest() {
+        Nautical nautical = new Nautical(23, 500);
+        Knot knot = new Knot(12.5f);
+        Time expectedTime = new Time(1, 52, 46);
+
+        Time time = nautical.computeTime(knot);
 
 
+        assertThat(time).isEqualToComparingFieldByField(expectedTime);
     }
 }
