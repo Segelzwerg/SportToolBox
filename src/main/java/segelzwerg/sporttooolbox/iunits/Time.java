@@ -76,6 +76,10 @@ public class Time {
         return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
     }
 
+    public MinutesPerKilometer computeMinPerKM(int meter) {
+        return new MinutesPerKilometer(3_600f * meter / seconds);
+    }
+
     /**
      * Compute pace given some distances
      *
@@ -83,6 +87,7 @@ public class Time {
      * @param meter     amout of meters
      * @return calculated pace
      */
+    @Deprecated
     public Pace computePace(float kilometer, float meter) {
         return new MinutesPerKilometer(getMinutes() / getMeters(kilometer, meter));
     }
