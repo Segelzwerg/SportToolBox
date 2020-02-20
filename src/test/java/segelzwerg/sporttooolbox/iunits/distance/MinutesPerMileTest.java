@@ -32,4 +32,13 @@ public class MinutesPerMileTest {
 
         assertThat(pace).usingComparatorForFields(floatComparator, "pace").isEqualToComparingFieldByField(expectedPace);
     }
+
+    @Test
+    public void convertToMinutesPerMile() {
+        MinutesPerMile minutesPerMile = new MinutesPerMile(6f);
+
+        Pace pace = minutesPerMile.toMinutesPerMile();
+
+        assertThat(pace).usingComparatorForFields(floatComparator, "pace").isEqualToComparingFieldByField(minutesPerMile);
+    }
 }
