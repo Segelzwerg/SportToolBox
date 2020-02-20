@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerHundredMeters;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.MeterPerSecond;
@@ -29,7 +30,7 @@ public class MinutesPerMile implements Pace {
      */
     @Override
     public Pace toMinutesPerHundredMeters() {
-        return null;
+        return new MinutesPerHundredMeters(pace * Pace.PER_MILE_TO_PER_100_M);
     }
 
     /**
