@@ -13,7 +13,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
  */
 @EqualsAndHashCode(of = "seconds")
 public class Time {
-    private static final float SECONDS_PER_HOUR = 3_600f;
+    private static final float HOURS_TO_MINUTES = 60.0f;
     private static final float HOURS_TO_SECONDS = 3_600f;
     private final long seconds;
 
@@ -29,7 +29,7 @@ public class Time {
         if (hour < 0 || minutes < 0 || seconds < 0) {
             throw new IllegalArgumentException("Times must not be negative");
         }
-        this.seconds = (hour * 3_600) + (minutes * 60) + seconds;
+        this.seconds = (long) ((hour * HOURS_TO_SECONDS) + (minutes * 60) + seconds);
     }
 
     /**
@@ -48,12 +48,13 @@ public class Time {
      * @param meter     amount of meters
      * @return numeric representation of meters
      */
+    @Deprecated
     private static float getMeters(float kilometer, float meter) {
         return (kilometer + meter / 1000);
     }
 
     public KilometerPerHour computeKPH(float kilometer) {
-        return new KilometerPerHour(3_600f * kilometer / seconds);
+        return new KilometerPerHour(HOURS_TO_SECONDS * kilometer / seconds);
     }
 
     /**
@@ -75,7 +76,7 @@ public class Time {
      */
     @Deprecated
     public Speed computeSpeed(float kilometer, float meter) {
-        return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
+        return new KilometerPerHour(HOURS_TO_SECONDS * getMeters(kilometer, meter) / seconds);
     }
 
     public MinutesPerKilometer computeMinPerKM(float kilometer) {
@@ -118,7 +119,7 @@ public class Time {
      * @return hours as integer
      */
     private int getOnlyHours() {
-        return (int) (seconds / 3600);
+        return (int) (seconds / HOURS_TO_SECONDS);
     }
 
     /**
@@ -127,7 +128,7 @@ public class Time {
      * @return minutes as integer
      */
     private int getOnlyMinutes() {
-        return (int) (((seconds / 3600.0) - getOnlyHours()) * 60.0);
+        return (int) (((seconds / 3600.0) - getOnlyHours()) * HOURS_TO_MINUTES);
     }
 
     /**
@@ -136,7 +137,7 @@ public class Time {
      * @return seconds as integer
      */
     private int getOnlySeconds() {
-        return (int) (seconds - getOnlyHours() * 3600 - getOnlyMinutes() * 60);
+        return (int) (seconds - getOnlyHours() * HOURS_TO_SECONDS - getOnlyMinutes() * HOURS_TO_MINUTES);
     }
 
     /**
@@ -145,6 +146,6 @@ public class Time {
      * @return numeric representation of minutes
      */
     private float getMinutes() {
-        return seconds / 60.0f;
+        return seconds / HOURS_TO_MINUTES;
     }
 }
