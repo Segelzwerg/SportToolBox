@@ -25,6 +25,15 @@ public class NauticalTest {
     }
 
     @Test
+    public void floatConstructorTest() {
+        Nautical nautical = new Nautical(24.56f);
+        Nautical expectedDistance = new Nautical(24, 567.1f);
+
+        assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
+        assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
+    }
+
+    @Test
     public void overflowTest() {
         Nautical nautical = new Nautical(0, 1013);
 
