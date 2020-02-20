@@ -10,6 +10,9 @@ public class DistanceFactory {
             case "miles":
                 major = new Miles(majorValue);
                 break;
+            case "nautical":
+                major = new Nautical(majorValue);
+                break;
             default:
                 throw new IllegalArgumentException("Unexpected unit: " + majorUnit);
         }
@@ -20,6 +23,9 @@ public class DistanceFactory {
                 break;
             case "yards":
                 minor = new Miles(0, minorValue);
+                break;
+            case "fathoms":
+                minor = new Nautical(0, minorValue);
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected unit: " + minorUnit);
