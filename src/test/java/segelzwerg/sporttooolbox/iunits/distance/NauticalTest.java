@@ -9,6 +9,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Knot;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class NauticalTest {
 
@@ -31,6 +32,16 @@ public class NauticalTest {
 
         assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
+    }
+
+    @Test
+    public void negativeInput() {
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Nautical(-1, -1));
+    }
+
+    @Test
+    public void negativeFloatInput() {
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Nautical(-1f));
     }
 
     @Test
