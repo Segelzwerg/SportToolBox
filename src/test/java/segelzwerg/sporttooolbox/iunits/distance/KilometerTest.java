@@ -116,6 +116,12 @@ public class KilometerTest {
     }
 
     @Test
+    public void negativeKilometerFloat() {
+        assertThrows(IllegalArgumentException.class, () -> new Kilometer(-1f));
+    }
+
+
+    @Test
     public void toKilometer() {
         Kilometer kilometer = new Kilometer(234, 23);
 

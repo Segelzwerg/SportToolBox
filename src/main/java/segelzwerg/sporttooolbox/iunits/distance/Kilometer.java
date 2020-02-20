@@ -23,6 +23,9 @@ public class Kilometer implements Distance {
     }
 
     public Kilometer(float kilometer) {
+        if (kilometer < 0) {
+            throw new IllegalArgumentException("Distance must not be negative: " + kilometer + "km.");
+        }
         this.kilometer = (int) Math.abs(kilometer);
         float kilometerDifference = kilometer % this.kilometer;
         meter = (int) (Math.round(kilometerDifference * KILOMETER_TO_METERS * 10) / 10f);
