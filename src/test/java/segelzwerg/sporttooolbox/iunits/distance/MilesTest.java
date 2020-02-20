@@ -3,6 +3,7 @@ package segelzwerg.sporttooolbox.iunits.distance;
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
@@ -80,5 +81,17 @@ public class MilesTest {
 
 
         assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
+
+    @Test
+    public void computePaceTest() {
+        Miles miles = new Miles(65, 123);
+        Time time = new Time(1, 43, 12);
+        Pace expectedPace = new MinutesPerMile(1.585987f);
+
+        Pace pace = miles.computePace(time);
+
+        assertThat(pace).usingComparatorForFields(floatComparator).isEqualToComparingFieldByField(expectedPace);
+
     }
 }
