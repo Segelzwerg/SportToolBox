@@ -2,8 +2,11 @@ package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
+import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 /**
@@ -11,6 +14,8 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
  */
 @EqualsAndHashCode(of = "seconds")
 public class Time {
+    private static final float HOURS_TO_MINUTES = 60.0f;
+    private static final float HOURS_TO_SECONDS = 3_600f;
     private final long seconds;
 
     public Time(int hour) {
@@ -25,7 +30,7 @@ public class Time {
         if (hour < 0 || minutes < 0 || seconds < 0) {
             throw new IllegalArgumentException("Times must not be negative");
         }
-        this.seconds = (hour * 3_600) + (minutes * 60) + seconds;
+        this.seconds = (long) ((hour * HOURS_TO_SECONDS) + (minutes * 60) + seconds);
     }
 
     /**
@@ -38,14 +43,53 @@ public class Time {
     }
 
     /**
+     * Get meters from parameters
+     *
+     * @param kilometer amount of kilometers
+     * @param meter     amount of meters
+     * @return numeric representation of meters
+     */
+    @Deprecated
+    private static float getMeters(float kilometer, float meter) {
+        return (kilometer + meter / 1000);
+    }
+
+    public KilometerPerHour computeKPH(float kilometer) {
+        return new KilometerPerHour(HOURS_TO_SECONDS * kilometer / seconds);
+    }
+
+    /**
+     * calculates the speed in miles per hour
+     *
+     * @param miles float representing the distance in miles
+     * @return {@link MilePerHour}
+     */
+    public MilePerHour computeMPH(float miles) {
+        return new MilePerHour(HOURS_TO_SECONDS * miles / seconds);
+    }
+
+    public Knot computeKnots(float nautical) {
+        return new Knot(HOURS_TO_SECONDS * nautical / seconds);
+    }
+
+    /**
      * Compute speed on specific distance
      *
      * @param kilometer amount of kilometers
      * @param meter     amount of meters
      * @return calculated speed
      */
+    @Deprecated
     public Speed computeSpeed(float kilometer, float meter) {
-        return new KilometerPerHour(3_600f * getMeters(kilometer, meter) / seconds);
+        return new KilometerPerHour(HOURS_TO_SECONDS * getMeters(kilometer, meter) / seconds);
+    }
+
+    public MinutesPerKilometer computeMinPerKM(float kilometer) {
+        return new MinutesPerKilometer(getMinutes() / kilometer);
+    }
+
+    public MinutesPerMile computeMinPerMI(float miles) {
+        return new MinutesPerMile(getMinutes() / miles);
     }
 
     /**
@@ -55,6 +99,7 @@ public class Time {
      * @param meter     amout of meters
      * @return calculated pace
      */
+    @Deprecated
     public Pace computePace(float kilometer, float meter) {
         return new MinutesPerKilometer(getMinutes() / getMeters(kilometer, meter));
     }
@@ -79,7 +124,7 @@ public class Time {
      * @return hours as integer
      */
     private int getOnlyHours() {
-        return (int) (seconds / 3600);
+        return (int) (seconds / HOURS_TO_SECONDS);
     }
 
     /**
@@ -88,7 +133,7 @@ public class Time {
      * @return minutes as integer
      */
     private int getOnlyMinutes() {
-        return (int) (((seconds / 3600.0) - getOnlyHours()) * 60.0);
+        return (int) (((seconds / 3600.0) - getOnlyHours()) * HOURS_TO_MINUTES);
     }
 
     /**
@@ -97,18 +142,7 @@ public class Time {
      * @return seconds as integer
      */
     private int getOnlySeconds() {
-        return (int) (seconds - getOnlyHours() * 3600 - getOnlyMinutes() * 60);
-    }
-
-    /**
-     * Get meters from parameters
-     *
-     * @param kilometer amount of kilometers
-     * @param meter     amount of meters
-     * @return numeric representation of meters
-     */
-    private float getMeters(float kilometer, float meter) {
-        return (kilometer + meter / 1000);
+        return (int) (seconds - getOnlyHours() * HOURS_TO_SECONDS - getOnlyMinutes() * HOURS_TO_MINUTES);
     }
 
     /**
@@ -117,6 +151,8 @@ public class Time {
      * @return numeric representation of minutes
      */
     private float getMinutes() {
-        return seconds / 60.0f;
+        return seconds / HOURS_TO_MINUTES;
     }
+
+
 }

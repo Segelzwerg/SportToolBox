@@ -38,6 +38,16 @@ public class MinutesPerKilometer implements Pace {
         return new MinutesPerHundredMeters(pace * PER_KILOMETER_TO_PER_HUNDRED_METER);
     }
 
+    /**
+     * Converts to minutes per mile
+     *
+     * @return an instance of Pace
+     */
+    @Override
+    public Pace toMinutesPerMile() {
+        return null;
+    }
+
     @Override
     public Speed getSpeed() {
         return new KilometerPerHour(60f / pace);
@@ -51,6 +61,6 @@ public class MinutesPerKilometer implements Pace {
     @Override
     public String toString() {
         double seconds = pace - Math.floor(pace);
-        return (int) Math.floor(this.pace) + ":" + (int) (Math.round(seconds * 60.0));
+        return (int) Math.floor(pace) + ":" + (int) (Math.round(seconds * 60.0));
     }
 }

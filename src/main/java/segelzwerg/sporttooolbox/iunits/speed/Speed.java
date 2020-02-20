@@ -50,11 +50,11 @@ public interface Speed {
     public Speed format();
 
     /**
-     * computes the time for a given kilometer and meter
+     * computes the time for a given major and minor
      *
-     * @param kilometer integer of the distance in kilometer
-     * @param meter     decimal of distance as integer
+     * @param major integer of the distance in major
+     * @param minor decimal of distance as integer
      * @return time with hours, minutes and seconds
      */
-    Time computeTime(float kilometer, float meter);
+    Time computeTime(float major, float minor);
 }

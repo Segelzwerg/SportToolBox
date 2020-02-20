@@ -27,6 +27,7 @@ public class KilometerPerHour implements Speed {
      *
      * @return speed in kilometer per hour
      */
+    @Override
     public Speed toKilometerPerHour() {
         return this;
     }
@@ -36,6 +37,7 @@ public class KilometerPerHour implements Speed {
      *
      * @return speed in meter per second
      */
+    @Override
     public Speed toMeterPerSecond() {
         return new MeterPerSecond(speed / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
@@ -45,6 +47,7 @@ public class KilometerPerHour implements Speed {
      *
      * @return speed in mile per hour
      */
+    @Override
     public Speed toMilePerHour() {
         return new MilePerHour(speed / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
@@ -54,6 +57,7 @@ public class KilometerPerHour implements Speed {
      *
      * @return speed in knot
      */
+    @Override
     public Speed toKnot() {
         return new Knot(speed / Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }

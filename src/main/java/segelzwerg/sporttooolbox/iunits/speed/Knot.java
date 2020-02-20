@@ -3,8 +3,8 @@ package segelzwerg.sporttooolbox.iunits.speed;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import segelzwerg.sporttooolbox.iunits.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 
 /**
  * Speed in knot
@@ -28,6 +28,7 @@ public class Knot implements Speed {
      *
      * @return speed in kilometer per hour
      */
+    @Override
     public Speed toKilometerPerHour() {
         return new KilometerPerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR);
     }
@@ -37,6 +38,7 @@ public class Knot implements Speed {
      *
      * @return speed in meter per second
      */
+    @Override
     public Speed toMeterPerSecond() {
         return new MeterPerSecond(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.METER_PER_SECOND_TO_KILOMETER_PER_HOUR);
     }
@@ -46,6 +48,7 @@ public class Knot implements Speed {
      *
      * @return speed in mile per hour
      */
+    @Override
     public Speed toMilePerHour() {
         return new MilePerHour(speed * Speed.KNOT_TO_KILOMETER_PER_HOUR / Speed.MILE_PER_HOUR_TO_KILOMETER_PER_HOUR);
     }
@@ -55,6 +58,7 @@ public class Knot implements Speed {
      *
      * @return speed in knot
      */
+    @Override
     public Speed toKnot() {
         return this;
     }

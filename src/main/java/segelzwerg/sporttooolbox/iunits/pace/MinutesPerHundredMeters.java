@@ -38,6 +38,16 @@ public class MinutesPerHundredMeters implements Pace {
         return this;
     }
 
+    /**
+     * Converts to minutes per mile
+     *
+     * @return an instance of Pace
+     */
+    @Override
+    public Pace toMinutesPerMile() {
+        return null;
+    }
+
     @Override
     public Speed getSpeed() {
         return new KilometerPerHour(6f / pace);

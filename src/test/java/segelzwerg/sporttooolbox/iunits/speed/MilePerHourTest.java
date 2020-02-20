@@ -2,7 +2,7 @@ package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
 
 import static org.hamcrest.MatcherAssert.assertThat;
