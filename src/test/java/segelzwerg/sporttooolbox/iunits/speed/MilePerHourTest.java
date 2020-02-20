@@ -1,9 +1,11 @@
 package segelzwerg.sporttooolbox.iunits.speed;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Miles;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -105,5 +107,17 @@ public class MilePerHourTest {
         Time expectedTime = new Time(2, 13, 34);
 
         assertThat(time, equalTo(expectedTime));
+    }
+
+    @Test
+    public void computeDistance() {
+        MilePerHour milePerHour = new MilePerHour(34.56f);
+        Time time = new Time(1, 23, 45);
+        Miles expectedDistance = new Miles(48.24f);
+
+        Distance distance = milePerHour.computeDistance(time);
+
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
+
     }
 }
