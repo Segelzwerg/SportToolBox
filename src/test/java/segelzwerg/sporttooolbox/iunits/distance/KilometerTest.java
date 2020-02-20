@@ -114,4 +114,13 @@ public class KilometerTest {
 
         assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
     }
+
+    @Test
+    public void toKilometer() {
+        Kilometer kilometer = new Kilometer(234, 23);
+
+        Kilometer convertedKilometer = kilometer.toKilometer();
+
+        assertThat(convertedKilometer).isEqualToComparingFieldByField(kilometer);
+    }
 }
