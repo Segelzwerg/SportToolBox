@@ -5,7 +5,7 @@ import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 class Nautical implements Distance {
-    private final float NAUTICAL_TO_FATHOMS = 1012.685914261f;
+    private static final float NAUTICAL_TO_FATHOMS = 1012.685914261f;
     private final int nautical;
     private final float fathoms;
 
@@ -16,6 +16,16 @@ class Nautical implements Distance {
 
     Nautical(int nautical) {
         this(nautical, 0);
+    }
+
+    private static float getFathoms(float fathoms) {
+        if (fathoms < NAUTICAL_TO_FATHOMS) {
+            return fathoms % NAUTICAL_TO_FATHOMS;
+        }
+        float miles = fathoms / NAUTICAL_TO_FATHOMS;
+        double absMiles = Math.floor(miles);
+        double diffMiles = miles - absMiles;
+        return (float) (diffMiles * 1000f);
     }
 
     /**
@@ -66,15 +76,5 @@ class Nautical implements Distance {
     @Override
     public Time computeTime(Speed speed) {
         return speed.computeTime(nautical, fathoms);
-    }
-
-    private float getFathoms(float fathoms) {
-        if (fathoms < NAUTICAL_TO_FATHOMS) {
-            return fathoms % NAUTICAL_TO_FATHOMS;
-        }
-        float miles = fathoms / NAUTICAL_TO_FATHOMS;
-        double absMiles = Math.floor(miles);
-        double diffMiles = miles - absMiles;
-        return (float) (diffMiles * 1000f);
     }
 }
