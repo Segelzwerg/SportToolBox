@@ -24,7 +24,8 @@ public class Kilometer implements Distance {
 
     public Kilometer(float kilometer) {
         this.kilometer = (int) Math.abs(kilometer);
-        meter = (int) ((kilometer - this.kilometer) * KILOMETER_TO_METERS);
+        float kilometerDifference = kilometer % this.kilometer;
+        meter = (int) (Math.round(kilometerDifference * KILOMETER_TO_METERS * 10) / 10f);
     }
 
     @Override
