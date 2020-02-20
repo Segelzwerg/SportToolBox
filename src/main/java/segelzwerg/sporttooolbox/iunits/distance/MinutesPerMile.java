@@ -34,6 +34,16 @@ public class MinutesPerMile implements Pace {
     }
 
     /**
+     * Converts to minutes per mile
+     *
+     * @return an instance of Pace
+     */
+    @Override
+    public Pace toMinutesPerMile() {
+        return this;
+    }
+
+    /**
      * converts pace to speed
      *
      * @return {@link MeterPerSecond} as it is SI
