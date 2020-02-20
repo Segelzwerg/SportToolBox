@@ -8,35 +8,35 @@ public final class DistanceFactory {
     }
 
     public static Distance createWithOtherThanSIUnits(int majorValue, int minorValue, String majorUnit, String minorUnit) {
-        Distance major;
-        switch (majorUnit) {
-            case "kilometer":
-                major = new Kilometer(majorValue);
-                break;
-            case "miles":
-                major = new Miles(majorValue);
-                break;
-            case "nautical":
-                major = new Nautical(majorValue);
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected unit: " + majorUnit);
-        }
-        Distance minor;
+        Distance major = getMajorDistance(majorValue, majorUnit);
+        Distance minor = getMinorDistance(minorValue, minorUnit);
+
+        return major.addDistance(minor);
+    }
+
+    private static Distance getMinorDistance(int minorValue, String minorUnit) {
         switch (minorUnit) {
             case "meter":
-                minor = new Kilometer(0, minorValue);
-                break;
+                return new Kilometer(0, minorValue);
             case "yards":
-                minor = new Miles(0, minorValue);
-                break;
+                return new Miles(0, minorValue);
             case "fathoms":
-                minor = new Nautical(0, minorValue);
-                break;
+                return new Nautical(0, minorValue);
             default:
                 throw new IllegalArgumentException("Unexpected unit: " + minorUnit);
         }
+    }
 
-        return major.addDistance(minor);
+    private static Distance getMajorDistance(int majorValue, String majorUnit) {
+        switch (majorUnit) {
+            case "kilometer":
+                return new Kilometer(majorValue);
+            case "miles":
+                return new Miles(majorValue);
+            case "nautical":
+                return new Nautical(majorValue);
+            default:
+                throw new IllegalArgumentException("Unexpected unit: " + majorUnit);
+        }
     }
 }
