@@ -2,6 +2,7 @@ package segelzwerg.sporttooolbox.iunits.distance;
 
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerHundredMeters;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
@@ -25,7 +26,7 @@ public class MinutesPerMileTest {
     @Test
     public void convertToMinutesPerHundredMeters() {
         MinutesPerMile minutesPerMile = new MinutesPerMile(6f);
-        MinutesPerKilometer expectedPace = new MinutesPerKilometer(0.3728227f);
+        MinutesPerHundredMeters expectedPace = new MinutesPerHundredMeters(0.3728227f);
 
         Pace pace = minutesPerMile.toMinutesPerHundredMeters();
 
