@@ -12,37 +12,6 @@ public interface Distance {
     double FATHOMS_TO_NAUTICAL_MILES = 1 / 1013.3333334;
 
 
-    static double convertMinorToMeter(float minor, String minorUnit) {
-        double result;
-        switch (minorUnit) {
-            case "yards":
-                result = minor * 0.9144;
-                break;
-            case "fathom":
-                result = minor * 1.8288;
-                break;
-            case "meter":
-                result = minor;
-                break;
-            default:
-                throw new IllegalArgumentException("This is not a valid unit: " + minorUnit);
-        }
-        return result;
-    }
-
-    static double convertMajorToKilometer(float major, String majorUnit) {
-        switch (majorUnit) {
-            case "miles":
-                return major * 1.609344;
-            case "nautical":
-                return major * 1.852;
-            case "kilometer":
-                return major;
-            default:
-                throw new IllegalArgumentException("This is not a valid unit: " + majorUnit);
-        }
-    }
-
     /**
      * Add distance
      *
