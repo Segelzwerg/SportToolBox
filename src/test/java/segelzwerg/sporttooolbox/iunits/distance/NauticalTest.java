@@ -82,4 +82,14 @@ public class NauticalTest {
         assertThat(pace).usingComparatorForFields(speedComparator, "pace").isEqualToComparingFieldByField(expectedPace);
 
     }
+
+    @Test
+    public void toKilometer() {
+        Nautical nautical = new Nautical(233);
+        Kilometer expectedDistance = new Kilometer(431, 516);
+
+        Kilometer kilometer = nautical.toKilometer();
+
+        assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
