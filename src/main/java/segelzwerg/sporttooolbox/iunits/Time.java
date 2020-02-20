@@ -5,6 +5,7 @@ import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
+import segelzwerg.sporttooolbox.iunits.speed.Knot;
 import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
@@ -65,6 +66,10 @@ public class Time {
      */
     public MilePerHour computeMPH(float miles) {
         return new MilePerHour(HOURS_TO_SECONDS * miles / seconds);
+    }
+
+    public Knot computeKnots(float nautical) {
+        return new Knot(HOURS_TO_SECONDS * nautical / seconds);
     }
 
     /**
@@ -148,4 +153,6 @@ public class Time {
     private float getMinutes() {
         return seconds / HOURS_TO_MINUTES;
     }
+
+
 }
