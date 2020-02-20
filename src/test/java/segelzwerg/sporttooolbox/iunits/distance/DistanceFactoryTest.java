@@ -13,4 +13,13 @@ public class DistanceFactoryTest {
 
         assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
     }
+
+    @Test
+    public void createMiles() {
+        Distance miles = DistanceFactory.createWithOtherThanSIUnits(30, 42, "miles", "yards");
+
+        Miles expectedDistance = new Miles(30, 42);
+
+        assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
