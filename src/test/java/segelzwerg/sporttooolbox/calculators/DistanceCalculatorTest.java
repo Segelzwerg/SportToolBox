@@ -17,7 +17,7 @@ public class DistanceCalculatorTest {
         DistanceCalculator distanceCalculator = new DistanceCalculator(speed, oneHour);
         Distance expectedDistance = new Kilometer(30);
 
-        Distance kilometer = distanceCalculator.computeDistance();
+        Distance kilometer = DistanceCalculator.computeDistance();
 
         assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
     }
