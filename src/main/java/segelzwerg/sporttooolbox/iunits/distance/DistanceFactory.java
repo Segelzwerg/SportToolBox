@@ -7,6 +7,9 @@ public class DistanceFactory {
             case "kilometer":
                 major = new Kilometer(majorValue);
                 break;
+            case "miles":
+                major = new Miles(majorValue);
+                break;
             default:
                 throw new IllegalArgumentException("Unexpected unit: " + majorUnit);
         }
@@ -14,6 +17,9 @@ public class DistanceFactory {
         switch (minorUnit) {
             case "meter":
                 minor = new Kilometer(0, minorValue);
+                break;
+            case "yards":
+                minor = new Miles(0, minorValue);
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected unit: " + minorUnit);
