@@ -95,4 +95,14 @@ public class MilesTest {
         assertThat(pace).usingComparatorForFields(floatComparator).isEqualToComparingFieldByField(expectedPace);
 
     }
+
+    @Test
+    public void toKilometer() {
+        Miles miles = new Miles(343);
+        Kilometer expectedDistance = new Kilometer(552, 5);
+
+        Kilometer kilometer = miles.toKilometer();
+
+        assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
