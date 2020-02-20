@@ -22,6 +22,11 @@ class Miles implements Distance {
         this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
 
+    public Miles(float miles) {
+        this.miles = (int) Math.abs(miles);
+        yards = (int) ((miles - this.miles) * MILES_TO_YARDS);
+    }
+
     /**
      * Add distance
      *
