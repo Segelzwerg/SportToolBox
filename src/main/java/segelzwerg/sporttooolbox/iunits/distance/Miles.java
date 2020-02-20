@@ -63,7 +63,7 @@ class Miles implements Distance {
      */
     @Override
     public Pace computePace(Time time) {
-        return null;
+        return time.computeMinPerMI(getMiles());
     }
 
     /**
