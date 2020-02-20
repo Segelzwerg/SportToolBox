@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NauticalTest {
 
-    private final FloatComparator fathomComparator = new FloatComparator(0.001f);
+    private final FloatComparator fathomComparator = new FloatComparator(0.1f);
     private final FloatComparator speedComparator = new FloatComparator(0.001f);
 
     @Test
