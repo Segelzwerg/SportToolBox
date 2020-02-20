@@ -103,7 +103,7 @@ public class KilometerTest {
 
         Pace pace = kilometer.computePace(time);
 
-        assertThat(pace).usingComparatorForFields(floatComparator).isEqualToComparingFieldByField(expectedPace);
+        assertThat(pace).usingComparatorForFields(floatComparator, "pace").isEqualToComparingFieldByField(expectedPace);
 
     }
 }
