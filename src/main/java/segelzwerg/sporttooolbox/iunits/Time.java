@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
@@ -52,6 +53,10 @@ public class Time {
     @Deprecated
     private static float getMeters(float kilometer, float meter) {
         return (kilometer + meter / 1000);
+    }
+
+    public Kilometer computeKM(float kilometerPerHour) {
+        return new Kilometer(kilometerPerHour * seconds / HOURS_TO_SECONDS);
     }
 
     public KilometerPerHour computeKPH(float kilometer) {
@@ -153,6 +158,4 @@ public class Time {
     private float getMinutes() {
         return seconds / HOURS_TO_MINUTES;
     }
-
-
 }
