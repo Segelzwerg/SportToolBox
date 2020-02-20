@@ -11,6 +11,9 @@ class Nautical implements Distance {
     private final float fathoms;
 
     Nautical(int nautical, float fathoms) {
+        if (nautical < 0 || fathoms < 0) {
+            throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm " + fathoms + "fathoms.");
+        }
         this.fathoms = getFathoms(fathoms);
         this.nautical = (int) (nautical + fathoms / NAUTICAL_TO_FATHOMS);
     }
@@ -20,6 +23,9 @@ class Nautical implements Distance {
     }
 
     Nautical(float nautical) {
+        if (nautical < 0) {
+            throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm.");
+        }
         this.nautical = (int) Math.abs(nautical);
         fathoms = (nautical - this.nautical) * NAUTICAL_TO_FATHOMS;
     }
