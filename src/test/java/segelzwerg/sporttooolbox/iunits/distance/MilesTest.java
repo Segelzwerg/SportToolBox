@@ -3,6 +3,7 @@ package segelzwerg.sporttooolbox.iunits.distance;
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;

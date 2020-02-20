@@ -1,8 +1,5 @@
-package segelzwerg.sporttooolbox.iunits.distance;
+package segelzwerg.sporttooolbox.iunits.pace;
 
-import segelzwerg.sporttooolbox.iunits.pace.MinutesPerHundredMeters;
-import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
-import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.MeterPerSecond;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 

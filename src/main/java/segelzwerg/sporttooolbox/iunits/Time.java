@@ -1,8 +1,8 @@
 package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
-import segelzwerg.sporttooolbox.iunits.distance.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
 import segelzwerg.sporttooolbox.iunits.speed.MilePerHour;
