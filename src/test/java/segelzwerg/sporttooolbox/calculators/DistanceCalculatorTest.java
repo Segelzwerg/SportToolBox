@@ -39,7 +39,7 @@ public class DistanceCalculatorTest {
     }
 
     @Test
-    public void fourtyNautical() {
+    public void fortyNautical() {
         Speed speed = new Knot(20);
         Time twoHours = new Time(2, 0, 0);
         DistanceCalculator distanceCalculator = new DistanceCalculator(speed, twoHours);
