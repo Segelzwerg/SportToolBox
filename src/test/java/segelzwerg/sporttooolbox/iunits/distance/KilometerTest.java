@@ -77,4 +77,16 @@ public class KilometerTest {
     public void negativeKilometer() {
         assertThrows(IllegalArgumentException.class, () -> new Kilometer(-1));
     }
+
+    @Test
+    public void computeTimeTest() {
+        Kilometer kilometer = new Kilometer(23, 500);
+        KilometerPerHour kilometerPerHour = new KilometerPerHour(12.5f);
+        Time expectedTime = new Time(1, 52, 48);
+
+        Time time = kilometer.computeTime(kilometerPerHour);
+
+
+        assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
 }
