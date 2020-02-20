@@ -1,13 +1,11 @@
 package segelzwerg.sporttooolbox.calculators;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class SpeedCalculatorFactoryTest {
     @Test
@@ -36,6 +34,6 @@ public class SpeedCalculatorFactoryTest {
 
         SpeedCalculator expectedSpeedCalculator = new SpeedCalculator(distance, time);
 
-        assertThat(speedCalculator, equalTo(expectedSpeedCalculator));
+        Assertions.assertThat(speedCalculator).isEqualToComparingFieldByField(expectedSpeedCalculator);
     }
 }
