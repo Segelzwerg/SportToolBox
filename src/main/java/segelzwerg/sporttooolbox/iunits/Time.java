@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.iunits;
 
 import lombok.EqualsAndHashCode;
+import segelzwerg.sporttooolbox.iunits.distance.MinutesPerMile;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
@@ -79,6 +80,10 @@ public class Time {
 
     public MinutesPerKilometer computeMinPerKM(float kilometer) {
         return new MinutesPerKilometer(getMinutes() / kilometer);
+    }
+
+    public MinutesPerMile computeMinPerMI(float miles) {
+        return new MinutesPerMile(getMinutes() / miles);
     }
 
     /**
