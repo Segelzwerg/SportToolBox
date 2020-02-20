@@ -106,4 +106,12 @@ public class KilometerTest {
         assertThat(pace).usingComparatorForFields(floatComparator, "pace").isEqualToComparingFieldByField(expectedPace);
 
     }
+
+    @Test
+    public void floatConstructorTest() {
+        Kilometer kilometer = new Kilometer(22.4f);
+        Kilometer expectedDistance = new Kilometer(22, 400);
+
+        assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
