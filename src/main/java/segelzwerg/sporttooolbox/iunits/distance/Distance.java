@@ -36,6 +36,8 @@ public interface Distance {
      */
     Pace computePace(Time time);
 
+    Kilometer toKilometer();
+
     /**
      * computes the time for a given speed
      *

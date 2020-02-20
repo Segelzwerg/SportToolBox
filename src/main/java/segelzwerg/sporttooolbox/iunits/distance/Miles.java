@@ -66,6 +66,11 @@ class Miles implements Distance {
         return time.computeMinPerMI(getMiles());
     }
 
+    @Override
+    public Kilometer toKilometer() {
+        return null;
+    }
+
     /**
      * computes the time for a given speed
      *

@@ -48,6 +48,11 @@ public class Kilometer implements Distance {
         return time.computeMinPerKM(getKilometer());
     }
 
+    @Override
+    public Kilometer toKilometer() {
+        return null;
+    }
+
     /**
      * computes the time for a given speed
      *

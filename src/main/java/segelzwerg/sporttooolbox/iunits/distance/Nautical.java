@@ -69,6 +69,11 @@ class Nautical implements Distance {
         return kilometer.computePace(time);
     }
 
+    @Override
+    public Kilometer toKilometer() {
+        return null;
+    }
+
     /**
      * computes the time for a given speed
      *
