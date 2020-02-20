@@ -50,7 +50,7 @@ public class Kilometer implements Distance {
 
     @Override
     public Kilometer toKilometer() {
-        return null;
+        return this;
     }
 
     /**
