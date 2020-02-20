@@ -3,6 +3,8 @@ package segelzwerg.sporttooolbox.iunits.distance;
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
+import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Knot;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
@@ -66,5 +68,18 @@ public class NauticalTest {
         Speed speed = nautical.computeSpeed(time);
 
         assertThat(speed).usingComparatorForFields(speedComparator, "speed").isEqualToComparingFieldByField(expectedSpeed);
+    }
+
+    @Test
+    public void computePaceTest() {
+        Nautical nautical = new Nautical(100, 200);
+        Time time = new Time(48, 0, 0);
+
+        MinutesPerKilometer expectedPace = new MinutesPerKilometer(15.5201f);
+
+        Pace pace = nautical.computePace(time);
+
+        assertThat(pace).usingComparatorForFields(speedComparator).isEqualToComparingFieldByField(expectedPace);
+
     }
 }
