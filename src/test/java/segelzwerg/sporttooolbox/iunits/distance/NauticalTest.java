@@ -4,12 +4,14 @@ import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.speed.Knot;
+import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NauticalTest {
 
     private final FloatComparator fathomComparator = new FloatComparator(0.001f);
+    private final FloatComparator speedComparator = new FloatComparator(0.001f);
 
     @Test
     public void constructorTest() {
@@ -53,5 +55,16 @@ public class NauticalTest {
 
 
         assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
+
+    @Test
+    public void computeSpeedTest() {
+        Nautical nautical = new Nautical(100, 200);
+        Time time = new Time(48, 0, 0);
+        Knot expectedSpeed = new Knot(2.08745f);
+
+        Speed speed = nautical.computeSpeed(time);
+
+        assertThat(speed).usingComparatorForFields(speedComparator, "speed").isEqualToComparingFieldByField(expectedSpeed);
     }
 }
