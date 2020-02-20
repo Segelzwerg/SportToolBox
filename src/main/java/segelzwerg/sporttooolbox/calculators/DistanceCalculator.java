@@ -14,6 +14,6 @@ class DistanceCalculator {
     }
 
     Distance computeDistance() {
-        return speed.computeDistance();
+        return speed.computeDistance(time);
     }
 }

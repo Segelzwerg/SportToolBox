@@ -59,5 +59,5 @@ public interface Speed {
      */
     Time computeTime(float major, float minor);
 
-    Distance computeDistance();
+    Distance computeDistance(Time time);
 }

@@ -77,7 +77,7 @@ public class MilePerHour implements Speed {
     }
 
     @Override
-    public Distance computeDistance() {
+    public Distance computeDistance(Time time) {
         return null;
     }
 }
