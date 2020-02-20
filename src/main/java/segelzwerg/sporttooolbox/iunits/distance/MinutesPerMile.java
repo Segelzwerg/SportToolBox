@@ -7,7 +7,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 public class MinutesPerMile implements Pace {
     private final float pace;
 
-    MinutesPerMile(float pace) {
+    public MinutesPerMile(float pace) {
         this.pace = pace;
     }
 
