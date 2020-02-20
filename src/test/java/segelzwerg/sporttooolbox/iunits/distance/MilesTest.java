@@ -69,4 +69,16 @@ public class MilesTest {
     public void negativeInput() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> new Miles(-1, -1));
     }
+
+    @Test
+    public void computeTimeTest() {
+        Miles miles = new Miles(23, 500);
+        MilePerHour milePerHour = new MilePerHour(12.5f);
+        Time expectedTime = new Time(1, 52, 48);
+
+        Time time = miles.computeTime(milePerHour);
+
+
+        assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
 }
