@@ -1,6 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
-public class DistanceFactory {
+public final class DistanceFactory {
     /**
      * prevents instantiating
      */
