@@ -1,6 +1,12 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
 public class DistanceFactory {
+    /**
+     * prevents instantiating
+     */
+    private DistanceFactory() {
+    }
+
     public static Distance createWithOtherThanSIUnits(int majorValue, int minorValue, String majorUnit, String minorUnit) {
         Distance major;
         switch (majorUnit) {
