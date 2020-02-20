@@ -22,4 +22,13 @@ public class DistanceFactoryTest {
 
         assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
     }
+
+    @Test
+    public void createNautical() {
+        Distance nautical = DistanceFactory.createWithOtherThanSIUnits(52, 134, "nautical", "fathoms");
+
+        Nautical expectedDistance = new Nautical(52, 134);
+
+        assertThat(nautical).isEqualToComparingFieldByField(expectedDistance);
+    }
 }
