@@ -24,6 +24,13 @@ public class MilesTest {
         assertThat(miles).isEqualToComparingFieldByField(expectedMile);
     }
 
+    @Test
+    public void floatConstructorTest() {
+        Miles miles = new Miles(48.24f);
+        Miles expectedDistance = new Miles(48, 422);
+
+        assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
+    }
 
     @Test
     public void overflowTest() {
