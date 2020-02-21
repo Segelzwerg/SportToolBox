@@ -1,6 +1,7 @@
 package segelzwerg.sporttooolbox.iunits.speed;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
     private static Speed thirtyKnots;
+    private FloatComparator fathomComparator;
 
     /**
      * Set up before all tests
@@ -118,6 +120,8 @@ public class KnotTest {
 
         Distance distance = knot.computeDistance(time);
 
-        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
+        fathomComparator = new FloatComparator(0.1f);
+        Assertions.assertThat(distance).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
+        Assertions.assertThat(distance).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
     }
 }
