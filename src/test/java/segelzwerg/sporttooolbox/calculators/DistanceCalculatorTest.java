@@ -43,7 +43,7 @@ public class DistanceCalculatorTest {
         Speed speed = new Knot(20);
         Time twoHours = new Time(2, 0, 0);
         DistanceCalculator distanceCalculator = new DistanceCalculator(speed, twoHours);
-        Nautical expectedDistance = new Nautical(20);
+        Nautical expectedDistance = new Nautical(40);
 
         Distance distance = distanceCalculator.computeDistance();
 
