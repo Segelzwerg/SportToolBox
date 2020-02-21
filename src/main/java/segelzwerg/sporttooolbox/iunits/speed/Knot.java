@@ -81,6 +81,6 @@ public class Knot implements Speed {
 
     @Override
     public Distance computeDistance(Time time) {
-        return null;
+        return time.computeNautical(getSpeed());
     }
 }
