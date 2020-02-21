@@ -29,8 +29,8 @@ public class DistanceCalculatorTest {
     @Test
     public void sixtyMiles() {
         Speed speed = new MilePerHour(120f);
-        Time thiryMinutes = new Time(0, 30, 0);
-        DistanceCalculator distanceCalculator = new DistanceCalculator(speed, thiryMinutes);
+        Time thirtyMinutes = new Time(0, 30, 0);
+        DistanceCalculator distanceCalculator = new DistanceCalculator(speed, thirtyMinutes);
         Distance expectedDistance = new Miles(60, 0);
 
         Distance distance = distanceCalculator.computeDistance();
