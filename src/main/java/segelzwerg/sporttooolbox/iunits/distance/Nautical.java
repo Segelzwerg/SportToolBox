@@ -22,7 +22,7 @@ public class Nautical implements Distance {
         this(nautical, 0);
     }
 
-    Nautical(float nautical) {
+    public Nautical(float nautical) {
         if (nautical < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm.");
         }
