@@ -104,6 +104,10 @@ public class Time {
         return new MinutesPerKilometer(getMinutes() / kilometer);
     }
 
+    /**
+     * @param miles amount of miles
+     * @return pace in min per mile
+     */
     public MinutesPerMile computeMinPerMI(float miles) {
         return new MinutesPerMile(getMinutes() / miles);
     }
