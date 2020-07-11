@@ -4,7 +4,7 @@ import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-class DistanceCalculator {
+public class DistanceCalculator {
     private final Speed speed;
     private final Time time;
 
@@ -13,7 +13,7 @@ class DistanceCalculator {
         this.time = time;
     }
 
-    Distance computeDistance() {
+    public Distance computeDistance() {
         return speed.computeDistance(time);
     }
 }
