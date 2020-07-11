@@ -45,7 +45,7 @@ public class MinutesPerHundredMeters implements Pace {
      */
     @Override
     public Pace toMinutesPerMile() {
-        return null;
+        return new MinutesPerMile(pace * 16.09344f);
     }
 
     @Override

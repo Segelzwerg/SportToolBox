@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.pace;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.speed.KilometerPerHour;
@@ -26,6 +27,15 @@ public class MinutesPerHundredMetersTest {
         MinutesPerKilometer pace = (MinutesPerKilometer) oneMinutefifthteenPerKM.toMinutesPerKilometer();
         MinutesPerKilometer expectedPace = new MinutesPerKilometer(12.5f);
         assertThat(pace, equalTo(expectedPace));
+    }
+
+    @Test
+    public void convert_to_minutes_per_miles() {
+        MinutesPerMile pace = (MinutesPerMile) oneMinutefifthteenPerKM.toMinutesPerMile();
+        MinutesPerMile expectedPace = new MinutesPerMile(20.1168f);
+        Assertions.assertThat(pace)
+                .isEqualToComparingOnlyGivenFields(expectedPace)
+                .usingDefaultComparator();
     }
 
     @Test
