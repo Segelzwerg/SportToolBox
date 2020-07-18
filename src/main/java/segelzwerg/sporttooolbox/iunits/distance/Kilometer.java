@@ -77,4 +77,9 @@ public class Kilometer implements Distance {
         int meter = otherKilometer.meter + this.meter;
         return new Kilometer(kilometer, meter);
     }
+
+    @Override
+    public String toString() {
+        return kilometer + " kilometer and " + meter + " meter";
+    }
 }
