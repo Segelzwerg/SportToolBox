@@ -34,7 +34,7 @@ public class SpeedService {
 
     Distance calculateDistance(SpeedForm form) {
         UnitParser unitParser = new UnitParser(form).invoke();
-        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.build(form,
+        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.buildFromSpeed(form,
                 unitParser.getMajorUnit(),
                 unitParser.getMinorUnit());
 
