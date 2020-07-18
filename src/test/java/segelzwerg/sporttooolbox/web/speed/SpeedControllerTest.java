@@ -103,7 +103,7 @@ public class SpeedControllerTest {
         speedForm.setSpeed(30);
         speedForm.setSpeedUnit("kilometerPerHour");
 
-        MockHttpServletRequestBuilder builder = postForm("/distance", speedForm);
+        MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
 
         mockMvc.perform(builder).andExpect(status().isOk());
     }
