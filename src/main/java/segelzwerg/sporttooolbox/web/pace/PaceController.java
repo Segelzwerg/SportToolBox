@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
@@ -54,6 +55,9 @@ public class PaceController {
         } else if (paceForm.getSecond() == 0 && paceForm.getMinute() == 0 && paceForm.getHour() == 0) {
             Time time = paceService.calculateTime(paceForm);
             model.addAttribute("time", time);
+        } else if (form.getMajor() == 0 && form.getMinor() == 0) {
+            Distance distance = paceService.calculateDistance(form);
+            model.addAttribute("distance", distance);
         }
         return Translator.toLocale("PaceForm");
     }
