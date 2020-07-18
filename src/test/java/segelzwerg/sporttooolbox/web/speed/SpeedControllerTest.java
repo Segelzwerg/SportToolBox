@@ -2,7 +2,6 @@ package segelzwerg.sporttooolbox.web.speed;
 
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +91,6 @@ public class SpeedControllerTest {
 
     @ParameterizedTest
     @MethodSource(LOCATION_PROVIDER)
-    @Test
     public void distanceCalculationTest(Locale locale) throws Exception {
         Locale.setDefault(locale);
 
