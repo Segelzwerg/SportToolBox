@@ -31,7 +31,7 @@ public class DistanceCalculatorFactoryTest {
         KilometerPerHour speed = new KilometerPerHour(speedValue);
         Time time = new Time(hour, minutes, seconds);
 
-        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.build(speedForm, majorUnit, minorUnit);
+        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.buildFromSpeed(speedForm, majorUnit, minorUnit);
 
         DistanceCalculator expectedDistanceCalculator = new DistanceCalculator(speed, time);
 
