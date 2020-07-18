@@ -109,6 +109,19 @@
                     </p>
                 </div>
             </div>
+            <div class="card" th:if="${distance != null}">
+                <div class="card-body">
+                    <h5 class="card-title">Distance</h5>
+                    <p class="card-text">
+                        The distance covered with travelling <span th:text="${form.speed}">30</span>
+                        <span th:text="${form.speedUnit}">kph</span> for <span th:text="${form.hour}">1</span> hour(s),
+                        <span th:text="${form.minute}">0</span> minute(s)
+                        <span th:text="${form.second}">0</span> second(s) is <span th:text="${form.major}">30</span>
+                        <span th:text="${form.distanceMajorUnit}">kilometer</span> and <span
+                            th:text="${form.minor}">0</span> <span th:text="${form.distanceMinorUnit}">meter</span>.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
