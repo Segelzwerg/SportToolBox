@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         java: [ 8, 11, 13, 15 ]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - name: Set up java
