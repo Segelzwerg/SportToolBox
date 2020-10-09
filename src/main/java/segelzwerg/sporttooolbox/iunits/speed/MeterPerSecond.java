@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 
 /**
  * Speed in meter per second
@@ -82,5 +83,10 @@ public class MeterPerSecond implements Speed {
         float distance = kilometer * 1000 + meter;
         float time = (distance / speed);
         return new Time(0, 0, (int) time);
+    }
+
+    @Override
+    public Distance computeDistance(Time time) {
+        return null;
     }
 }

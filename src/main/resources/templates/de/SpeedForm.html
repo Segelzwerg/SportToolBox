@@ -106,6 +106,19 @@
                     </p>
                 </div>
             </div>
+            <div class="card" th:if="${distance != null}">
+                <div class="card-body">
+                    <h5 class="card-title">Distance</h5>
+                    <p class="card-text">
+                        Es wird eine Distance bei einer Geschwindigkeit von <span th:text="${form.speed}">30</span>
+                        <span th:text="${form.speedUnit}">km/h</span> in einer Zeit von <span
+                            th:text="${form.hour}">1</span> Stunde(n),
+                        <span th:text="${form.minute}">0</span> Minute(n)
+                        <span th:text="${form.second}">0</span> Sekunde(n) von<span
+                            th:text="${distance.toString()}">30km</span> zurück gelegt.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

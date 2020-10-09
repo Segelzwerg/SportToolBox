@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 import segelzwerg.sporttooolbox.iunits.pace.MinutesPerKilometer;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
@@ -49,6 +51,21 @@ public class PaceServiceTest {
 
         Time expectedTime = new Time(2, 34, 21);
         Assertions.assertThat(time).isEqualToComparingFieldByField(expectedTime);
+    }
+
+    @Test
+    public void testDistanceFromTimeAndSpeed() {
+        SpeedForm paceForm = new SpeedForm();
+        paceForm.setHour(0);
+        paceForm.setMinute(2);
+        paceForm.setSecond(30);
+        paceForm.setPace(2f);
+        paceForm.setPaceUnit("minutesPerKilometer");
+
+        Distance distance = paceService.calculateDistance(paceForm);
+
+        Kilometer expectedDistance = new Kilometer(1, 250);
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
     }
 
     @Test

@@ -1,8 +1,11 @@
 package segelzwerg.sporttooolbox.iunits.speed;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Kilometer;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -104,5 +107,17 @@ public class KilometerPerHourTest {
         Time expectedTime = new Time(5, 52, 7);
 
         assertThat(time, equalTo(expectedTime));
+    }
+
+    @Test
+    public void computeDistance() {
+        KilometerPerHour speed = new KilometerPerHour(40.500f);
+        Time time = new Time(1, 30, 0);
+        Kilometer expectedDistance = new Kilometer(60, 750);
+
+        Distance distance = speed.computeDistance(time);
+
+        Assertions.assertThat(distance).isEqualToComparingFieldByField(expectedDistance);
+
     }
 }

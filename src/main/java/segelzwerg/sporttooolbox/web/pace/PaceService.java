@@ -4,11 +4,9 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
-import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
-import segelzwerg.sporttooolbox.calculators.TimeCalculator;
-import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.*;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.web.speed.SpeedForm;
 
@@ -23,31 +21,39 @@ import java.util.List;
 @Component
 public class PaceService {
 
-    List<String> validPaceUnits = new ArrayList<>(Arrays.asList("minutesPerKilometer", "minutesPerHundredMeters"));
+    private final List<String> validPaceUnits = new ArrayList<>(Arrays.asList("minutesPerKilometer", "minutesPerHundredMeters"));
+
+    private static void checkValidUnit(List<String> validUnits, String unit) {
+        if (!validUnits.contains(unit)) {
+            throw new IllegalArgumentException("This is not a valid unit: " + unit);
+        }
+    }
 
     /**
-     * calulates pace
+     * calculates pace
      *
      * @param paceForm
      * @return calculated pace
      */
-    public Pace calculatePace(SpeedForm paceForm) {
+    Pace calculatePace(SpeedForm paceForm) {
         UnitParser unitParser = new UnitParser(paceForm).invoke();
         SpeedCalculator speedCalculator = SpeedCalculatorFactory.build(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
 
         return speedCalculator.computePace();
     }
 
-    public Time calculateTime(SpeedForm paceForm) {
+    Time calculateTime(SpeedForm paceForm) {
         UnitParser unitParser = new UnitParser(paceForm).invoke();
         TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromPace(paceForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
         return timeCalculator.computeTime();
     }
 
-    private void checkValidUnit(List<String> validUnits, String unit) {
-        if (!validUnits.contains(unit)) {
-            throw new IllegalArgumentException("This is not a valid unit: " + unit);
-        }
+    Distance calculateDistance(SpeedForm form) {
+        UnitParser unitParser = new UnitParser(form).invoke();
+        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.buildFromPace(form,
+                unitParser.getMajorUnit(),
+                unitParser.getMinorUnit());
+        return distanceCalculator.computeDistance();
     }
 
     @Getter
@@ -58,7 +64,7 @@ public class PaceService {
         private String majorUnit;
         private String minorUnit;
 
-        public UnitParser invoke() {
+        UnitParser invoke() {
             majorUnit = ((majorUnit = paceForm.getDistanceMajorUnit()) == null) ? "kilometer" : majorUnit;
             minorUnit = ((minorUnit = paceForm.getDistanceMinorUnit()) == null) ? "meter" : minorUnit;
             String paceUnit = ((paceUnit = paceForm.getPaceUnit()) == null) ? "minutesPerKilometer" : paceUnit;

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
@@ -15,7 +16,7 @@ import segelzwerg.sporttooolbox.web.Translator;
  */
 @Controller
 public class SpeedController {
-    private SpeedService service;
+    private final SpeedService service;
     private SpeedForm form = null;
 
     @Autowired
@@ -56,6 +57,9 @@ public class SpeedController {
         } else if (form.getHour() == 0 && form.getMinute() == 0 && form.getSecond() == 0) {
             Time time = service.calculateTime(form);
             model.addAttribute("time", time);
+        } else if (form.getMajor() == 0 && form.getMinor() == 0) {
+            Distance distance = service.calculateDistance(form);
+            model.addAttribute("distance", distance);
         }
         return Translator.toLocale("SpeedForm");
     }

@@ -4,11 +4,9 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import segelzwerg.sporttooolbox.calculators.SpeedCalculator;
-import segelzwerg.sporttooolbox.calculators.SpeedCalculatorFactory;
-import segelzwerg.sporttooolbox.calculators.TimeCalculator;
-import segelzwerg.sporttooolbox.calculators.TimeCalculatorFactory;
+import segelzwerg.sporttooolbox.calculators.*;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import java.util.ArrayList;
@@ -20,7 +18,28 @@ import java.util.List;
  */
 @Component
 public class SpeedService {
-    List<String> validSpeedUnits = new ArrayList<>(Arrays.asList("kilometerPerHour", "milesPerHour", "knots"));
+    private final List<String> validSpeedUnits = new ArrayList<>(Arrays.asList("kilometerPerHour", "milesPerHour", "knots"));
+
+    /**
+     * validates if the input units are acceptable
+     *
+     * @param validUnits given valid units
+     * @param unit       the unit to check
+     */
+    private static void checkValidUnit(List<String> validUnits, String unit) {
+        if (!validUnits.contains(unit)) {
+            throw new IllegalArgumentException("This is not a valid unit: " + unit);
+        }
+    }
+
+    Distance calculateDistance(SpeedForm form) {
+        UnitParser unitParser = new UnitParser(form).invoke();
+        DistanceCalculator distanceCalculator = DistanceCalculatorFactory.buildFromSpeed(form,
+                unitParser.getMajorUnit(),
+                unitParser.getMinorUnit());
+
+        return distanceCalculator.computeDistance();
+    }
 
     /**
      * Calculate speed
@@ -28,7 +47,7 @@ public class SpeedService {
      * @param form form with values
      * @return calculated speed
      */
-    public Speed calculateSpeed(SpeedForm form) {
+    Speed calculateSpeed(SpeedForm form) {
 
         UnitParser unitParser = new UnitParser(form).invoke();
 
@@ -43,22 +62,10 @@ public class SpeedService {
      * @param speedForm contains distance and speed and their units
      * @return a Time object containing hours, minutes and seconds
      */
-    public Time calculateTime(SpeedForm speedForm) {
+    Time calculateTime(SpeedForm speedForm) {
         UnitParser unitParser = new UnitParser(speedForm).invoke();
         TimeCalculator timeCalculator = TimeCalculatorFactory.buildFromSpeed(speedForm, unitParser.getMajorUnit(), unitParser.getMinorUnit());
         return timeCalculator.computeTime();
-    }
-
-    /**
-     * validates if the input units are acceptable
-     *
-     * @param validUnits given valid units
-     * @param unit       the unit to check
-     */
-    private void checkValidUnit(List<String> validUnits, String unit) {
-        if (!validUnits.contains(unit)) {
-            throw new IllegalArgumentException("This is not a valid unit: " + unit);
-        }
     }
 
     @Getter
@@ -69,7 +76,7 @@ public class SpeedService {
         private String majorUnit;
         private String minorUnit;
 
-        public UnitParser invoke() {
+        UnitParser invoke() {
             majorUnit = ((majorUnit = speedForm.getDistanceMajorUnit()) == null) ? "kilometer" : majorUnit;
             minorUnit = ((minorUnit = speedForm.getDistanceMinorUnit()) == null) ? "meter" : minorUnit;
             String speedUnit = ((speedUnit = speedForm.getSpeedUnit()) == null) ? "kilometerPerHour" : speedUnit;

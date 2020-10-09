@@ -4,7 +4,7 @@ import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-class Nautical implements Distance {
+public class Nautical implements Distance {
     private static final float NAUTICAL_TO_KM = 1.852f;
     private static final float NAUTICAL_TO_FATHOMS = 1012.685914261f;
     private final int nautical;
@@ -18,11 +18,11 @@ class Nautical implements Distance {
         this.nautical = (int) (nautical + fathoms / NAUTICAL_TO_FATHOMS);
     }
 
-    Nautical(int nautical) {
+    public Nautical(int nautical) {
         this(nautical, 0);
     }
 
-    Nautical(float nautical) {
+    public Nautical(float nautical) {
         if (nautical < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm.");
         }

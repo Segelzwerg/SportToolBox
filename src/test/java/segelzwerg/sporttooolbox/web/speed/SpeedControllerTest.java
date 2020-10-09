@@ -88,4 +88,21 @@ public class SpeedControllerTest {
 
         mockMvc.perform(builder).andExpect(status().isOk());
     }
+
+    @ParameterizedTest
+    @MethodSource(LOCATION_PROVIDER)
+    public void distanceCalculationTest(Locale locale) throws Exception {
+        Locale.setDefault(locale);
+
+        SpeedForm speedForm = new SpeedForm();
+        speedForm.setMajor(0);
+        speedForm.setMinor(0);
+        speedForm.setHour(3);
+        speedForm.setSpeed(30);
+        speedForm.setSpeedUnit("kilometerPerHour");
+
+        MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
+
+        mockMvc.perform(builder).andExpect(status().isOk());
+    }
 }

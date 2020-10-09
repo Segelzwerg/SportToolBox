@@ -4,7 +4,7 @@ import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-class Miles implements Distance {
+public class Miles implements Distance {
     private static final float MILES_TO_KM = 1.6093444f;
     private static final float MILES_TO_YARDS = 1760f;
     private final int miles;
@@ -14,7 +14,7 @@ class Miles implements Distance {
         this(miles, 0);
     }
 
-    Miles(int miles, int yards) {
+    public Miles(int miles, int yards) {
         if (miles < 0 || yards < 0) {
             throw new IllegalArgumentException("Distances must not be negative. " + miles + "mi " + yards + "yrd.");
         }
@@ -22,7 +22,7 @@ class Miles implements Distance {
         this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
 
-    Miles(float miles) {
+    public Miles(float miles) {
         if (miles < 0) {
             throw new IllegalArgumentException("Distances must not be negative. " + miles + "mi.");
         }

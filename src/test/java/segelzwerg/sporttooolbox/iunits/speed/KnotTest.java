@@ -1,9 +1,12 @@
 package segelzwerg.sporttooolbox.iunits.speed;
 
+import org.assertj.core.api.Assertions;
+import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import segelzwerg.sporttooolbox.iunits.distance.Distance;
 import segelzwerg.sporttooolbox.iunits.Time;
+import segelzwerg.sporttooolbox.iunits.distance.Distance;
+import segelzwerg.sporttooolbox.iunits.distance.Nautical;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -13,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class KnotTest {
     private static final float THIRTY_KNOTS = 30f;
     private static Speed thirtyKnots;
+    private FloatComparator fathomComparator;
 
     /**
      * Set up before all tests
@@ -99,11 +103,25 @@ public class KnotTest {
     @Test
     public void computeTime() {
         Knot knots = new Knot((float) 17.63);
-        float fathoms = (float) (0.270 / Distance.FATHOMS_TO_NAUTICAL_MILES);
+        final float fathoms = (float) (0.270 / Distance.FATHOMS_TO_NAUTICAL_MILES);
         Time time = knots.computeTime(25, fathoms);
 
         Time expectedTime = new Time(1, 26, 0);
 
         assertThat(time, equalTo(expectedTime));
+    }
+
+    @Test
+    public void distanceTest() {
+        Knot knot = new Knot(40);
+        Time time = new Time(1, 25, 0);
+
+        Nautical expectedDistance = new Nautical(56.66667f);
+
+        Distance distance = knot.computeDistance(time);
+
+        fathomComparator = new FloatComparator(0.1f);
+        Assertions.assertThat(distance).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
+        Assertions.assertThat(distance).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
     }
 }
