@@ -42,6 +42,7 @@ public class MinutesPerKilometer implements Pace {
      */
     @Override
     public String toString() {
-        return (int) Math.floor(pace) + ":" + (int) (Math.round(pace * 60.0));
+        double seconds = pace - Math.floor(pace);
+        return (int) Math.floor(this.pace) + ":" + (int) (Math.round(seconds * 60.0));
     }
 }

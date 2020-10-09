@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import segelzwerg.sporttooolbox.IUnits.Speed;
+import segelzwerg.sporttooolbox.web.DistanceAutoFillFactory;
 import segelzwerg.sporttooolbox.web.Translator;
 
 /**
@@ -14,6 +15,7 @@ import segelzwerg.sporttooolbox.web.Translator;
 @Controller
 public class SpeedController {
     private SpeedService service;
+    private SpeedForm form = null;
 
     @Autowired
     public SpeedController(SpeedService service) {
@@ -28,7 +30,11 @@ public class SpeedController {
      */
     @GetMapping("/speed")
     public String string(Model model) {
-        model.addAttribute("form", new SpeedForm());
+        if (form == null) {
+            form = new SpeedForm();
+        }
+        model.addAttribute("form", form);
+
         return Translator.toLocale("SpeedForm");
     }
 
@@ -46,5 +52,18 @@ public class SpeedController {
         SpeedPresenter speedPresenter = new SpeedPresenter(speed);
         model.addAttribute("speed", speedPresenter);
         return Translator.toLocale("SpeedForm");
+    }
+
+    /**
+     * fills out some distances values from template
+     *
+     * @param model
+     * @param distance
+     * @return
+     */
+    @PostMapping("/speed/autodistance")
+    public String autoDistance(Model model, String distance) {
+        form = DistanceAutoFillFactory.autoDistance(distance);
+        return "redirect:/speed";
     }
 }
