@@ -30,7 +30,7 @@ public class PaceService {
     }
 
     /**
-     * calulates pace
+     * calculates pace
      *
      * @param paceForm
      * @return calculated pace
