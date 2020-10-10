@@ -1,5 +1,28 @@
 {
   "devDependencies": {
     "all-contributors-cli": "^6.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git.//github.com/Segelzwerg/SportToolBox.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "lint-md": "remark ."
+  },
+  "remarkConfig": {
+    "settings": {
+      "emphasis": "*",
+      "strong": "*"
+    },
+    "plugins": [
+      "remark-preset-lint-recommended",
+      "remark-lint-emphasis-marker",
+      "remark-lint-strong-marker"
+    ]
+  },
+  "dependencies": {
+    "remark-cli": "^7.0.1",
+    "remark-preset-lint-recommended": "^3.0.3"
   }
 }
