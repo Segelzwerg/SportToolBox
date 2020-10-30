@@ -21,8 +21,8 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew check
       - name: Send Coverage Report
-        env:
-          CODACY_PROJECT_TOKEN: ${{secrets.CODACY_PROJECT_TOKEN}}
-        run: ./gradlew sendCoverageToCodacy
+        run: |
+          ./gradlew codeCoverageReport
+          bash <(curl -s https://codecov.io/bash)
