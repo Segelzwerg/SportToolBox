@@ -112,4 +112,23 @@ public class NauticalTest {
 
         assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
     }
+
+    @Test
+    public void toMilesTest() {
+        Nautical nautical = new Nautical(233);
+        Miles expectedDistance = new Miles(268, 231);
+
+        Miles miles = nautical.toMiles();
+
+        assertThat(miles).isEqualToComparingFieldByField(expectedDistance);
+    }
+
+    @Test
+    public void toNauticalTest() {
+        Nautical nautical = new Nautical(1000);
+
+        Nautical expectedDistance = nautical.toNautical();
+
+        assertThat(nautical).isEqualToComparingFieldByField(expectedDistance);
+    }
 }

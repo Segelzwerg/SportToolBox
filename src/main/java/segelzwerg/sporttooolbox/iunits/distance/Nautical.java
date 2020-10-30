@@ -5,8 +5,6 @@ import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 public class Nautical implements Distance {
-    private static final float NAUTICAL_TO_KM = 1.852f;
-    private static final float NAUTICAL_TO_FATHOMS = 1012.685914261f;
     private final int nautical;
     private final float fathoms;
 
@@ -84,6 +82,16 @@ public class Nautical implements Distance {
     @Override
     public Kilometer toKilometer() {
         return new Kilometer(getNautical() * NAUTICAL_TO_KM);
+    }
+
+    @Override
+    public Miles toMiles() {
+        return new Miles(getNautical() * NAUTICAL_TO_KM / MILES_TO_KM);
+    }
+
+    @Override
+    public Nautical toNautical() {
+        return this;
     }
 
     /**
