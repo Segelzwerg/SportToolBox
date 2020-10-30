@@ -1,6 +1,5 @@
 package segelzwerg.sporttooolbox.web.speed;
 
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -42,8 +41,7 @@ public class SpeedControllerTest {
 
     @ParameterizedTest
     @MethodSource(LOCATION_PROVIDER)
-    @SneakyThrows
-    public void loadContext(Locale locale) {
+    public void loadContext(Locale locale) throws Exception {
         Locale.setDefault(locale);
         mockMvc.perform(get("/speed"))
                 .andExpect(status().isOk());
@@ -51,8 +49,7 @@ public class SpeedControllerTest {
 
     @ParameterizedTest
     @MethodSource(LOCATION_PROVIDER)
-    @SneakyThrows
-    public void speedCalculatingTest(Locale locale) {
+    public void speedCalculatingTest(Locale locale) throws Exception {
         Locale.setDefault(locale);
 
         MockHttpServletRequestBuilder builder = postForm("/speed", speedForm);
@@ -61,8 +58,7 @@ public class SpeedControllerTest {
 
     @ParameterizedTest
     @MethodSource(LOCATION_PROVIDER)
-    @SneakyThrows
-    public void autoDistanceTest(Locale locale) {
+    public void autoDistanceTest(Locale locale) throws Exception {
         Locale.setDefault(locale);
 
         mockMvc.perform(post("/speed/autodistance").param("distance", "50km")).andExpect(status().is3xxRedirection());
@@ -70,8 +66,7 @@ public class SpeedControllerTest {
 
     @ParameterizedTest
     @MethodSource(LOCATION_PROVIDER)
-    @SneakyThrows
-    public void timeCalculationTest(Locale locale) {
+    public void timeCalculationTest(Locale locale) throws Exception {
         Locale.setDefault(locale);
 
         SpeedForm speedForm = new SpeedForm();
