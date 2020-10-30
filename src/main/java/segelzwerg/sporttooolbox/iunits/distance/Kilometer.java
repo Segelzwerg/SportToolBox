@@ -80,6 +80,6 @@ public class Kilometer implements Distance {
 
     @Override
     public String toString() {
-        return kilometer + " kilometer and " + meter + " meter";
+        return String.format("%d kilometer and %d meter", kilometer, meter);
     }
 }

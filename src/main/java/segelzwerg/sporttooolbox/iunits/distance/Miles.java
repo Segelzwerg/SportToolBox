@@ -89,4 +89,9 @@ public class Miles implements Distance {
     public Time computeTime(Speed speed) {
         return speed.computeTime(miles, yards);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d mile and %d yard", miles, yards);
+    }
 }
