@@ -1,11 +1,13 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import segelzwerg.sporttooolbox.converters.DistanceConverterService;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.KILOMETER_TO_METERS;
+
 public class Kilometer implements Distance {
-    private static final float KILOMETER_TO_METERS = 1000f;
     private final int kilometer;
     private final int meter;
 
@@ -22,12 +24,12 @@ public class Kilometer implements Distance {
         this.kilometer = (int) (kilometer + Math.floor(meter / 1000f));
     }
 
-    public Kilometer(float kilometer) {
+    public Kilometer(double kilometer) {
         if (kilometer < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + kilometer + "km.");
         }
         this.kilometer = (int) Math.abs(kilometer);
-        float kilometerDifference = kilometer % this.kilometer;
+        double kilometerDifference = kilometer % this.kilometer;
         meter = (int) (Math.round(kilometerDifference * KILOMETER_TO_METERS * 10) / 10f);
     }
 
@@ -36,8 +38,8 @@ public class Kilometer implements Distance {
         return time.computeKPH(getKilometer());
     }
 
-    private float getKilometer() {
-        return kilometer + meter / KILOMETER_TO_METERS;
+    public float getKilometer() {
+        return (float) (kilometer + meter / KILOMETER_TO_METERS);
     }
 
     /**
@@ -52,8 +54,13 @@ public class Kilometer implements Distance {
     }
 
     @Override
-    public Kilometer toKilometer() {
-        return this;
+    public Distance convertTo(Distance distance) {
+        return DistanceConverterService.convertTo(this, distance);
+    }
+
+    @Override
+    public Kilometer convertFrom(Distance distance) {
+        return DistanceConverterService.convertFrom(distance, this);
     }
 
     /**

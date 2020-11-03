@@ -1,43 +1,49 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import segelzwerg.sporttooolbox.converters.DistanceConverterService;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
-public class Nautical implements Distance {
-    private static final float NAUTICAL_TO_KM = 1.852f;
-    private static final float NAUTICAL_TO_FATHOMS = 1012.685914261f;
-    private final int nautical;
-    private final float fathoms;
+import java.text.DecimalFormat;
 
-    Nautical(int nautical, float fathoms) {
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.*;
+
+public class Nautical implements Distance {
+    private final int nautical;
+    private final double fathoms;
+
+    Nautical(int nautical, double fathoms) {
         if (nautical < 0 || fathoms < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm " + fathoms + "fathoms.");
         }
         this.fathoms = getFathoms(fathoms);
-        this.nautical = (int) (nautical + fathoms / NAUTICAL_TO_FATHOMS);
+        this.nautical = (int) (nautical + fathoms * FATHOMS_TO_NAUTICAL);
     }
 
     public Nautical(int nautical) {
         this(nautical, 0);
     }
 
-    public Nautical(float nautical) {
+    public Nautical(double nautical) {
         if (nautical < 0) {
             throw new IllegalArgumentException("Distance must not be negative: " + nautical + "nm.");
         }
         this.nautical = (int) Math.abs(nautical);
-        fathoms = (nautical - this.nautical) * NAUTICAL_TO_FATHOMS;
+        double fathomsCalculated = (nautical - this.nautical) * NAUTICAL_TO_FATHOMS;
+        DecimalFormat decimalFormat = new DecimalFormat(".00");
+        String format = decimalFormat.format(fathomsCalculated);
+        fathoms = Double.parseDouble(format.replace(",", "."));
     }
 
-    private static float getFathoms(float fathoms) {
+    private static double getFathoms(double fathoms) {
         if (fathoms < NAUTICAL_TO_FATHOMS) {
             return fathoms % NAUTICAL_TO_FATHOMS;
         }
-        float miles = fathoms / NAUTICAL_TO_FATHOMS;
+        double miles = fathoms / NAUTICAL_TO_FATHOMS;
         double absMiles = Math.floor(miles);
         double diffMiles = miles - absMiles;
-        return (float) (diffMiles * 1000f);
+        return diffMiles * 1000;
     }
 
     /**
@@ -53,7 +59,7 @@ public class Nautical implements Distance {
         }
         Nautical otherNautical = (Nautical) toAdd;
         int nautical = this.nautical + otherNautical.nautical;
-        float fathoms = this.fathoms + otherNautical.fathoms;
+        double fathoms = this.fathoms + otherNautical.fathoms;
         return new Nautical(nautical, fathoms);
     }
 
@@ -65,7 +71,7 @@ public class Nautical implements Distance {
      */
     @Override
     public Speed computeSpeed(Time time) {
-        return time.computeKnots(getNautical());
+        return time.computeKnots((float) getNautical());
     }
 
 
@@ -77,13 +83,18 @@ public class Nautical implements Distance {
      */
     @Override
     public Pace computePace(Time time) {
-        Kilometer kilometer = toKilometer();
+        Kilometer kilometer = new Kilometer(getNautical() * NAUTICAL_TO_KM);
         return kilometer.computePace(time);
     }
 
     @Override
-    public Kilometer toKilometer() {
-        return new Kilometer(getNautical() * NAUTICAL_TO_KM);
+    public Distance convertTo(Distance distance) {
+        return DistanceConverterService.convertTo(this, distance);
+    }
+
+    @Override
+    public Nautical convertFrom(Distance distance) {
+        return DistanceConverterService.convertFrom(distance, this);
     }
 
     /**
@@ -94,10 +105,10 @@ public class Nautical implements Distance {
      */
     @Override
     public Time computeTime(Speed speed) {
-        return speed.computeTime(nautical, fathoms);
+        return speed.computeTime(nautical, (float) fathoms);
     }
 
-    private float getNautical() {
-        return nautical + fathoms / NAUTICAL_TO_FATHOMS;
+    public double getNautical() {
+        return (nautical + fathoms / NAUTICAL_TO_FATHOMS);
     }
 }

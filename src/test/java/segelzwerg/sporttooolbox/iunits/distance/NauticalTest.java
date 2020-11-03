@@ -1,5 +1,6 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import org.assertj.core.util.DoubleComparator;
 import org.assertj.core.util.FloatComparator;
 import org.junit.jupiter.api.Test;
 import segelzwerg.sporttooolbox.iunits.Time;
@@ -10,10 +11,11 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.Assert.assertTrue;
 
 public class NauticalTest {
 
-    private final FloatComparator fathomComparator = new FloatComparator(0.1f);
+    private final DoubleComparator fathomComparator = new DoubleComparator(0.1);
     private final FloatComparator speedComparator = new FloatComparator(0.001f);
 
     @Test
@@ -27,8 +29,8 @@ public class NauticalTest {
 
     @Test
     public void floatConstructorTest() {
-        Nautical nautical = new Nautical(24.56f);
-        Nautical expectedDistance = new Nautical(24, 567.1f);
+        Nautical nautical = new Nautical(24.56);
+        Nautical expectedDistance = new Nautical(24, 567.1);
 
         assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
@@ -48,7 +50,7 @@ public class NauticalTest {
     public void overflowTest() {
         Nautical nautical = new Nautical(0, 1013);
 
-        Distance expectedDistance = new Nautical(1, 0.3101f);
+        Distance expectedDistance = new Nautical(1, 0.31015118762578453);
 
         assertThat(nautical).usingComparatorForFields(fathomComparator, "fathoms").isEqualToComparingFieldByField(expectedDistance);
         assertThat(nautical).isEqualToIgnoringGivenFields(expectedDistance, "fathoms");
@@ -59,7 +61,7 @@ public class NauticalTest {
         Nautical nautical = new Nautical(1, 300);
         Nautical otherNautical = new Nautical(0, 800);
 
-        Nautical expectedDistance = new Nautical(2, 86.22f);
+        Nautical expectedDistance = new Nautical(2, 86.22030237550682);
 
         Distance distance = nautical.addDistance(otherNautical);
 
@@ -104,12 +106,31 @@ public class NauticalTest {
     }
 
     @Test
-    public void toKilometer() {
+    public void convertToKilometerTest() {
         Nautical nautical = new Nautical(233);
         Kilometer expectedDistance = new Kilometer(431, 516);
 
-        Kilometer kilometer = nautical.toKilometer();
+		Distance convertedDistance = nautical.convertTo(new Kilometer(0));
+		assertTrue(convertedDistance instanceof Kilometer);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(expectedDistance);
+    }
 
-        assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
+    @Test
+    public void convertToMilesTest() {
+        Nautical nautical = new Nautical(233);
+        Miles expectedDistance = new Miles(268, 231);
+
+		Distance convertedDistance = nautical.convertTo(new Miles(0));
+		assertTrue(convertedDistance instanceof Miles);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(expectedDistance);
+    }
+
+    @Test
+    public void convertToNauticalTest() {
+        Nautical nautical = new Nautical(1000);
+
+        Distance convertedDistance = nautical.convertTo(new Nautical(0));
+        assertTrue(convertedDistance instanceof Nautical);
+        assertThat(nautical).isEqualToComparingFieldByField(nautical);
     }
 }

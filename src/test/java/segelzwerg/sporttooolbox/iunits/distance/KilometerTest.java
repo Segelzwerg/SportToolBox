@@ -11,6 +11,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KilometerTest {
@@ -122,11 +123,34 @@ public class KilometerTest {
 
 
     @Test
-    public void toKilometer() {
-        Kilometer kilometer = new Kilometer(234, 23);
+    public void convertToKilometerTest() {
+        Kilometer kilometerFrom = new Kilometer(234, 23);
+        Kilometer kilometerTo = new Kilometer(0);
 
-        Kilometer convertedKilometer = kilometer.toKilometer();
+        Distance convertedDistance = kilometerFrom.convertTo(kilometerTo);
 
-        assertThat(convertedKilometer).isEqualToComparingFieldByField(kilometer);
+        assertTrue(convertedDistance instanceof Kilometer);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(kilometerFrom);
+    }
+
+    @Test
+    public void convertToMilesTest() {
+        Kilometer kilometerFrom = new Kilometer(1000);
+        Miles expectedMiles = new Miles(621, 652);
+
+        Distance convertedDistance = kilometerFrom.convertTo(new Miles(0));
+        assertTrue(convertedDistance instanceof Miles);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(expectedMiles);
+    }
+
+    @Test
+    public void convertToNauticalTest() {
+        Kilometer kilometerFrom = new Kilometer(1000);
+        Nautical expectedNautical = new Nautical(539, 969.14);
+
+        Distance convertedDistance = kilometerFrom.convertTo(new Nautical(0));
+
+        assertTrue(convertedDistance instanceof Nautical);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(expectedNautical);
     }
 }

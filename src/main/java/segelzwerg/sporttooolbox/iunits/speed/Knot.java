@@ -6,6 +6,8 @@ import lombok.Setter;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.distance.Distance;
 
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.FATHOMS_TO_NAUTICAL;
+
 /**
  * Speed in knot
  */
@@ -75,7 +77,7 @@ public class Knot implements Speed {
 
     @Override
     public Time computeTime(float nauticalMiles, float fathoms) {
-        float time = (float) ((nauticalMiles + fathoms * Distance.FATHOMS_TO_NAUTICAL_MILES) / speed);
+        float time = (float) ((nauticalMiles + fathoms * FATHOMS_TO_NAUTICAL) / speed);
         return new Time(time);
     }
 

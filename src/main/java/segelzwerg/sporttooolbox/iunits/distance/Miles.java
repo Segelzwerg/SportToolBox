@@ -1,12 +1,13 @@
 package segelzwerg.sporttooolbox.iunits.distance;
 
+import segelzwerg.sporttooolbox.converters.DistanceConverterService;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.pace.Pace;
 import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.MILES_TO_YARDS;
+
 public class Miles implements Distance {
-    private static final float MILES_TO_KM = 1.6093444f;
-    private static final float MILES_TO_YARDS = 1760f;
     private final int miles;
     private final int yards;
 
@@ -22,7 +23,7 @@ public class Miles implements Distance {
         this.miles = (int) (miles + Math.floor(yards / MILES_TO_YARDS));
     }
 
-    public Miles(float miles) {
+    public Miles(double miles) {
         if (miles < 0) {
             throw new IllegalArgumentException("Distances must not be negative. " + miles + "mi.");
         }
@@ -59,8 +60,8 @@ public class Miles implements Distance {
         return time.computeMPH(getMiles());
     }
 
-    private float getMiles() {
-        return miles + yards / MILES_TO_YARDS;
+    public float getMiles() {
+        return (float) (miles + yards / MILES_TO_YARDS);
     }
 
     /**
@@ -75,8 +76,13 @@ public class Miles implements Distance {
     }
 
     @Override
-    public Kilometer toKilometer() {
-        return new Kilometer(getMiles() * MILES_TO_KM);
+    public Distance convertTo(Distance distance) {
+        return DistanceConverterService.convertTo(this, distance);
+    }
+
+    @Override
+    public Miles convertFrom(Distance distance) {
+        return DistanceConverterService.convertFrom(distance, this);
     }
 
     /**

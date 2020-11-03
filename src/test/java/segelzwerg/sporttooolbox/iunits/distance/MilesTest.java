@@ -10,6 +10,7 @@ import segelzwerg.sporttooolbox.iunits.speed.Speed;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.Assert.assertTrue;
 
 public class MilesTest {
 
@@ -110,12 +111,31 @@ public class MilesTest {
     }
 
     @Test
-    public void toKilometer() {
-        Miles miles = new Miles(343);
+    public void convertToKilometerTest() {
+        Miles milesFrom = new Miles(343);
         Kilometer expectedDistance = new Kilometer(552, 5);
 
-        Kilometer kilometer = miles.toKilometer();
+		Distance convertedDistance = milesFrom.convertTo(new Kilometer(0));
+		assertTrue(convertedDistance instanceof Kilometer);
+		assertThat(convertedDistance).isEqualToComparingFieldByField(expectedDistance);
+    }
 
-        assertThat(kilometer).isEqualToComparingFieldByField(expectedDistance);
+    @Test
+    public void convertToMilesTest() {
+        Miles milesFrom = new Miles(1000);
+
+        Distance convertedDistance = milesFrom.convertTo(new Miles(0));
+        assertTrue(convertedDistance instanceof Miles);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(milesFrom);
+    }
+
+    @Test
+    public void convertToNauticalTest() {
+        Miles milesFrom = new Miles(1000);
+        Nautical expectedDistance = new Nautical(1150, 789.9);
+
+        Distance convertedDistance = milesFrom.convertTo(new Nautical(0));
+        assertTrue(convertedDistance instanceof Nautical);
+        assertThat(convertedDistance).isEqualToComparingFieldByField(expectedDistance);
     }
 }

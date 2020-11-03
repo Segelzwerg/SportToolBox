@@ -11,6 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.MILES_TO_YARDS;
 
 public class MilePerHourTest {
 
@@ -102,7 +103,7 @@ public class MilePerHourTest {
     @Test
     public void computeTime() {
         MilePerHour milesPerHour = new MilePerHour((float) 6.19);
-        Time time = milesPerHour.computeTime(13, (float) (0.780 * Distance.MILES_TO_YARDS));
+        Time time = milesPerHour.computeTime(13, (float) (0.780 * MILES_TO_YARDS));
 
         Time expectedTime = new Time(2, 13, 34);
 
