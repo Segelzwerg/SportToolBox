@@ -6,6 +6,8 @@ import lombok.Setter;
 import segelzwerg.sporttooolbox.iunits.Time;
 import segelzwerg.sporttooolbox.iunits.distance.Distance;
 
+import static segelzwerg.sporttooolbox.converters.DistanceConverterService.MILES_TO_YARDS;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -72,7 +74,7 @@ public class MilePerHour implements Speed {
 
     @Override
     public Time computeTime(float miles, float yards) {
-        float time = (float) ((miles + yards / Distance.MILES_TO_YARDS) / speed);
+        float time = (float) ((miles + yards / MILES_TO_YARDS) / speed);
         return new Time(time);
     }
 
