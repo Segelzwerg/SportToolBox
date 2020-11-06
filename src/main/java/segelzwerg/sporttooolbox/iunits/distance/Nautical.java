@@ -100,4 +100,9 @@ public class Nautical implements Distance {
     private float getNautical() {
         return nautical + fathoms / NAUTICAL_TO_FATHOMS;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d nautical and %.2f fathom", nautical, fathoms);
+    }
 }
