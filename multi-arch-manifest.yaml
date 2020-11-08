@@ -1,0 +1,11 @@
+image: segelzwerg/sporttoolbox:latest
+manifests:
+  - image: segelzwerg/sporttoolbox:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: segelzwerg/sporttoolbox:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
