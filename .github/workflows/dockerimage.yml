@@ -5,12 +5,10 @@ on: [push]
 jobs:
 
   build:
-
+ 
     runs-on: ubuntu-latest
  
     steps:
-      - uses: actions/checkout@v1
-      - name: Build AMD64
-        run: docker build . --file amd64.dockerfile --tag sport-tool-box:$(date +%s)
-      - name: Build ARM64
-        run: docker build . --file arm64.dockerfile --tag sport-tool-box:$(date +%s)
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag sport-tool-box:$(date +%s)
