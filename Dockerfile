@@ -4,6 +4,7 @@ COPY . .
 RUN ["./gradlew", "bootJar"]
 
 FROM openjdk:11-jre-slim
+MAINTAINER Marcel Haas
 WORKDIR /app
 COPY --from=BUILD /app/build/libs/*.jar app.jar
 EXPOSE 8080
