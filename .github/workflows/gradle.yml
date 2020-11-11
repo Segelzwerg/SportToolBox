@@ -11,19 +11,46 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-18.04, ubuntu-20.04 ]
-        java: [ 8, 11, 13 ]
+        java: [ 11, 15 ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up java
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Load Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: Build with Gradle
-        run: ./gradlew check
+        run: ./gradlew build
+
       - name: Upload to codecoverage
         uses: codecov/codecov-action@v1
         with:
           file: build/reports/jacoco/test/jacocoTestReport.xml
           fail_ci_if_error: true
+
+      - name: Save Test Reports
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-reports-${{ matrix.os }}-${{ matrix.java }}
+          path: build/reports
