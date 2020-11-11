@@ -1,9 +1,11 @@
-FROM gradle
-
-MAINTAINER Marcel Haas
-
+FROM gradle:jdk11 AS BUILD
 WORKDIR /app
-COPY ./ /app
+COPY . .
+RUN ["./gradlew", "bootJar"]
 
-CMD gradle run
+FROM openjdk:11-jre-slim
+MAINTAINER Marcel Haas
+WORKDIR /app
+COPY --from=BUILD /app/build/libs/*.jar app.jar
 EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]
