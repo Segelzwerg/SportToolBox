@@ -1,23 +1,23 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version '2.3.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'io.franzbecker.gradle-lombok' version '4.0.0'
+    id 'com.bmuschko.docker-remote-api' version '6.6.1'
+    id 'jacoco'
     id 'java'
     id 'application'
-    id 'io.franzbecker.gradle-lombok' version '3.2.0'
-    id 'com.bmuschko.docker-remote-api' version '6.1.1'
 }
 
 group = 'segelzwerg'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
 
 application {
-    mainClassName = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
+    mainClass = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
 }
 
 wrapper {
-    gradleVersion = '6.6.1'
+    gradleVersion = '6.7'
 }
 
 configurations {
@@ -33,26 +33,28 @@ configurations {
 
 repositories {
     mavenCentral()
-    maven {
+    /*maven {
         url "https://plugins.gradle.org/m2/"
-    }
+    }*/
     jcenter()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    // https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java
-    compile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    // https://mvnrepository.com/artifact/io.florianlopes/spring-mvc-test-utils
-    compile group: 'io.florianlopes', name: 'spring-mvc-test-utils', version: '2.2.1'
+
+    implementation 'com.konghq:unirest-java:3.11.04'
+    implementation 'io.github.ititus:ititus-commons:1.1.0'
+    testImplementation 'io.florianlopes:spring-mvc-test-utils:3.0.0'
+
     codacy 'com.codacy:codacy-coverage-reporter:latest.release'
 }
 
@@ -60,31 +62,24 @@ test {
     useJUnitPlatform()
 }
 
-apply plugin: 'java'
-apply plugin: "io.franzbecker.gradle-lombok"
-apply plugin: 'jacoco'
-
 import io.franzbecker.gradle.lombok.task.DelombokTask
 
-// Lombok Task
-lombok {
-    version = "1.18.10"
-}
-
-task delombok(type: DelombokTask) {
+task delombok(type: DelombokTask, dependsOn: compileJava) {
     ext.outputDir = file("$buildDir/delombok")
     outputs.dir(outputDir)
     sourceSets.main.java.srcDirs.each {
         inputs.dir(it)
         args(it, "-d", outputDir)
     }
+    doFirst {
+        outputDir.deleteDir()
+    }
 }
 
-task generateJavadocs(type: Javadoc) {
+javadoc {
     dependsOn delombok
-    source = sourceSets.main.allJava
-    destinationDir = reporting.file("javadocs")
-    failOnError = false;
+    source = delombok.outputDir
+    failOnError = false
 }
 
 jacocoTestReport {
