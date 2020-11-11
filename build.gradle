@@ -13,7 +13,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
 
 application {
-    mainClass = 'segelzwerg.sporttooolbox.SporttooolboxApplication'
+    mainClass = 'segelzwerg.sporttoolbox.SporttoolboxApplication'
 }
 
 wrapper {
