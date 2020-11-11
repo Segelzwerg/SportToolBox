@@ -79,6 +79,10 @@ javadoc {
     failOnError = false
 }
 
+jacoco {
+    toolVersion = '0.8.6'
+}
+
 jacocoTestReport {
     reports {
         xml.enabled = true
@@ -98,4 +102,4 @@ task sendCoverageToCodacy(type: JavaExec, dependsOn: jacocoTestReport) {
     ]
 }
 
-check.dependsOn jacocoTestReport
+test.finalizedBy jacocoTestReport
