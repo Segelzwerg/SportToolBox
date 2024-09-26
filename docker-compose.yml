@@ -5,6 +5,8 @@ services:
     build: .
     ports:
       - "8080:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dockercompose"
     networks:
       network:
         ipv4_address: 172.28.1.1
